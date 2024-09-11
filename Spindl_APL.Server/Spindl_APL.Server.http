@@ -1,0 +1,6 @@
+@Spindl_APL.Server_HostAddress = http://localhost:5234
+
+GET {{Spindl_APL.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
