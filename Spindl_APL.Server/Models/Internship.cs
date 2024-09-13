@@ -2,11 +2,11 @@
 
 namespace Spindl_APL.Server.Models
 {
-    public class APL
+    public class Internship
     {
-        public int APLId { get; set; }
-        public DateOnly DateFrom { get; set; }
-        public DateOnly DateTo { get; set; }
+        public int InternshipId { get; set; }
+        public DateTime DateFrom { get; set; }
+        public DateTime DateTo { get; set; }
         public int NumberOfStudents { get; set; }
         [Required]
         public int CompanyId { get; set; }
