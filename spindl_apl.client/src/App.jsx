@@ -21,10 +21,4 @@ const App = () => {
   );
 };
 
-const WrappedApp = () => (
-  <Router>
-    <App />
-  </Router>
-);
-
-export default WrappedApp;
+export default App;
