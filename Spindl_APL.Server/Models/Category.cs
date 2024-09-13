@@ -6,6 +6,6 @@ namespace Spindl_APL.Server.Models
     {
         [Key]
         public string Name { get; set; } = "";
-        public ICollection<Company> Companies { get; set; } = new HashSet<Company>();
+        public virtual ICollection<Company> Companies { get; set; } = new HashSet<Company>();
     }
 }
