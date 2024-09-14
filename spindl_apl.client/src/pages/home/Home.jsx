@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import List from "../../components/list/List";
 import SearchBar from "../../components/searchbar/SearchBar";
 
 export default function Home() {
@@ -13,10 +12,8 @@ export default function Home() {
   };
 
   return (
-    <>  
-    <h1>Hello World!</h1>    
-      <SearchBar onSearch={handleSearch} /> 
-      <List />     
+    <>         
+      <SearchBar onSearch={handleSearch} />           
     </>
   );
 }

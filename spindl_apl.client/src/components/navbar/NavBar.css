@@ -10,7 +10,7 @@ nav {
 }
 
 .logo {
-  color: var(--yellow);
+  color: var(--white);
   font-family: "Playwrite PT", cursive;
   font-weight: 300;
   font-size: 1rem;
@@ -28,14 +28,14 @@ nav ul li:not(:last-of-type) {
 }
 
 nav a {
-  color: var(--yellow);
+  color: var(--white);
   text-decoration: none;
   font-size: 1.1rem;
   transition: ease-in-out 0.5s;
 }
 
 nav a:hover {
-  color: var(--yellow);
+  color: var(--white);
   opacity: 0.5;
   text-decoration: none;
 }
