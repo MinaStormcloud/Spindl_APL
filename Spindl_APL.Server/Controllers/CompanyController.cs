@@ -44,13 +44,37 @@ namespace Spindl_APL.Server.Controllers
         }
 
         [HttpPost("search")]
-        public async Task<ActionResult<List<Company>>> Search([FromBody]SearchDto search)
+        public async Task<ActionResult<List<Company>>> Search(SearchDto search)
         {
-            var companies = await _context.Companies
-                .Include(c => c.Internships.Where(i => i.NumberOfStudents >= search.NumberOfStudents))
-                .Where(c => c.Location == search.Location)
-                .ToListAsync();
+            List<Company> companies;
+
+            if (search.Location == "")
+            {
+                companies = await _context.Companies
+                    .Include(c => c.Internships)
+                    .Where(c => c.Internships.All(i => i.NumberOfStudents >= search.NumberOfStudents))
+                    .ToListAsync();
+            }
+            else if (search.NumberOfStudents == -1)
+            {
+                companies = await _context.Companies
+                    .Include(c => c.Internships)
+                    .Where(c => c.Location == search.Location)
+                    .ToListAsync();
+            }
+            else
+            {
+                companies = await _context.Companies
+                    .Include(c => c.Internships)
+                    .Where(c => c.Location == search.Location && c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
+                    .ToListAsync();
+            }
             
+            if (companies.Count == 0)
+            {
+                return NotFound("No companies found");
+            }
+
             return Ok(companies);
         }
     }
