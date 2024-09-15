@@ -1,44 +1,50 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
-import PropTypes from "prop-types";
-import Home from "./pages/home/Home";
-import NotFound from "./pages/404/NotFound";
-import About from "./pages/about/About";
-import NavBar from "./components/navbar/NavBar";
-import "./index.css";
+import { useEffect, useState } from 'react';
+import './App.css';
+import './components/searchbar/SearchBar';
+import SearchBar from './components/searchbar/SearchBar';
 
-PrivateRoute.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+function App() {
+    const [internships, setInternships] = useState();
 
-const App = () => {
-  const location = useLocation();
-  const isDashboard = location.pathname.startsWith("/dashboard");
+    useEffect(() => {
+        loadInternshipData();
+    }, []);
 
-  return (
-    <>
-      {!isDashboard && <NavBar />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="/about" element={<About />} />           
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      {!isDashboard && <Footer />}
-    </>
-  );
-};
+    const contents = internships === undefined
+        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
+        : <table className="table table-striped" aria-labelledby="tableLabel">
+            <thead>
+                <tr>
+                    <th>Provider</th>
+                    <th>Location</th>
+                    <th>Number of positions</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                {internships.map(internship =>
+                    <tr key={internship.provider}>
+                        <td>{internship.provider}</td>
+                        <td>{internship.location}</td>
+                        <td>{internship.position}</td>                        
+                    </tr>
+                )}
+            </tbody>
+        </table>;
 
-const WrappedApp = () => (
-  <Router>
-    <App />
-  </Router>
-);
+    return (
+        <div>
+            <h1 id="tableLabel">Looking for an internship?</h1>
+            <p>Connect with our internship providers through our online service!</p>
+            {contents}
+            <SearchBar />
+        </div>
+    );
+    
+    async function loadInternshipData() {
+        const response = await fetch('./data/internships.json');
+        const data = await response.json();
+        setInternships(data);
+    }
+}
 
-export default WrappedApp;
+export default App;

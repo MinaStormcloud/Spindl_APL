@@ -1,0 +1,37 @@
+[
+    {
+      "provider": "Company A",  
+      "location": "Malmoe",  
+      "positions": "7"
+    },
+    {
+      "provider": "Company B", 
+      "location": "Helsingborg",   
+      "positions": "5"
+    },
+    {
+      "provider": "Company C", 
+      "location": "Trelleborg",   
+      "positions": "3"
+    },
+    {
+      "provider": "Company D", 
+      "location": "Landskrona",   
+      "positions": "2"
+    },
+    {
+      "provider": "Company E",  
+      "location": "Kristianstad",  
+      "positions": "3"
+    },
+    {
+      "provider": "Company F",  
+      "location": "Lund",  
+      "positions": "4"
+    },
+    {
+      "provider": "Company G", 
+      "location": "Malmoe",   
+      "positions": "3"
+    }  
+  ]

@@ -1,32 +1,32 @@
-.search-bar {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    width: 75%;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    gap: 2rem;
-  }
-  
-  .search-bar div,
-  .search-bar input,
-  .search-bar select {
-    width: 100%;
-  }
-  
-  .search-bar input,
-  .search-bar select {
-    margin: 0;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  .search-bar .btn {
-    align-self: flex-end;
-  }
+#keywords {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#listItems {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listItems li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#listItems li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
