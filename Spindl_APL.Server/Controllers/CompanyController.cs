@@ -52,7 +52,7 @@ namespace Spindl_APL.Server.Controllers
             {
                 companies = await _context.Companies
                     .Include(c => c.Internships)
-                    .Where(c => c.Internships.All(i => i.NumberOfStudents >= search.NumberOfStudents))
+                    .Where(c => c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .ToListAsync();
             }
             else if (search.NumberOfStudents == -1)
@@ -65,7 +65,7 @@ namespace Spindl_APL.Server.Controllers
             else
             {
                 companies = await _context.Companies
-                    .Include(c => c.Internships)
+                    .Include(c => c.Internships.Where(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .Where(c => c.Location == search.Location && c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .ToListAsync();
             }
