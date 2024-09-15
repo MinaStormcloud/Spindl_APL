@@ -51,7 +51,7 @@ namespace Spindl_APL.Server.Controllers
             if (search.Location == "")
             {
                 companies = await _context.Companies
-                    .Include(c => c.Internships)
+                    .Include(c => c.Internships.Where(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .Where(c => c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .ToListAsync();
             }
