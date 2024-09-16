@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Company A",
+    "location": "Malmoe",
+    "contact": "blabla"
+  },
+  {
+    "name": "Company B",
+    "location": "Helsingborg",
+    "contact": "sdfgdfgd"
+  },
+  {
+    "name": "Company C",
+    "location": "Lund",
+    "contact": "jjjfgfgjt"
+  },
+  {
+    "name": "Company D",
+    "location": "Trelleborg",
+    "contact": "bdfghfghfgh"
+  },
+  {
+    "name": "Company E",
+    "location": "Lund",
+    "contact": "fjfgjfj"
+  }
+]
