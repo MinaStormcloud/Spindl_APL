@@ -18,6 +18,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    await DataSeeding.SeedAsync(context);
+}
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
