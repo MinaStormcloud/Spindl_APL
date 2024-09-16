@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-
+import Layout from './Layout';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Home from './pages/home/Home';
@@ -36,14 +36,15 @@ function App() {
         </table>;
 
     return (
-        <div>                
-                      
-            <BrowserRouter>      
-                <Routes>
-                    <Route index path="/" element={<Home />} />         
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />          
-                </Routes>      
+        <div>                        
+            <BrowserRouter>    
+                <Layout>
+                    <Routes>
+                        <Route index path="/" element={<Home />} />         
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />          
+                    </Routes> 
+                </Layout>                     
             </BrowserRouter>          
         </div>
     );

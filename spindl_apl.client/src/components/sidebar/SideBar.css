@@ -1,7 +1,7 @@
 .sidebar {
     width: 200px;
     height: 100%;
-    background-color: rgb(235, 212, 229);
+    background-color: #a5c4ce;
     position: fixed;
     left: 0;
     top: 0;
@@ -20,5 +20,5 @@
   }
   
   .menu-items li:hover {
-    background-color: #591854;
+    background-color: #073b4c;
   }
