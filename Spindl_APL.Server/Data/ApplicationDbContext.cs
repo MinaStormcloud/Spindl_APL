@@ -12,5 +12,6 @@ namespace Spindl_APL.Server.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<Internship> Internships { get; set; }
         public DbSet<User> Users { get; set; }
+        public Dbset<SeedingCompany> SeedingCompany { get; set; }
     }
 }
