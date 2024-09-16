@@ -19,6 +19,8 @@ namespace Spindl_APL.Server.Data
                 };
                 List<Company>? companies = JsonSerializer.Deserialize<List<Company>>(jsonString, options);
                 await context.AddRangeAsync(companies);
+
+                await context.SaveChangesAsync();
             }
 
             if (!context.Internships.Any())
@@ -37,9 +39,9 @@ namespace Spindl_APL.Server.Data
                 }
 
                 await context.AddRangeAsync(internships);
+
+                await context.SaveChangesAsync();
             }
-            await context.SaveChangesAsync();
-            
         }
     }
 }
