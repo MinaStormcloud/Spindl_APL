@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import NavBar from './components/navbar/NavBar';
-import SearchBar from './components/searchbar/SearchBar';
+
+import { BrowserRouter, Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Contact from './pages/contact/Contact';
 
 function App() {
     const [internships, setInternships] = useState();
@@ -32,12 +36,15 @@ function App() {
         </table>;
 
     return (
-        <div>            
-            <h1 id="tableLabel">Looking for an internship?</h1>
-            <p>Connect with our internship providers through our online service!</p>
-            {contents}
-            
-            <SearchBar />           
+        <div>                
+                      
+            <BrowserRouter>      
+                <Routes>
+                    <Route index path="/" element={<Home />} />         
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />          
+                </Routes>      
+            </BrowserRouter>          
         </div>
     );
     
