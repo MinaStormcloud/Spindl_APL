@@ -3,8 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <div id="about">
-      <div>
-        <NavBar />
+      <div>        
         <h1>About Us</h1>         
       </div>      
     </div>

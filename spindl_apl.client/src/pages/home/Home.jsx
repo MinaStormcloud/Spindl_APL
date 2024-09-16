@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "../../components/searchbar/SearchBar";
+import SideBar from "../../components/sidebar/SideBar";
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
@@ -12,7 +13,12 @@ export default function Home() {
   };
 
   return (
-    <>         
+    <>  
+      <div>
+        <h1 id="tableLabel">Looking for an internship?</h1>
+        <p>Connect with our internship providers through our online service!</p>
+      </div>
+      <SideBar />     
       <SearchBar onSearch={handleSearch} />           
     </>
   );
