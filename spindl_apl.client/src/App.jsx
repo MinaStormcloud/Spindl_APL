@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import './components/searchbar/SearchBar';
+import NavBar from './components/navbar/NavBar';
 import SearchBar from './components/searchbar/SearchBar';
 
 function App() {
@@ -32,11 +32,12 @@ function App() {
         </table>;
 
     return (
-        <div>
+        <div>            
             <h1 id="tableLabel">Looking for an internship?</h1>
             <p>Connect with our internship providers through our online service!</p>
             {contents}
-            <SearchBar />
+            
+            <SearchBar />           
         </div>
     );
     
