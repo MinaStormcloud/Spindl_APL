@@ -1,61 +1,71 @@
 import { useState, useEffect } from "react";
 import "./SearchBar.css";
+import "../../css/Buttons.css";
 
-function SearchBar() {
-  const [inputs, setInputs] = useState({});
+function SearchBar({ onSearch }) {
+  const [internships, setInternships] = useState([]);  
+  const [keywords, setKeywords] = useState([]);
+  const [selectedKeyword, setSelectedKeyword] = useState("");
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+  useEffect(() => {
+    fetch("./internships.json")
+      .then((response) => response.json())
+      .then((data) => {
+        
+        const searchResults = [
+          ...new Set(data.map((internship) => internship.provider)),
+        ];
+        setKeywords(searchResults);
+        setInternships(data);
+      })
+      .catch((error) => console.error("Error fetching results:", error));
+  }, []);
+
+  const handleKeywordChange = (event) => {
+    setSelectedKeyword(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs);
-  }
+    onSearch(selectedKeyword);
+    localStorage.setItem("keyword", selectedKeyword);
+    localStorage.setItem("startDate", document.getElementById("start-date").value);
+    localStorage.setItem("endDate", document.getElementById("end-date").value);
+  };
 
   return (
-    
-    <form onSubmit={handleChange}>      
-      <input 
-        type="text" 
-        id="keywords"
-        onkeyup="SearchBar()"
-        placeholder="Search for internship providers.."
-        onChange={(e) => setName(e.target.value)}
-        
-      />
-      <ul id="listItems">
-        <li><a href="#">Company A</a></li>
-        <li><a href="#">Company B</a></li>
-
-        <li><a href="#">Company C</a></li>
-        <li><a href="#">Company D</a></li>
-
-        <li><a href="#">Company E</a></li>
-        <li><a href="#">Company F</a></li>
-        <li><a href="#">Company G</a></li>
-      </ul>      
-    </form>    
+    <form className="search-bar" onSubmit={handleSubmit}>
+      <div>
+        <h4>Internship provider</h4>
+        <select
+          name="keyword"
+          id="keyword"
+          value={selectedKeyword}
+          onChange={handleKeywordChange}
+          required
+        >
+          <option value="" disabled>
+            Select Internship Provider
+          </option>
+          {keywords.map((keyword) => (
+            <option key={keyword} value={keyword}>
+              {keyword}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <h4>From</h4>
+        <input id="start-date" type="date" required />
+      </div>
+      <div>
+        <h4>To</h4>
+        <input id="end-date" type="date" required />
+      </div>
+      <p></p>
+      <button className="btn btn-dark-blue">Search</button>
+    </form>
   );
-  // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('keywords');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("listItems");
-  li = ul.getElementsByTagName('li');
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
 }
 
 export default SearchBar;

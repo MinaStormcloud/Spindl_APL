@@ -19,7 +19,7 @@ export default function Footer() {
           <p className="contactinfo">Sweden</p>
         </div>
         <div className="footer-col">
-          <h4>Company</h4>
+          <h4>Links</h4>
           <Link to="/home">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>

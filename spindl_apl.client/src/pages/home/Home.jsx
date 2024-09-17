@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "../../components/searchbar/SearchBar";
+import "./Home.css"
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
@@ -15,7 +16,7 @@ export default function Home() {
     <>  
       <div>
         <h1 id="tableLabel">Looking for an internship?</h1>
-        <p>Connect with our internship providers through our online service!</p>
+        <p className="connect">Connect with our internship providers through our online service!</p>
       </div>         
       <SearchBar onSearch={handleSearch} />           
     </>
