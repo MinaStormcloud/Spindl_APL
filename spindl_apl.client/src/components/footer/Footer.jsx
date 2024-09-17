@@ -12,11 +12,11 @@ export default function Footer() {
       <div className="footer-nav">
         <div className="footer-col">
           <Link to="/">
-            <h1 className="logo">Spindl AB</h1>
+            <h2 className="brandname">Spindl AB</h2>
           </Link>
-          <p>Bantorget 2</p>
-          <p>222 29 Lund</p>
-          <p>Sweden</p>
+          <p className="contactinfo">Bantorget 2</p>
+          <p className="contactinfo">222 29 Lund</p>
+          <p className="contactinfo">Sweden</p>
         </div>
         <div className="footer-col">
           <h4>Company</h4>
@@ -45,12 +45,12 @@ export default function Footer() {
           </a>
         </div>
         <div className="footer-col">
-          <h4>Contact Us</h4>
-          <p>
-            <i className="fa-solid fa-phone"></i> (+46) 
+          <h4 className="h4-contact">Contact Us</h4>
+          <p className="contactinfo">
+            (+46) TBD
           </p>
-          <p>
-            <i className="fa-solid fa-envelope"></i> support@spindl.com
+          <p className="contactinfo">
+            support@spindl.com
           </p>
         </div>
       </div>

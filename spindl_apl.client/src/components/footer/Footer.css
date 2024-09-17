@@ -12,6 +12,21 @@
     padding: 5rem 6rem;
     color: var(--white);
     background-color: var(--dark-blue);
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .brandname {
+    margin-bottom: 1%;
+  }
+
+  .contactinfo {
+    margin-bottom: 0.1%;
+    margin-right: 0.5rem;
+  }  
+
+  .h4-contact {
+    margin-bottom: 0.1%;
   }
   
   hr {
