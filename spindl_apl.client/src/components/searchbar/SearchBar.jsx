@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import "./SearchBar.css";
 import "../../css/Buttons.css";
+import data from './internships.json';
 
 function SearchBar({ onSearch }) {
   const [internships, setInternships] = useState([]);  
   const [keywords, setKeywords] = useState([]);
   const [selectedKeyword, setSelectedKeyword] = useState("");
-
+  
   useEffect(() => {
-    fetch("./internships.json")
+    fetch("")
       .then((response) => response.json())
       .then((data) => {
         
@@ -37,22 +38,7 @@ function SearchBar({ onSearch }) {
     <form className="search-bar" onSubmit={handleSubmit}>
       <div>
         <h4>Internship provider</h4>
-        <select
-          name="keyword"
-          id="keyword"
-          value={selectedKeyword}
-          onChange={handleKeywordChange}
-          required
-        >
-          <option value="" disabled>
-            Select Internship Provider
-          </option>
-          {keywords.map((keyword) => (
-            <option key={keyword} value={keyword}>
-              {keyword}
-            </option>
-          ))}
-        </select>
+        <input type="text" id="keywords" onkeyup="getResults()" placeholder="Search for a company name, a location, or a number of internship positions." title="Type in a company name"></input>
       </div>
       <div>
         <h4>From</h4>
