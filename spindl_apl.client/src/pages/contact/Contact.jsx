@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import './Contact.css'
 
-
 function Contact() {
     return (
         <div className="contact-wrapper">

@@ -74,17 +74,7 @@
   
     .carousel {
       border-radius: 0;
-    }
-  
-    /* Grid Component */
-    .grid-container {
-      width: 100%;
-      padding: 1rem;
-  
-      .btn {
-        width: 90%;
-      }
-    }
+    } 
   
     footer {
       padding: 2rem;
@@ -103,36 +93,6 @@
       flex-direction: column;
       gap: 2rem;
     }
-  
-    /* Cards */    
-    .MuiCardContent-root .btn {
-      width: 100%;
-    }
-  
-    .MuiCardContent-root p,
-    .MuiCardContent-root h6 {
-      margin-bottom: 1rem;
-      padding: 0;
-    }
-  
-    /* Product Page */
-    .product {
-      width: 100%;
-      padding: 1rem;
-      margin: 0;
-    }
-  
-    .product img {
-      width: 100%;
-    }
-  
-    .product .row {
-      flex-direction: column;
-    }
-  
-    .product .col-right {
-      margin: 2rem 0;
-    } 
     
   
     /* Dashboard Page */

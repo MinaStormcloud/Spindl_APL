@@ -63,7 +63,7 @@ function SearchBar({ onSearch }) {
         <input id="end-date" type="date" required />
       </div>
       <p></p>
-      <button className="btn btn-dark-blue">Search</button>
+      <button className="btn btn-gray-blue">Search</button>
     </form>
   );
 }
