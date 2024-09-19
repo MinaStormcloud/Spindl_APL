@@ -1,0 +1,27 @@
+.sidebar {
+    min-width: 200px;    
+    height: 100%;
+    background-color: #a5c4ce;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+  
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .menu-items li {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .menu-items li:hover {
+    background-color: #073b4c;
+  }
+  

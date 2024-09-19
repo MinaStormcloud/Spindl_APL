@@ -1,0 +1,123 @@
+:root {
+    --gray-blue: #a5c4ce;
+    --light-blue: #118ab2;
+    --dark-blue: #073b4c;
+    --black: #020e13;
+    --white: #ecf9fd;
+  }
+  
+  .form-container {
+    border: 1px solid  lightgray;
+    width: 50%;
+    min-height: 80vh;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fcfcf8;
+  
+    &:nth-of-type(1) {
+      padding: 2rem 2rem 0;
+      border-radius: 1rem 1rem 0 0;
+      box-shadow: inset 0 0.75rem 2rem rgba(229, 225, 187, 0.5);
+    }
+    &.form-container:nth-of-type(2) {
+      padding: 2rem;
+      border-radius: 0 0 1rem 1rem;
+      box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.05), inset 0 -0.57rem 2rem rgba(229, 225, 187, 0.5);
+    }
+  
+  }
+  
+  .signup-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .signup-subtitle {
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .signin-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+  }
+  
+  .form-group input {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background: white;
+  }
+  
+  .form-group input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  #form-checkbox{
+    border: 1px solid lightgray;
+    margin-right: 2rem;    
+    max-width: 15px;  
+  }
+  
+  .btn-signin {
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--white);
+    border: 1px solid var(--white);
+    background-color: var(--green);
+    transition: ease-in-out 0.5s;  
+  }
+  
+  .btn-cancel {
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--white);
+    border: 1px solid var(--whie);
+    background-color: var(--red);
+    transition: ease-in-out 0.5s;  
+  }
+  
+  .btn-signin-right {
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--white);
+    border: 1px solid var(--white);
+    background-color: var(--green);
+    transition: ease-in-out 0.5s;
+    float: right;
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  p a {
+    color: dodgerblue;
+  }
