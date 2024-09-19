@@ -44,7 +44,7 @@ namespace Spindl_APL.Server.Controllers
         }
 
         [HttpPost("search")]
-        public async Task<ActionResult<List<Company>>> Search(SearchDto search)
+        public async Task<ActionResult<List<Company>>> Search([FromBody]SearchDto search)
         {
             List<Company> companies;
 
