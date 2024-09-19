@@ -4,11 +4,15 @@ import "../../css/Buttons.css";
 import data from './internships.json';
 
 function SearchBar({ onSearch }) {
-  const [internships, setInternships] = useState([]);  
-  const [keywords, setKeywords] = useState([]);
-  const [selectedKeyword, setSelectedKeyword] = useState("");
+  //const [internships, setInternships] = useState([]);  
+  //const [keywords, setKeywords] = useState([]);
+  //const [selectedKeyword, setSelectedKeyword] = useState("");
+
+  const CHAR = data;
+  const [name, setName] = useState('');
+  const [foundCHAR, setFoundCHAR] = useState(CHAR);
   
-  useEffect(() => {
+  /*useEffect(() => {
     fetch("")
       .then((response) => response.json())
       .then((data) => {
@@ -31,26 +35,69 @@ function SearchBar({ onSearch }) {
     onSearch(selectedKeyword);
     localStorage.setItem("keyword", selectedKeyword);
     localStorage.setItem("startDate", document.getElementById("start-date").value);
-    localStorage.setItem("endDate", document.getElementById("end-date").value);
+    localStorage.setItem("endDate", document.getElementById("end-date").value);*/
+
+    //const handleFilter
+    const filter = (e) => {
+      const keyword = e.target.value;
+  
+      if (keyword !== '') {
+        const results = CHAR.filter((item) => {
+          return item.provider.toLowerCase().startsWith(keyword.toLowerCase()) ||
+                 item.title.toLowerCase().startsWith(keyword.toLowerCase()) ||
+                 item.location.toLowerCase().startsWith(keyword.toLowerCase()) ||
+                 item.positions.toLowerCase().startsWith(keyword.toLowerCase());
+        });
+        setFoundCHAR(results);
+      } else {
+        setFoundCHAR(CHAR);
+      }
+      setName(keyword);
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSubmit}>
-      <div>
-        <h4>Internship provider</h4>
-        <input type="text" id="keywords" onkeyup="getResults()" placeholder="Search for a company name, a location, or a number of internship positions." title="Type in a company name"></input>
+    <div>  
+      <h4>Internship provider</h4>
+      <input type="search"
+        id="keywords"
+        value={name}
+        onChange={filter}
+        className="input"
+        placeholder="Search for a company name, a location, or a number of internship positions."
+      />
+      <div><h4>From</h4>
+      <input id="start-date" type="date" required /></div>
+      <div><h4>To</h4>
+      <input id="end-date" type="date" required /></div>
+      <div><button className="btn btn-gray-blue">Search</button></div>
+
+      <div className="user-list">
+        {foundCHAR && foundCHAR.length > 0 ? (
+          foundCHAR.map((item) => (
+            <table>
+            <thead>
+            <tr>            
+            <th scope="col">Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Location</th>
+            <th scope="col">Positions</th>            
+            </tr>
+            </thead>
+            <tbody>
+            <tr>            
+            <th scope="row">{item.provider}</th>
+            <th scope="row">{item.title}</th>
+            <th scope="row">{item.location}</th>
+            <th scope="row">{item.positions}</th>
+            </tr>
+            </tbody>
+            </table>
+          ))
+        ) : (
+          <h3>No results found!</h3>
+        )}
       </div>
-      <div>
-        <h4>From</h4>
-        <input id="start-date" type="date" required />
-      </div>
-      <div>
-        <h4>To</h4>
-        <input id="end-date" type="date" required />
-      </div>
-      <p></p>
-      <button className="btn btn-gray-blue">Search</button>
-    </form>
+    </div>
   );
 }
 

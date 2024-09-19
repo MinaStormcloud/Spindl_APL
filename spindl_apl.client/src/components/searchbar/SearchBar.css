@@ -10,6 +10,17 @@
   border-radius: 5px !important;
 }
 
+table {
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 25px;
+}
+table tr th {
+  text-align: left;
+  background: gray;
+  color: white;
+}
+
 #listItems {
   /* Remove default list styling */
   list-style-type: none;

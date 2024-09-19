@@ -1,37 +1,56 @@
 [
     {
-      "provider": "Company A",  
+      "provider": "Company A",
+      "title": "React developer",  
       "location": "Malmoe",  
       "positions": "7"
     },
     {
       "provider": "Company B", 
+      "title": "React developer",
       "location": "Helsingborg",   
       "positions": "5"
     },
     {
       "provider": "Company C", 
+      "title": "Kotlin developer",
       "location": "Trelleborg",   
       "positions": "3"
     },
     {
-      "provider": "Company D", 
+      "provider": "Company D",
+      "title": "Xamarin developer", 
       "location": "Landskrona",   
       "positions": "2"
     },
     {
-      "provider": "Company E",  
+      "provider": "Company E", 
+      "title": "Ruby developer", 
       "location": "Kristianstad",  
       "positions": "3"
     },
     {
       "provider": "Company F",  
+      "title": "Java developer",
       "location": "Lund",  
       "positions": "4"
     },
     {
-      "provider": "Company G", 
-      "location": "Malmoe",   
+      "provider": "Company G",  
+      "title": "Python developer",
+      "location": "Ystad",  
+      "positions": "4"
+    },
+    {
+      "provider": "Company H",  
+      "title": ".NET developer",
+      "location": "Lund",  
+      "positions": "3"
+    },
+    {
+      "provider": "Company I",
+      "title": ".NET developer",
+      "location": "Malmoe",       
       "positions": "3"
     }  
   ]
