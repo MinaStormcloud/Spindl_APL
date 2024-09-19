@@ -148,7 +148,7 @@
       }
     }
   
-    /* Register Page */
+    /* SignUp Page */
     .form-container {
       width: 90%;
       min-height: 100%;
@@ -169,7 +169,7 @@
       }
     }
   
-    /* Login Page */
+    /* SignIn Page */
     .form-container input[type="checkbox"] {
       border: 1px solid lightgray;
       width: auto;

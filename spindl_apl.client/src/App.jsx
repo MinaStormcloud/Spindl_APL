@@ -6,8 +6,6 @@ import { Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
-import SignUp from './pages/signup/SignUp';
-import SignIn from './pages/signin/SignIn';
 import Subscribe from './pages/subscribe/Subscribe';
 
 function App() {
@@ -45,9 +43,7 @@ function App() {
                     <Routes>
                         <Route index path="/" element={<Home />} />         
                         <Route path="/about" element={<About />} />
-                        <Route path="/contact" element={<Contact />} /> 
-                        <Route path="/signup" element={<SignUp />} />
-                        <Route path="/signin" element={<SignIn />} />
+                        <Route path="/contact" element={<Contact />} />                         
                         <Route path="/subscribe" element={<Subscribe />} />          
                     </Routes> 
                 </Layout>                     
@@ -56,7 +52,7 @@ function App() {
     );
     
     async function loadInternshipData() {
-        const response = await fetch();
+        const response = await fetch('');
         const data = await response.json();
         setInternships(data);
     }
