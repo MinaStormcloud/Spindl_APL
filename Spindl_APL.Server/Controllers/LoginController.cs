@@ -25,7 +25,7 @@ namespace Spindl_APL.Server.Controllers
                 return BadRequest("User name or password incorrect");
             }
 
-            return Ok(dto);
+            return Ok(user);
         }
     }
 }
