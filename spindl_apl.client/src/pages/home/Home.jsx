@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "../../components/searchbar/SearchBar";
+import Hero from "../../components/hero/Hero";
 import "./Home.css"
 
 export default function Home() {
@@ -13,11 +14,8 @@ export default function Home() {
   };
 
   return (
-    <>  
-      <div>
-        <h1 id="tableLabel">Looking for an internship?</h1>
-        <p className="connect">Connect with our internship providers through our online service!</p>
-      </div>         
+    <>        
+      <Hero />      
       <SearchBar onSearch={handleSearch} />           
     </>
   );
