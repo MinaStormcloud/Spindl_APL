@@ -21,7 +21,7 @@ function Contact() {
 
                 <label for="lemail">Email</label>
                 <input type="text" id="lemail" name="email" placeholder="Your Email.." />
-                <button id="SendMessage"className="btn btn-green">Send</button>
+                <button id="SendMessage"className="btn btn-dark-blue">Submit</button>
                 </div>
             </article>
         </div>
