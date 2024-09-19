@@ -70,25 +70,24 @@ function SearchBar({ onSearch }) {
       <div><h4>To</h4>
       <input id="end-date" type="date" required /></div>
       <div><button className="btn btn-gray-blue">Search</button></div>
-
-      <div className="user-list">
+      <div>
         {foundCHAR && foundCHAR.length > 0 ? (
           foundCHAR.map((item) => (
             <table>
             <thead>
-            <tr>            
-            <th scope="col">Name</th>
-            <th scope="col">Title</th>
-            <th scope="col">Location</th>
-            <th scope="col">Positions</th>            
+              <tr className="tr-font">            
+              <th scope="col">Internship Provider</th>
+              <th scope="col">Job Title</th>
+              <th scope="col">Location</th>
+              <th scope="col">Positions</th>            
             </tr>
             </thead>
             <tbody>
             <tr>            
-            <th scope="row">{item.provider}</th>
-            <th scope="row">{item.title}</th>
-            <th scope="row">{item.location}</th>
-            <th scope="row">{item.positions}</th>
+              <th scope="row">{item.provider}</th>
+              <th scope="row">{item.title}</th>
+              <th scope="row">{item.location}</th>
+              <th scope="row">{item.positions}</th>
             </tr>
             </tbody>
             </table>

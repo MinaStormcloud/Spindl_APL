@@ -17,8 +17,12 @@ table {
 }
 table tr th {
   text-align: left;
-  background: gray;
+  background: #073b4c;
   color: white;
+}
+
+.tr-font{
+  font-style: italic;  
 }
 
 #listItems {
