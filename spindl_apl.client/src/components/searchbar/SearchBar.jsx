@@ -13,7 +13,7 @@ function SearchBar({ onSearch }) {
   const [foundCHAR, setFoundCHAR] = useState(CHAR);
   
   /*useEffect(() => {
-    fetch("")
+    fetch("https://localhost:7127/api/company")
       .then((response) => response.json())
       .then((data) => {
         
@@ -43,10 +43,10 @@ function SearchBar({ onSearch }) {
   
       if (keyword !== '') {
         const results = CHAR.filter((item) => {
-          return item.provider.toLowerCase().startsWith(keyword.toLowerCase()) ||
-                 item.title.toLowerCase().startsWith(keyword.toLowerCase()) ||
-                 item.location.toLowerCase().startsWith(keyword.toLowerCase()) ||
-                 item.positions.toLowerCase().startsWith(keyword.toLowerCase());
+          return item.provider.toLowerCase().includes(keyword.toLowerCase()) ||
+                 item.title.toLowerCase().includes(keyword.toLowerCase()) ||
+                 item.location.toLowerCase().includes(keyword.toLowerCase()) ||
+                 item.positions.toLowerCase().includes(keyword.toLowerCase());
         });
         setFoundCHAR(results);
       } else {
@@ -57,7 +57,9 @@ function SearchBar({ onSearch }) {
 
   return (
     <div>  
-      <h4>Internship provider</h4>
+      <div>
+        <hr className="hr-style"/>
+      </div>
       <input type="search"
         id="keywords"
         value={name}
@@ -69,7 +71,13 @@ function SearchBar({ onSearch }) {
       <input id="start-date" type="date" required /></div>
       <div><h4>To</h4>
       <input id="end-date" type="date" required /></div>
+      <div>
+        <hr className="hr-style"/>
+      </div>
       <div><button className="btn btn-gray-blue">Search</button></div>
+      <div>
+        <hr className="hr-style"/>
+      </div>
       <div>
         {foundCHAR && foundCHAR.length > 0 ? (
           foundCHAR.map((item) => (

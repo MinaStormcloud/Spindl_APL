@@ -1,30 +1,29 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Login.css'
 
-import './Form.css'
-
-function SignInForm() {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSignIn = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.signin(email, password);
+            const response = await api.login(email, password);
             localStorage.setItem('token', response.data);
             navigate('/dashboard');
         } catch (err) {
             console.error('Error details:', err.response.data);
-            setError('Signing in failed. Please try again.');
+            setError('Login failed. Please try again.');
         }
     };
 
     return (
         <div className="form-container">
-            <form action="action_page.php" method="post" onSubmit={handleSignIn}>
-                   <h3 className="signin-title">Sign In</h3>
+            <form action="action_page.php" method="post" onSubmit={handleLogin}>
+                   <h3 className="login-title">Login</h3>
                     <hr />
                     <div className="form-group">
                         <label htmlFor="formUserEmail"><b>Email</b></label>
@@ -50,7 +49,7 @@ function SignInForm() {
                         />
                     </div>
 
-                    <button type="submit" className="btn-signin-right">Sign In</button>
+                    <button type="submit" className="btn-login-right">Login</button>
 
                     <div className="form-group">
                         <input id="form-checkbox" type="checkbox" name="remember" checked="checked" />
@@ -67,4 +66,4 @@ function SignInForm() {
     )
 }
 
-export default SignInForm;
+export default Login;

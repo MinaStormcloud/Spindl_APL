@@ -4,6 +4,8 @@
     --dark-blue: #073b4c;
     --black: #020e13;
     --white: #ecf9fd;
+    --red: #ef476f;
+    --green: #06d6a0;
   }
   
   .form-container {
@@ -28,19 +30,19 @@
   
   }
   
-  .signup-title {
+  .register-title {
     font-weight: 700;
     font-size: 1.5rem;
     text-align: center;
   }
   
-  .signup-subtitle {
+  .register-subtitle {
     font-weight: 700;
     font-size: 1rem;
     text-align: center;
   }
   
-  .signin-title {
+  .login-title {
     font-weight: 700;
     font-size: 1.5rem;
     text-align: center;
@@ -78,7 +80,7 @@
     max-width: 15px;  
   }
   
-  .btn-signin {
+  .btn-login {
     font-weight: 700;
     border-radius: 0.25rem;
     padding: 1rem 3rem;
@@ -100,7 +102,7 @@
     transition: ease-in-out 0.5s;  
   }
   
-  .btn-signin-right {
+  .btn-login-right {
     font-weight: 700;
     border-radius: 0.25rem;
     padding: 1rem 3rem;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+//import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Layout from './Layout';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -7,6 +8,8 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Subscribe from './pages/subscribe/Subscribe';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 function App() {
     const [internships, setInternships] = useState();
@@ -43,8 +46,10 @@ function App() {
                     <Routes>
                         <Route index path="/" element={<Home />} />         
                         <Route path="/about" element={<About />} />
-                        <Route path="/contact" element={<Contact />} />                         
-                        <Route path="/subscribe" element={<Subscribe />} />          
+                        <Route path="/contact" element={<Contact />} /> 
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />                        
+                        <Route path="/subscribe" element={<Subscribe />} />                            
                     </Routes> 
                 </Layout>                     
             </BrowserRouter>                     
@@ -52,7 +57,7 @@ function App() {
     );
     
     async function loadInternshipData() {
-        const response = await fetch('');
+        const response = await fetch('https://localhost:7127/api');
         const data = await response.json();
         setInternships(data);
     }

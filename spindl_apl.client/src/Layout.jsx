@@ -1,11 +1,11 @@
 import React from 'react';
-import Sidebar from './components/sidebar/Sidebar'; 
+import SideBar from './components/sidebar/SideBar'; 
 import Footer from './components/footer/Footer';
 
 export default function Layout({ children }) {
 	return (
 	  <div>		
-		<Sidebar />
+		<SideBar />
 		<div style={{ marginLeft: "200px" }}>
 		  {children}
 		</div>
