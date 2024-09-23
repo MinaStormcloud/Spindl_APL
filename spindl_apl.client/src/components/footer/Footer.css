@@ -36,10 +36,11 @@
   }
   
   .footer-row {
-    margin-left: 9%;
+    margin-left: 10%;
+    margin-right:10%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
   }
   
   footer ul {
