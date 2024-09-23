@@ -34,7 +34,7 @@ namespace Spindl_APL.Server.Controllers
             var user = new User
             {
                 Email = dto.Email,
-                Password = passwordHash,
+                //Password = passwordHash,
             };
 
             _context.Users.Add(user);
