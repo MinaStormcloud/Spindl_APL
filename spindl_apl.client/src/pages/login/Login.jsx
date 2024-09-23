@@ -23,7 +23,7 @@ function Login() {
     return (
         <div className="form-container">
             <form action="action_page.php" method="post" onSubmit={handleLogin}>
-                   <h3 className="login-title">Login</h3>
+                   <h3 className="login-title">Sign In</h3>
                     <hr />
                     <div className="form-group">
                         <label htmlFor="formUserEmail"><b>Email</b></label>
@@ -49,7 +49,7 @@ function Login() {
                         />
                     </div>
 
-                    <button type="submit" className="btn-login-right">Login</button>
+                    <button type="submit" className="btn-login-right">Sign In</button>
 
                     <div className="form-group">
                         <input id="form-checkbox" type="checkbox" name="remember" checked="checked" />
