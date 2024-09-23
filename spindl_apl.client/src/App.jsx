@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-//import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import Layout from './Layout';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -10,6 +9,7 @@ import Contact from './pages/contact/Contact';
 import Subscribe from './pages/subscribe/Subscribe';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import NotFound from './pages/404/NotFound';
 
 function App() {
     const [internships, setInternships] = useState();
@@ -49,7 +49,8 @@ function App() {
                         <Route path="/contact" element={<Contact />} /> 
                         <Route path="/register" element={<Register />} />
                         <Route path="/login" element={<Login />} />                        
-                        <Route path="/subscribe" element={<Subscribe />} />                            
+                        <Route path="/subscribe" element={<Subscribe />} />
+                        <Route path="*" element={<NotFound />} />                            
                     </Routes> 
                 </Layout>                     
             </BrowserRouter>                     

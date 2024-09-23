@@ -12,11 +12,7 @@ export default function Hero() {
 
   const handleRegister = () => {
     navigate('/register');
-  };
-
-  const handleSubscribe = () => {
-    navigate('/subscribe');
-  };
+  };  
 
   return (
     <div>
@@ -30,8 +26,7 @@ export default function Hero() {
           </div> 
           <div className="hero-btns">
             <button className="btn btn-gray-blue-reverse" onClick={handleRegister}>Sign Up</button>
-            <button className="btn btn-gray-blue" onClick={handleLogin}>Sign In</button>
-            <button className="btn btn-dark-blue" onClick={handleSubscribe}>Subscribe</button>
+            <button className="btn btn-gray-blue" onClick={handleLogin}>Sign In</button>            
           </div>         
         </div>
       </div>

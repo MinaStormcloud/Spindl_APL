@@ -25,7 +25,7 @@ export default function Footer() {
           <Link to="/contact">Contact</Link>
           <Link to="/register">Sign Up</Link>
           <Link to="/login">Sign In</Link>
-          <Link to="/subscribe">Subscribe</Link>
+          <Link to="/subscribe">Newsletter</Link>
         </div>
         <div className="footer-col">
           <h4>Support</h4>
