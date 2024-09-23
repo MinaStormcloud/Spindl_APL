@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "../../components/searchbar/SearchBar";
 import Hero from "../../components/hero/Hero";
-import "./Home.css"
 
 export default function Home() {
   const [filter, setFilter] = useState(null);
