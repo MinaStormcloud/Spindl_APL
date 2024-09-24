@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
       </div>
       <hr />
-      <div className="footer-row">
+      <div className="footer-bottom-row">
         <p>&copy; 2024 Spindl AB - All Rights Reserved</p>
         <ul>
           <li>
@@ -76,18 +76,7 @@ export default function Footer() {
               Cookie policy
             </a>
           </li>
-        </ul>
-        <ul>
-          <li className="footer-icon">
-            
-          </li>
-          <li className="footer-icon">
-            
-          </li>
-          <li className="footer-icon">
-            
-          </li>
-        </ul>
+        </ul>        
       </div>
     </footer>
   );

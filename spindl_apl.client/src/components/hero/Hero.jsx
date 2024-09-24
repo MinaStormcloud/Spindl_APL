@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="hero-btns">
             <button className="btn btn-gray-blue-reverse" onClick={handleRegister}>Sign Up</button>
             <button className="btn btn-gray-blue" onClick={handleLogin}>Sign In</button>            
-          </div>         
+          </div>                   
         </div>
       </div>
     </div>
