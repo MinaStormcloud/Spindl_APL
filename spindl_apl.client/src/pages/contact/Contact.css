@@ -18,7 +18,8 @@
   }
   
   .contact-wrapper {
-    width: 50%;
+    min-width: 20%;
+    display: flex;
     margin: 0 auto;
     background-color: white;       
   }
