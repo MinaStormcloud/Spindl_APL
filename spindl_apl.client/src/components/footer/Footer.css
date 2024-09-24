@@ -37,7 +37,16 @@
   
   .footer-row {
     margin-left: 10%;
+    margin-right:10%;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+  }
+
+  .footer-bottom-row {
+    margin-left: 10%;
     margin-right:10%;
+    max-height: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;    
