@@ -14,6 +14,8 @@
     background-color: var(--dark-blue);
     margin-top: 3rem;   
     width: 100%;
+    margin-left: 4.5rem;
+    box-sizing:border-box;
   }
 
   .brandname {
@@ -43,8 +45,7 @@
     align-items: center;    
   }
 
-  .footer-bottom-row {
-    margin-left: 10%;
+  .footer-bottom-row {       
     margin-right:10%;
     max-height: 3px;
     display: flex;
