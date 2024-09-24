@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Data;
 using Spindl_APL.Server.Models;
+using Spindl_APL.Server.Models.DTOs;
 
 namespace Spindl_APL.Server.Controllers
 {
