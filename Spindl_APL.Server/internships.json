@@ -1,0 +1,27 @@
+[
+  {
+    "datefrom": "2024-12-01T00:00:00",
+    "dateto": "2025-01-31T00:00:00",
+    "numberofstudents": 7
+  },
+  {
+    "datefrom": "2025-01-01T00:00:00",
+    "dateto": "2025-02-28T00:00:00",
+    "numberofstudents": 5
+  },
+  {
+    "datefrom": "2025-02-01T00:00:00",
+    "dateto": "2025-05-31T00:00:00",
+    "numberofstudents": 1
+  },
+  {
+    "datefrom": "2024-12-01T00:00:00",
+    "dateto": "2025-03-31T00:00:00",
+    "numberofstudents": 3
+  },
+  {
+    "datefrom": "2025-01-01T00:00:00",
+    "dateto": "2025-01-31T00:00:00",
+    "numberofstudents": 3
+  }
+]
