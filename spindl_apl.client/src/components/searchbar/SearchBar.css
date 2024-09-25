@@ -1,0 +1,59 @@
+#keywords {
+  background-image: url('../../assets/images/search_icon.svg'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  border-radius: 5px !important;
+}
+
+.hr-style {
+  height: 5px;
+  background-color:cadetblue;
+  border-color:#073b4c;
+  box-shadow: "1px 3px 1px #9E9E9E";
+  border-radius: 5px;
+  border: 2px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 20px;
+}
+table tr th {
+  text-align: left;
+  background: #073b4c;
+  color: white;
+}
+
+.tr-font{
+  font-style: italic;  
+}
+
+#listItems {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listItems li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+  width: 100%;
+  border-radius: 5px !important;
+}
+
+#listItems li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
