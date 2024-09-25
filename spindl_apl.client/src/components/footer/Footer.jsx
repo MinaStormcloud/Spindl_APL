@@ -20,13 +20,16 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>Links</h4>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/register">Sign Up</Link>
+          <Link to="/login">Sign In</Link>
+          <Link to="/subscribe">Newsletter</Link>
         </div>
         <div className="footer-col">
           <h4>Support</h4>
-          <a href="tel:+46733123456">Phone</a>
+          <a href="">Phone</a>
           <a href="mailto:support@spindl.com">Email</a>
         </div>
         <div className="footer-col">
@@ -55,7 +58,7 @@ export default function Footer() {
         </div>
       </div>
       <hr />
-      <div className="footer-row">
+      <div className="footer-bottom-row">
         <p>&copy; 2024 Spindl AB - All Rights Reserved</p>
         <ul>
           <li>
@@ -73,18 +76,7 @@ export default function Footer() {
               Cookie policy
             </a>
           </li>
-        </ul>
-        <ul>
-          <li className="footer-icon">
-            
-          </li>
-          <li className="footer-icon">
-            
-          </li>
-          <li className="footer-icon">
-            
-          </li>
-        </ul>
+        </ul>        
       </div>
     </footer>
   );

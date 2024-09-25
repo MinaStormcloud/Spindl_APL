@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+//import api from '../../services/api';
+import './Register.css'
 
-import './Form.css'
 
-function SignUpForm() {
+function Register() {
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSignUp = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await api.signup(userName, email, password);
-            navigate('/signup');
+            await api.register(userName, email, password);
+            navigate('/login');
         } catch (err) {
             console.error(err.response.data); // Log the exact error from the backend
             setError('Registration failed. Please try again.');
         }
     };
 
+
     return (
             <div className="form-container">
-                <form onSubmit={handleSignUp}>
-                    <h3 className="signup-title">Sign Up</h3>
-                    <p className="signup-subtitle">Please fill in this form to create an account.</p>
+                <form onSubmit={handleRegister}>
+                    <h3 className="register-title">Sign Up</h3>
+                    <p className="register-subtitle">Please fill in this form to create an account.</p>
                     <hr />
                     <div className="form-group">
                         <label htmlFor="formUser"><b>Name</b></label>
@@ -69,10 +71,10 @@ function SignUpForm() {
                             required
                         />
                     </div>
-                    <p>By creating an account you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
+                    <p>By creating an account, you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
                     <div className="clearfix">
                         <button type="button" className="btn-cancel">Cancel</button>
-                        <button type="submit" className="btn-signup">Sign Up</button>
+                        <button type="submit" className="btn-login">Sign Up</button>
                     </div>
                 </form>
                 {error && <p>{error}</p>}
@@ -80,4 +82,4 @@ function SignUpForm() {
     );
 }
 
-export default SignUpForm;
+export default Register;

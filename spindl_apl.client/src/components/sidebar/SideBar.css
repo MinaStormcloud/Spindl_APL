@@ -5,7 +5,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    font-size: 20px;
+    font-size: 25px;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
   
@@ -22,6 +22,6 @@
   }
   
   .menu-items li:hover {
-    background-color: #073b4c;
+    background-color: #bedfea;
   }
   

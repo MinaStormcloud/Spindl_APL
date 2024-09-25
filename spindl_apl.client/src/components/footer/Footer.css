@@ -14,6 +14,8 @@
     background-color: var(--dark-blue);
     margin-top: 3rem;   
     width: 100%;
+    margin-left: 4.5rem;
+    box-sizing:border-box;
   }
 
   .brandname {
@@ -37,9 +39,18 @@
   
   .footer-row {
     margin-left: 10%;
+    margin-right:10%;    
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
+  }
+
+  .footer-bottom-row {       
+    margin-right:10%;
+    max-height: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
   }
   
   footer ul {
@@ -81,3 +92,4 @@
   .footer-icon:hover {
     transform: scale(1.1);
   }
+  

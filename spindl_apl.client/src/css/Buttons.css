@@ -4,6 +4,8 @@
     --gray-blue: #a5c4ce;
     --black: #020e13;
     --white: #ecf9fd;
+    --red: #ef476f;
+    --green: #06d6a0;
   }
   
   .btn {
@@ -21,7 +23,7 @@
   .btn-blue {
     color: var(--white);
     border: 1px solid var(--light-blue);
-    background-color: var(--light-blue);
+    background-color: var(--light-blue);    
   }
   
   .btn-blue-reverse {
@@ -33,13 +35,13 @@
   .btn-dark-blue {
     color: var(--white);
     border: 1px solid var(--dark-blue);
-    background-color: var(--dark-blue);
+    background-color: var(--dark-blue);    
   }
   
   .btn-dark-blue-reverse {
     color: var(--dark-blue);
     border: 1px solid var(--dark-blue);
-    background-color: var(--white);
+    background-color: var(--white);    
   }
 
   .btn-gray-blue {
@@ -51,6 +53,30 @@
   .btn-gray-blue-reverse {
     color: var(--gray-blue);
     border: 1px solid var(--gray-blue);
+    background-color: var(--white);
+  }
+
+  .btn-red {
+    color: var(--white);
+    border: 1px solid var(--red);
+    background-color: var(--red);    
+  }
+  
+  .btn-red-reverse {
+    color: var(--red);
+    border: 1px solid var(--red);
+    background-color: var(--white);
+  }
+  
+  .btn-green {
+    color: var(--white);
+    border: 1px solid var(--green);
+    background-color: var(--green);
+  }
+  
+  .btn-green-reverse {
+    color: var(--green);
+    border: 1px solid var(--green);
     background-color: var(--white);
   }
   

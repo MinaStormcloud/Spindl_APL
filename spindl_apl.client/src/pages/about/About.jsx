@@ -17,7 +17,17 @@ export default function About() {
         <p className="about-paragraph">
         There are plenty of job opportunities out there for senior software developers, but in order to become senior, everyone junior candidate needs a chance to gain that experience. Our aim is to help bridge the gap between the skillsets of job seekers and the requirements of the tech job market. Candidates with the right mindset can learn the required skills, and our service can connect them with employers who need them in their teams. You are more than welcome to get in touch with us to learn more about our services.
         </p>        
-      </div>   
+      </div>  
+      <div>
+          <iframe
+            width="100%"
+            height="100%"
+            title="map"
+            className="absolute inset-0"            
+            style={{ filter: "opacity(0.8)" }}
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d574160.6535481523!2d12.643593246705256!3d55.79644931395657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssv!2sse!4v1692330211742!5m2!1ssv!2sse"
+          />
+          </div> 
     </div>
   );
 }

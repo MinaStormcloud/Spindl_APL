@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="not-found">
       <h1>404 Not Found</h1>
-      <p>Oops! This page is unavailable.</p>      
+      <p>This page is unavailable. We apologize for the inconvenience.</p>      
     </div>
   );
 }

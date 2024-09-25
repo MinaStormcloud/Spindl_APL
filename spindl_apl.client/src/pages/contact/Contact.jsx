@@ -19,7 +19,7 @@ function Contact() {
                 <label for="lname">Last Name</label>
                 <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
 
-                <label for="lemail">Email</label>
+                <label for="lemail">Email</label>                
                 <input type="text" id="lemail" name="email" placeholder="Your Email.." />
                 <button id="SendMessage"className="btn btn-dark-blue">Submit</button>
                 </div>

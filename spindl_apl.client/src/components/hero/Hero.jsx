@@ -6,17 +6,13 @@ import { useNavigate } from 'react-router-dom';
 export default function Hero() {
   const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    navigate('/signin');
+  const handleLogin = () => {
+    navigate('/login');
   };
 
-  const handleSignUp = () => {
-    navigate('/signup');
-  };
-
-  const handleSubscribe = () => {
-    navigate('/subscribe');
-  };
+  const handleRegister = () => {
+    navigate('/register');
+  };  
 
   return (
     <div>
@@ -29,10 +25,9 @@ export default function Hero() {
             </p>
           </div> 
           <div className="hero-btns">
-            <button className="btn btn-gray-blue-reverse" onClick={handleSignUp}>Sign Up</button>
-            <button className="btn btn-gray-blue" onClick={handleSignIn}>Sign In</button>
-            <button className="btn btn-dark-blue" onClick={handleSubscribe}>Subscribe</button>
-          </div>         
+            <button className="btn btn-gray-blue-reverse" onClick={handleRegister}>Sign Up</button>
+            <button className="btn btn-gray-blue" onClick={handleLogin}>Sign In</button>            
+          </div>                   
         </div>
       </div>
     </div>
