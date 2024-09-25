@@ -4,16 +4,16 @@ import "../../css/Buttons.css";
 import data from './internships.json';
 
 function SearchBar({ onSearch }) {
-  //const [internships, setInternships] = useState([]);  
-  //const [keywords, setKeywords] = useState([]);
-  //const [selectedKeyword, setSelectedKeyword] = useState("");
+  const [internships, setInternships] = useState([]);  
+  const [keywords, setKeywords] = useState([]);
+  const [selectedKeyword, setSelectedKeyword] = useState("");
 
   const CHAR = data;
   const [name, setName] = useState('');
   const [foundCHAR, setFoundCHAR] = useState(CHAR);
   
   /*useEffect(() => {
-    fetch("https://localhost:7127/api/company")
+    fetch("https://localhost:7127/api/company/search")
       .then((response) => response.json())
       .then((data) => {
         
