@@ -1,83 +1,92 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./SearchBar.css";
 import "../../css/Buttons.css";
 import data from './internships.json';
 
-function SearchBar({ onSearch }) {
-  const [internships, setInternships] = useState([]);  
-  const [keywords, setKeywords] = useState([]);
-  const [selectedKeyword, setSelectedKeyword] = useState("");
+//Get data from API
+/*
+const [data, setData] = React.useState(null);
+const fetchedData ="https://localhost:7127/api/company/search";
 
-  const CHAR = data;
-  const [name, setName] = useState('');
-  const [foundCHAR, setFoundCHAR] = useState(CHAR);
-  
-  /*useEffect(() => {
-    fetch("https://localhost:7127/api/company/search")
-      .then((response) => response.json())
-      .then((data) => {
-        
-        const searchResults = [
-          ...new Set(data.map((internship) => internship.provider)),
-        ];
-        setKeywords(searchResults);
-        setInternships(data);
-      })
-      .catch((error) => console.error("Error fetching results:", error));
+  React.useEffect(() => {
+    fetch(fetchedData)
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
   }, []);
 
-  const handleKeywordChange = (event) => {
-    setSelectedKeyword(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSearch(selectedKeyword);
-    localStorage.setItem("keyword", selectedKeyword);
-    localStorage.setItem("startDate", document.getElementById("start-date").value);
-    localStorage.setItem("endDate", document.getElementById("end-date").value);*/
-
-    //const handleFilter
-    const filter = (e) => {
-      const keyword = e.target.value;
-  
-      if (keyword !== '') {
-        const results = CHAR.filter((item) => {
-          return item.provider.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.title.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.location.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.positions.toLowerCase().includes(keyword.toLowerCase());
-        });
-        setFoundCHAR(results);
-      } else {
-        setFoundCHAR(CHAR);
-      }
-      setName(keyword);
-  };
-
   return (
-    <div>  
+    <div >
+      <p>{!data ? "Loading..." : data}</p>
+      (<Table data = {data}/>)
+    </div>
+  );
+} */
+
+//Display local json data
+function SearchBar({ onSearch }) {
+  const CHAR = data;
+  const [provider, setProvider] = useState('');
+  const [location, setLocation] = useState('');
+  const [positions, setPositions] = useState('');
+  const [foundCHAR, setFoundCHAR] = useState(CHAR);
+ 
+  // Filtering logic for multiple search fields
+  const filter = () => {
+    const filteredResults = CHAR.filter((item) => {
+      return (
+        (provider === '' || item.provider.toLowerCase().includes(provider.toLowerCase())) &&
+        (location === '' || item.location.toLowerCase().includes(location.toLowerCase())) &&
+        (positions === '' || item.positions.toLowerCase().includes(positions.toLowerCase()))
+      );
+    });
+    setFoundCHAR(filteredResults);
+    onSearch({ provider, location, positions }); 
+  };
+ 
+  return (
+    <div>
       <div>
         <hr className="hr-style"/>
       </div>
-      <input type="search"
-        id="keywords"
-        value={name}
-        onChange={filter}
+ 
+      {/* Company */}
+      <input
+        type="search"
+		id="keywords"
+        value={provider}
+        onChange={(e) => setProvider(e.target.value)}
         className="input"
-        placeholder="Search for a company name, a location, or a number of internship positions."
+        placeholder="Search for a company"
       />
-      <div><h4>From</h4>
-      <input id="start-date" type="date" required /></div>
-      <div><h4>To</h4>
-      <input id="end-date" type="date" required /></div>
+ 
+      {/* Location */}
+      <input
+        type="search"
+		id="keywords"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        className="input"
+        placeholder="Search for a location"
+      />
+ 
+      {/* Positions */}
+      <input
+        type="search"
+		id="keywords"
+        value={positions}
+        onChange={(e) => setPositions(e.target.value)}
+        className="input"
+        placeholder="Search by number of positions"
+      />
+ 
+      <div>
+        <button className="btn btn-gray-blue" onClick={filter}>Search</button>
+      </div>
       <div>
         <hr className="hr-style"/>
       </div>
-      <div><button className="btn btn-gray-blue">Search</button></div>
-      <div>
-        <hr className="hr-style"/>
-      </div>
+ 
+      {/* Display results */}
       <div>
         {foundCHAR && foundCHAR.length > 0 ? (
           foundCHAR.map((item) => (
@@ -107,5 +116,5 @@ function SearchBar({ onSearch }) {
     </div>
   );
 }
-
+ 
 export default SearchBar;

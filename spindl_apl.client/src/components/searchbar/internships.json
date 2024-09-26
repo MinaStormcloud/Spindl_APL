@@ -1,47 +1,56 @@
 [
   {
-    "companyId": 1,
-    "name": "Company A",
-    "location": "Malmoe",
-    "contact": "blabla",
-    "bookings": [],
-    "internships": [],
-    "categories": []
+    "provider": "Company A",
+    "title": "React Developer",  
+    "location": "Malmoe",  
+    "positions": "7"
   },
   {
-    "companyId": 2,
-    "name": "Company B",
-    "location": "Helsingborg",
-    "contact": "sdfgdfgd",
-    "bookings": [],
-    "internships": [],
-    "categories": []
+    "provider": "Company B", 
+    "title": "React Developer",
+    "location": "Helsingborg",   
+    "positions": "5"
   },
   {
-    "companyId": 3,
-    "name": "Company C",
-    "location": "Lund",
-    "contact": "jjjfgfgjt",
-    "bookings": [],
-    "internships": [],
-    "categories": []
+    "provider": "Company C", 
+    "title": "Kotlin Developer",
+    "location": "Trelleborg",   
+    "positions": "3"
   },
   {
-    "companyId": 4,
-    "name": "Company D",
-    "location": "Trelleborg",
-    "contact": "bdfghfghfgh",
-    "bookings": [],
-    "internships": [],
-    "categories": []
+    "provider": "Company D",
+    "title": "Xamarin Developer", 
+    "location": "Landskrona",   
+    "positions": "2"
   },
   {
-    "companyId": 5,
-    "name": "Company E",
-    "location": "Lund",
-    "contact": "fjfgjfj",
-    "bookings": [],
-    "internships": [],
-    "categories": []
-  }
+    "provider": "Company E", 
+    "title": "Ruby Developer", 
+    "location": "Kristianstad",  
+    "positions": "3"
+  },
+  {
+    "provider": "Company F",  
+    "title": "Java Developer",
+    "location": "Lund",  
+    "positions": "4"
+  },
+  {
+    "provider": "Company G",  
+    "title": "Python Developer",
+    "location": "Ystad",  
+    "positions": "4"
+  },
+  {
+    "provider": "Company H",  
+    "title": ".NET Developer",
+    "location": "Lund",  
+    "positions": "3"
+  },
+  {
+    "provider": "Company I",
+    "title": ".NET Developer",
+    "location": "Malmoe",       
+    "positions": "3"
+  }  
 ]

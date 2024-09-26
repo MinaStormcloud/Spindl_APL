@@ -23,5 +23,12 @@
   
   .menu-items li:hover {
     background-color: #bedfea;
+  }  
+
+  @media (max-width: 480px) {
+    .sidebar {
+      position: relative;       
+      width: 100%;      
+    }  
   }
   
