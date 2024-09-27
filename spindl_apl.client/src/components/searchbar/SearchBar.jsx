@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SearchBar.css";
 import "../../css/Buttons.css";
 import data from './internships.json';
