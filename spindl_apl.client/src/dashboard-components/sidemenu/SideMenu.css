@@ -1,0 +1,43 @@
+.side-menu-container {
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--dark-blue);
+    font-size: 1rem;
+  }
+  
+  .side-menu-container h2 {
+    margin: 2rem 0;
+    color: var(--yellow);
+  }
+  
+  .side-menu-container a {
+    width: 100%;
+    text-align: center;
+    color: var(--yellow);
+    transition: ease-in-out 0.5s;
+    padding: 1rem 0;
+    text-decoration: none;
+  }
+  
+  .side-menu-container a:hover {
+    opacity: 0.7;
+    color: var(--dark-blue);
+    background-color: var(--yellow);
+    text-decoration: none;
+  }
+  
+  .side-menu-container a:focus {
+    text-decoration: none;
+  }
+  
+  .side-menu-container .selected {
+    color: var(--dark-blue);
+    background-color: var(--yellow);
+  }
+  
+  #exit-dashboard {
+    margin-top: 2rem;
+  }

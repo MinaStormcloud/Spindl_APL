@@ -40,25 +40,28 @@ function SearchBar({ onSearch }) {
       <div>
         <hr className="hr-style" />
       </div>
-      {/* Sökfält för företag */}
-      {/*       <input
+      {/* Company search bar */}
+      {/*<input
         type="search"
-        value={provider}
-        onChange={(e) => setProvider(e.target.value)}
+        id="keywords"
+        value={companies}
+        onChange={(e) => setCompanies(e.target.value)}
         className="input"
         placeholder="Search for a company"
       /> */}
-      {/* Sökfält för plats */}
+      {/* Location search bar */}
       <input
         type="search"
+        id="keywords"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         className="input"
         placeholder="Search for a location"
       />
-      {/* Sökfält för antal positioner */}
+      {/* Number of positions */}
       <input
         type="search"
+        id="keywords"
         value={positions}
         onChange={(e) => setPositions(e.target.value)}
         className="input"
@@ -72,7 +75,7 @@ function SearchBar({ onSearch }) {
       <div>
         <hr className="hr-style" />
       </div>
-      {/* Resultatlista */}
+      {/* List of results */}
       <div>
         <table>
           <thead>
