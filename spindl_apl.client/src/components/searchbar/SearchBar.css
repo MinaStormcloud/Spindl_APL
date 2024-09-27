@@ -12,11 +12,15 @@
   margin-right: 1rem;
 }
 
+.input {
+  margin: 0 1rem 1rem 0;
+}
+
 .hr-style {
   height: 5px;
-  background-color:cadetblue;
-  border-color:#073b4c;
-  box-shadow: "1px 3px 1px #9E9E9E";
+  background-color: cadetblue;
+  border-color: #073b4c;
+  box-shadow: '1px 3px 1px #9E9E9E';
   border-radius: 5px;
   border: 2px;
 }
@@ -32,8 +36,8 @@ table tr th {
   color: white;
 }
 
-.tr-font{
-  font-style: italic;  
+.tr-font {
+  font-style: italic;
 }
 
 #listItems {
