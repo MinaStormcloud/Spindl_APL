@@ -73,7 +73,7 @@ namespace Spindl_APL.Server.Controllers
             
             if (companies.Count == 0)
             {
-                return NotFound("No companies found");
+                return NotFound();
             }
 
             return Ok(companies);

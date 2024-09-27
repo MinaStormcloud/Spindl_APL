@@ -1,108 +1,109 @@
-import { useState, useEffect } from "react";
-import "./SearchBar.css";
-import "../../css/Buttons.css";
-import data from './internships.json';
+import { useState } from 'react';
+import './SearchBar.css';
+import '../../css/Buttons.css';
 
 function SearchBar({ onSearch }) {
-  //const [internships, setInternships] = useState([]);  
-  //const [keywords, setKeywords] = useState([]);
-  //const [selectedKeyword, setSelectedKeyword] = useState("");
+  const [companies, setCompanies] = useState([]);
+  const [location, setLocation] = useState('');
+  const [positions, setPositions] = useState('');
 
-  const CHAR = data;
-  const [name, setName] = useState('');
-  const [foundCHAR, setFoundCHAR] = useState(CHAR);
-  
-  /*useEffect(() => {
-    fetch("https://localhost:7127/api/company")
-      .then((response) => response.json())
-      .then((data) => {
-        
-        const searchResults = [
-          ...new Set(data.map((internship) => internship.provider)),
-        ];
-        setKeywords(searchResults);
-        setInternships(data);
-      })
-      .catch((error) => console.error("Error fetching results:", error));
-  }, []);
-
-  const handleKeywordChange = (event) => {
-    setSelectedKeyword(event.target.value);
+  // Sets all properties that should be seached for
+  const getSearchTerms = () => {
+    let terms = {};
+    if (location) {
+      terms.location = location;
+    }
+    if (positions) {
+      terms.numberOfStudents = positions;
+    }
+    return terms;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSearch(selectedKeyword);
-    localStorage.setItem("keyword", selectedKeyword);
-    localStorage.setItem("startDate", document.getElementById("start-date").value);
-    localStorage.setItem("endDate", document.getElementById("end-date").value);*/
-
-    //const handleFilter
-    const filter = (e) => {
-      const keyword = e.target.value;
-  
-      if (keyword !== '') {
-        const results = CHAR.filter((item) => {
-          return item.provider.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.title.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.location.toLowerCase().includes(keyword.toLowerCase()) ||
-                 item.positions.toLowerCase().includes(keyword.toLowerCase());
-        });
-        setFoundCHAR(results);
-      } else {
-        setFoundCHAR(CHAR);
-      }
-      setName(keyword);
+  // Search
+  const getCompanies = async () => {
+    await fetch('https://localhost:7127/api/company/search', {
+      method: 'POST',
+      body: JSON.stringify(getSearchTerms()),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        data.status ? setCompanies([]) : setCompanies(data);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
-    <div>  
+    <div>
       <div>
-        <hr className="hr-style"/>
+        <hr className="hr-style" />
       </div>
-      <input type="search"
-        id="keywords"
-        value={name}
-        onChange={filter}
+      {/* Sökfält för företag */}
+      {/*       <input
+        type="search"
+        value={provider}
+        onChange={(e) => setProvider(e.target.value)}
         className="input"
-        placeholder="Search for a company name, a location, or a number of internship positions."
+        placeholder="Search for a company"
+      /> */}
+      {/* Sökfält för plats */}
+      <input
+        type="search"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        className="input"
+        placeholder="Search for a location"
       />
-      <div><h4>From</h4>
-      <input id="start-date" type="date" required /></div>
-      <div><h4>To</h4>
-      <input id="end-date" type="date" required /></div>
+      {/* Sökfält för antal positioner */}
+      <input
+        type="search"
+        value={positions}
+        onChange={(e) => setPositions(e.target.value)}
+        className="input"
+        placeholder="Search by number of positions"
+      />
       <div>
-        <hr className="hr-style"/>
+        <button className="btn btn-gray-blue" onClick={getCompanies}>
+          Search
+        </button>
       </div>
-      <div><button className="btn btn-gray-blue">Search</button></div>
       <div>
-        <hr className="hr-style"/>
+        <hr className="hr-style" />
       </div>
+      {/* Resultatlista */}
       <div>
-        {foundCHAR && foundCHAR.length > 0 ? (
-          foundCHAR.map((item) => (
-            <table>
-            <thead>
-              <tr className="tr-font">            
+        <table>
+          <thead>
+            <tr className="tr-font">
               <th scope="col">Internship Provider</th>
-              <th scope="col">Job Title</th>
               <th scope="col">Location</th>
-              <th scope="col">Positions</th>            
+              <th scope="col">Positions</th>
             </tr>
-            </thead>
+          </thead>
+          {companies.length > 0 ? (
+            companies.map((company, key) => (
+              <tbody key={key}>
+                {company.internships.map((intern, key) => (
+                  <tr key={key}>
+                    <th>{company.name}</th>
+                    <td>{company.location}</td>
+                    <td>{intern.numberOfStudents}</td>
+                  </tr>
+                ))}
+              </tbody>
+            ))
+          ) : (
             <tbody>
-            <tr>            
-              <th scope="row">{item.provider}</th>
-              <th scope="row">{item.title}</th>
-              <th scope="row">{item.location}</th>
-              <th scope="row">{item.positions}</th>
-            </tr>
+              <tr>
+                <th>No search results!</th>
+                <td></td>
+                <td></td>
+              </tr>
             </tbody>
-            </table>
-          ))
-        ) : (
-          <h3>No results found!</h3>
-        )}
+          )}
+        </table>
       </div>
     </div>
   );
