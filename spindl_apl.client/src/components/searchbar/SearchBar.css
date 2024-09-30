@@ -25,6 +25,10 @@
   border: 2px;
 }
 
+.search-section{
+  padding: 1rem;
+}
+
 table {
   width: 100%;
   table-layout: fixed;

@@ -36,7 +36,7 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <div>
+    <div className="search-section">
       <div>
         <hr className="hr-style" />
       </div>

@@ -23,7 +23,7 @@ a:hover {
 }
 
 body {
-  margin: 0px;
+  margin: 0px !important;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -124,25 +124,7 @@ button:focus-visible {
     .btn {
       width: 100%;
     }
-  }
-
-  /* Feature Component */
-  .white-space {
-    padding: 0;
-    margin: 4rem 0;
-
-    h2 {
-      white-space: nowrap;
-    }
-
-    p {
-      display: none;
-    }
-  }
-
-  .carousel {
-    border-radius: 0;
-  } 
+  }  
 
   footer {
     padding: 2rem;
