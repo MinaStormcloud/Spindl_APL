@@ -15,7 +15,7 @@ export default function Hero() {
   };  
 
   return (
-    <div>
+    <div className="hero-section">
       <div className="hero-bg">
         <div className="hero-content">
           <div>

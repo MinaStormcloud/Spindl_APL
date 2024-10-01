@@ -3,6 +3,9 @@
     --dark-blue: #073b4c;
     --black: #020e13;
     --white: #ecf9fd;
+    margin: 0 auto;
+    padding: 0rem;
+    text-align: left;
   }
   
   .contact-title {

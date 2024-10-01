@@ -1,0 +1,14 @@
+#root {    
+    margin: 0 auto;
+    padding: 0rem;
+    text-align: left;    
+}
+
+h1 {
+    text-align: center;
+}
+
+.privacy-paragraph{
+    text-align: center;
+    font-size: 1.5rem;
+}

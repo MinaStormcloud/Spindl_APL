@@ -1,9 +1,17 @@
 #root {    
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0rem;
     text-align: left;
 }
 
 h1 {
     text-align: center;
+}
+
+.about-paragraph{
+    padding: 1rem;
+}
+
+.google-map{
+    padding: 1rem;
 }
