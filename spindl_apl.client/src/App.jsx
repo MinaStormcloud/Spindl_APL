@@ -9,6 +9,7 @@ import Subscribe from './pages/subscribe/Subscribe';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
+import Dashboard from './pages/dashboard/Dashboard';//under construction
 import NotFound from './pages/404/NotFound';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

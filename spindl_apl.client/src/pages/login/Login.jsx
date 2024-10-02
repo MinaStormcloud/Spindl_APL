@@ -52,8 +52,8 @@ function Login() {
                     <button type="submit" className="btn-login-right">Sign In</button>
 
                     <div className="form-group">
-                        <input id="form-checkbox" type="checkbox" name="remember" checked="checked" />
-                        <label htmlFor="formRemember">Remember me</label>
+                        <input id="form-checkbox" type="checkbox" name="remember"/>
+                        <label htmlFor="formRemember"><span className="fa fa-check"/>Remember me</label>
                     </div>
                 <div className="container">
                     <button type="button" className="btn-cancel">Cancel</button>

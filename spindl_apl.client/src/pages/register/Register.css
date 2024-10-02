@@ -7,6 +7,10 @@
     --red: #ef476f;
     --green: #06d6a0;
   }
+
+  .radioGroup input[type="radio"] {
+    display: none;
+  }
   
   .form-container {
     border: 1px solid  lightgray;

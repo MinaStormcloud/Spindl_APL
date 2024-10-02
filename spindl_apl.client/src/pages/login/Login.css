@@ -26,8 +26,7 @@
       padding: 2rem;
       border-radius: 0 0 1rem 1rem;
       box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.05), inset 0 -0.57rem 2rem rgba(229, 225, 187, 0.5);
-    }
-  
+    }  
   }
   
   .register-title {
@@ -93,11 +92,12 @@
   
   .btn-cancel {
     font-weight: 700;
+    width: fit-content;
     border-radius: 0.25rem;
     padding: 1rem 3rem;
     cursor: pointer;
     color: var(--white);
-    border: 1px solid var(--whie);
+    border: 1px solid var(--white);
     background-color: var(--red);
     transition: ease-in-out 0.5s;  
   }

@@ -93,9 +93,3 @@ footer .fa-solid {
 .footer-icon:hover {
   transform: scale(1.1);
 }
-
-@media (max-width: 480px) {
-  footer {
-    position:absolute; right:0px;         
-  }  
-}

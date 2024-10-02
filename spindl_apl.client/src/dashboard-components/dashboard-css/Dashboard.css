@@ -72,3 +72,8 @@
     opacity: 0.5;
     text-decoration: none;
   }
+
+  .dashboard-paragraph{
+    text-align: center;
+    font-size: 1.5rem;
+}
