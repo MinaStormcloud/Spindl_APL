@@ -1,15 +1,17 @@
 import React from "react";
-import SideMenu from "../../dashboard-components/sidemenu/SideMenu";
-import DashboardContent from "./DashboardContent";
-import "../../dashboard-components/dashboard-css/Dashboard.css";
+import '../../dashboard-components/dashboard-css/Dashboard.css';
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div className="dashboard-container">
-      <SideMenu />
-      <DashboardContent />
+    <div id="dashboard">
+      <div>        
+        <h1 className="h1">Dashboard</h1>         
+      </div>   
+      <div>
+        <p className="dashboard-paragraph">
+        This section is currently under construction.
+        </p>              
+      </div>           
     </div>
   );
-};
-
-export default Dashboard;
+}

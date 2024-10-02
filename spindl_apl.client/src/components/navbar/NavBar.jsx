@@ -13,7 +13,7 @@ const NavBar = () => {
         <li><Link to="/subscribe">Newsletter</Link></li>
         <li><Link to="/privacy">Privacy</Link></li>
         <li className="icon">
-        {/*<i className="fa fa-bars">=</i>  */}        
+        { <i className="fa fa-bars">=</i>  }        
               <a href="/about" onClick={()=>this.handleLinkClick()}>About Us</a>
               <a href="/contact" onClick={()=>this.handleLinkClick()}>Contact Us</a>
               <a href="/subscribe" onClick={()=>this.handleLinkClick()}>Newsletter</a>
