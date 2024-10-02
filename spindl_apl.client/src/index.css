@@ -226,7 +226,7 @@ button:focus-visible {
   }
 
   .form-container input[type="checkbox"]:checked {
-    background-color: var(--green);
+    background-color:#b9bcbe;
   }
 
   .form-container .container {

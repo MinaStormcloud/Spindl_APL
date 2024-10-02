@@ -4,7 +4,7 @@
     }
     .topnav ul li.icon {
       float: right;
-      display: block;
+      display: block; /*inline-flex*/
     }
   }  
   
@@ -19,7 +19,7 @@
     }
     .topnav.responsive ul li {
       float: none;
-      display: block;
+      display: block; /*inline-flex*/
       text-align: left;
     }
   }  
@@ -47,7 +47,7 @@
   .topnav li a {
     display: block;
     color: #f2f2f2;
-    text-align: center;
+    text-align: left;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
@@ -59,10 +59,24 @@
   }
     
   .active {
-    background-color: #4CAF50;
+    background-color: #6a6e6a;
     color: white;
   }  
   
   .topnav .icon {
     display: none;
+  }
+
+  .btn-login-navbar {
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--white);    
+    border: 1px solid var(--gray-blue);
+    background-color: var(--gray-blue);
+    transition: ease-in-out 0.5s;
+    float: right;
+    margin: 5px;
+    margin-right: 1rem;
   }

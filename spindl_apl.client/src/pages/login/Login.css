@@ -92,11 +92,12 @@
   
   .btn-cancel {
     font-weight: 700;
+    width: fit-content;
     border-radius: 0.25rem;
     padding: 1rem 3rem;
     cursor: pointer;
     color: var(--white);
-    border: 1px solid var(--whie);
+    border: 1px solid var(--white);
     background-color: var(--red);
     transition: ease-in-out 0.5s;  
   }
