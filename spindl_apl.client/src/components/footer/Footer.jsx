@@ -11,9 +11,7 @@ export default function Footer() {
     <footer>
       <div className="footer-nav">
         <div className="footer-col">
-          <Link to="/">
-            <h2 className="brandname">Spindl AB</h2>
-          </Link>
+        <h2 className="brandname">Spindl AB</h2>
           <p className="contactinfo">Bantorget 2</p>
           <p className="contactinfo">222 29 Lund</p>
           <p className="contactinfo">Sweden</p>
@@ -26,14 +24,8 @@ export default function Footer() {
           <Link to="/register">Sign Up</Link>
           <Link to="/login">Sign In</Link>
           <Link to="/subscribe">Newsletter</Link>
-          <Link to="/privacy">Privacy</Link>
-          
-        </div>
-        <div className="footer-col">
-          <h4>Support</h4>
-          <a href="">Phone</a>
-          <a href="mailto:support@spindl.com">Email</a>
-        </div>
+          <Link to="/privacy">Privacy</Link>          
+        </div>        
         <div className="footer-col">
           <h4>Contributors</h4>          
           <a href="https://github.com/Filip-d-v" target="_blank">
@@ -55,7 +47,7 @@ export default function Footer() {
             (+46) TBD
           </p>
           <p className="contactinfo">
-            support@spindl.com
+            TBD
           </p>
         </div>
       </div>

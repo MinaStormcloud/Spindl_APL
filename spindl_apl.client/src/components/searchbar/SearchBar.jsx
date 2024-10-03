@@ -80,9 +80,9 @@ function SearchBar({ onSearch }) {
         <table>
           <thead>
             <tr className="tr-font">
-              <th scope="col">Internship Provider</th>
-              <th scope="col">Location</th>
-              <th scope="col">Positions</th>
+              <th className="centered" scope="col">Internship Provider</th>
+              <th className="centered" scope="col">Location</th>
+              <th className="centered" scope="col">Positions</th>
             </tr>
           </thead>
           {companies.length > 0 ? (
@@ -100,7 +100,7 @@ function SearchBar({ onSearch }) {
           ) : (
             <tbody>
               <tr>
-                <th>No search results!</th>
+                {/*<th>No search results!</th>*/}
                 <td></td>
                 <td></td>
               </tr>
