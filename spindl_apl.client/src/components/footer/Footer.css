@@ -12,7 +12,7 @@ footer {
   margin-left: 0% !important;
   padding: 5rem 6rem;
   color: var(--white);
-  background-color: var(--dark-blue);
+  background-color: #333;
   margin-top: 3rem;   
   width: 100%;
   margin-left: 4.5rem;
@@ -20,11 +20,11 @@ footer {
 }
 
 .brandname {
-  margin-bottom: 1%;
+  margin-bottom: 0.1%;
 }
 
 .contactinfo {
-  margin-bottom: 0.1%;
+  margin-bottom: 0%;
   margin-right: 0.5rem;
 }  
 
