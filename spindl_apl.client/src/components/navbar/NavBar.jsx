@@ -18,6 +18,7 @@ const NavBar = () => {
         <li><Link to="/contact">Contact</Link></li>    
         <li><Link to="/subscribe">Newsletter</Link></li>
         <li><Link to="/privacy">Privacy</Link></li>
+        <li><Link to="/faq">FAQ</Link></li>
         <li className="icon">
         {/*<i className="fa fa-bars">=</i>  */}        
             <a href="/about" onClick={()=>this.handleLinkClick()}>About</a>
