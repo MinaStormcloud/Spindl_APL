@@ -20,7 +20,7 @@ const NavBar = () => {
         <li><Link to="/privacy">Privacy</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li className="icon">
-        {/*<i className="fa fa-bars">=</i>  */}        
+        {/*<b className="fa fa-bars">=</b>  */}        
             <a href="/about" onClick={()=>this.handleLinkClick()}>About</a>
             <a href="/contact" onClick={()=>this.handleLinkClick()}>Contact</a>
             <a href="/subscribe" onClick={()=>this.handleLinkClick()}>Newsletter</a>
