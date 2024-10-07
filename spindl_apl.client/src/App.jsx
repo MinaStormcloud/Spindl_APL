@@ -11,6 +11,9 @@ import Logout from './pages/logout/Logout';
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
 import Dashboard from './pages/dashboard/Dashboard'; //under construction
+import DashboardBookings from './pages/dashboard/DashboardBookings'; //under construction
+import DashboardContent from './pages/dashboard/DashboardContent'; //under construction
+import DashboardOverview from './pages/dashboard/DashboardOverview'; //under construction
 import FAQ from './pages/faq/FAQ'; //under construction
 import NotFound from './pages/404/NotFound';
 
@@ -28,7 +31,24 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/privacy" element={<Privacy />} />
+            
+            {/* The dashboard pages will only be accessible after login*/ }
+
+            {/**
+             *  <Route
+                path="/dashboard/*"
+                element={
+                  <PrivateRoute>
+                  <Dashboard />
+                  </PrivateRoute>
+                }
+              />
+             */}
+
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/bookings" element={<DashboardBookings />} />
+            <Route path="/dashboard/content" element={<DashboardContent />} />
+            <Route path="/dashboard/overview" element={<DashboardOverview />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

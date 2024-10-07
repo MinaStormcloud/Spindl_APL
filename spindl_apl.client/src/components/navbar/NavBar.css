@@ -4,6 +4,7 @@
     }
     .topnav ul li.icon {
       float: right;
+      color: blue;
       display: block; /*inline-flex*/
     }
   }  
@@ -68,6 +69,20 @@
   }
 
   .btn-login-navbar {
+    font-weight: 700;
+    border-radius: 0.25rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    color: var(--white);    
+    border: 1px solid var(--gray-blue);
+    background-color: var(--gray-blue);
+    transition: ease-in-out 0.5s;
+    float: right;
+    margin: 5px;
+    margin-right: 1rem;
+  }
+
+  .menu-btn {
     font-weight: 700;
     border-radius: 0.25rem;
     padding: 1rem 3rem;
