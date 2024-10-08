@@ -2,10 +2,11 @@
     --light-blue: #0688b4;
     --dark-blue: #073b4c;
     --gray-blue: #a5c4ce;
+    --light-ash: #777777;
     --black: #020e13;
     --white: #ecf9fd;
-    --red: #ef476f;
-    --green: #06d6a0;
+    --red: #c90734;
+    --green: #036d51;
   }
   
   .btn {
@@ -53,6 +54,18 @@
   .btn-gray-blue-reverse {
     color: var(--gray-blue);
     border: 1px solid var(--gray-blue);
+    background-color: var(--white);
+  }
+
+  .btn-light-ash {
+    color: var(--white);
+    border: 1px solid var(--light-ash);
+    background-color: var(--light-ash);
+  }
+
+  .btn-light-ash-reverse {
+    color: var(--light-ash);
+    border: 1px solid var(--light-ash);
     background-color: var(--white);
   }
 
