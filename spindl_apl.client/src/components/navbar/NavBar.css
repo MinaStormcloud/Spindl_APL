@@ -11,7 +11,7 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position: relative;
+      position: absolute;
     }
     .topnav.responsive .icon {
       position: absolute;
@@ -55,7 +55,7 @@
   } 
   
   .topnav li:hover {
-    background-color: #ddd;
+    background-color:var(--light-ash);
     color: black;
   }
     
