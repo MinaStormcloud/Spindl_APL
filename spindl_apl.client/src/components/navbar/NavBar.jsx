@@ -31,19 +31,19 @@ const NavBar = () => {
           <li><Link to="/subscribe">Newsletter</Link></li>
           <li><Link to="/privacy">Privacy</Link></li>
           <li><Link to="/faq">FAQ</Link></li>                       
-        </ul>      
-      </div>
+        </ul> 
+        <div>
+        {/*When a user is logged in, this button says "Log out"*/}
+        {<button className="btn-login-navbar" onClick={handleLogin}>Sign In</button> }       
+      </div>             
+      </div>      
       <div className="dropdown-menu"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
+            <button className="btn-login-mini" onClick={handleLogin}>Sign In</button>
           <button className="btn-dropdown"><b>=</b></button>          
-            {isDropdownVisible && <DropdownMenu />}
-      </div>
-      <div>
-        {/*When a user is logged in, this button says "Log out"*/}
-        {/*<button className="btn-login-navbar" onClick={handleLogin}>Sign In</button> */} 
-      
-      </div>
+            {isDropdownVisible && <DropdownMenu />}            
+      </div>            
     </div>
   );
 };
