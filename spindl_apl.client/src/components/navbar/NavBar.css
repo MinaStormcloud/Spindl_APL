@@ -11,7 +11,7 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position: relative;
+      position: absolute;
     }
     .topnav.responsive .icon {
       position: absolute;
@@ -20,7 +20,7 @@
     }
     .topnav.responsive ul li {
       float: none;
-      display: block; /*inline-flex*/
+      display: inline-flex; /*inline-flex/block*/
       text-align: left;
     }
   }  
@@ -46,7 +46,7 @@
   }
   
   .topnav li a {
-    display: block;
+    display: inline-flex;
     color: #f2f2f2;
     text-align: left;
     padding: 14px 16px;
@@ -55,7 +55,7 @@
   } 
   
   .topnav li:hover {
-    background-color: #ddd;
+    background-color:var(--light-ash);
     color: black;
   }
     
@@ -94,4 +94,54 @@
     float: right;
     margin: 5px;
     margin-right: 1rem;
-  }
+  }  
+
+  @media screen and (min-width: 600px) {
+    .dropdown-menu {
+      background-color: #333;    
+      display:none;  
+    }
+  
+    .dropdown-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;    
+    }
+  
+    .dropdown-menu li a {
+      display: inline-flex;
+      color: #f2f2f2;
+      text-align: left;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;    
+    } 
+  }  
+
+  @media screen and (max-width: 600px) {
+    .dropdown-menu {
+      background-color: #333;      
+    }
+  
+    .dropdown-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;    
+    }
+  
+    .dropdown-menu li a {
+      display: inline-flex;
+      color: #f2f2f2;
+      text-align: left;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;    
+    } 
+
+    .btn-dropdown {
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+    }
+  } 
+  
+  

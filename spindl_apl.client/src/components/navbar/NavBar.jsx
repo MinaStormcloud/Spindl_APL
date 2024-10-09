@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import DropdownMenu from "./DropdownMenu";
 import './NavBar.css'; 
 
 const NavBar = () => {  
@@ -9,24 +10,35 @@ const NavBar = () => {
   const handleLogin = () => {
     navigate('/login');
   };
+
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownVisible(false);
+  };
  
   return (
-    <div className="topnav" id="topNavMenu">      
-      <ul className="active">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>    
-        <li><Link to="/subscribe">Newsletter</Link></li>
-        <li><Link to="/privacy">Privacy</Link></li>
-        <li><Link to="/faq">FAQ</Link></li>
-        <li className="icon">
-        {/*<b className="fa fa-bars">=</b>  */}        
-            <a href="/about" onClick={()=>this.handleLinkClick()}>About</a>
-            <a href="/contact" onClick={()=>this.handleLinkClick()}>Contact</a>
-            <a href="/subscribe" onClick={()=>this.handleLinkClick()}>Newsletter</a>
-            <a href="/privacy" onClick={()=>this.handleLinkClick()}>Privacy</a>          
-        </li>                
-      </ul>
+    <div>
+      <div className="topnav">      
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>    
+          <li><Link to="/subscribe">Newsletter</Link></li>
+          <li><Link to="/privacy">Privacy</Link></li>
+          <li><Link to="/faq">FAQ</Link></li>                       
+        </ul>      
+      </div>
+      <div className="dropdown-menu"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
+          <button className="btn-dropdown"><b>=</b></button>          
+            {isDropdownVisible && <DropdownMenu />}
+      </div>
       <div>
         {/*When a user is logged in, this button says "Log out"*/}
         {/*<button className="btn-login-navbar" onClick={handleLogin}>Sign In</button> */} 

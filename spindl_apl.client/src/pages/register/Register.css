@@ -1,11 +1,6 @@
-:root {
-    --gray-blue: #a5c4ce;
-    --light-blue: #118ab2;
-    --dark-blue: #073b4c;
+:root {    
     --black: #020e13;
-    --white: #ecf9fd;
-    --red: #ef476f;
-    --green: #06d6a0;
+    --white: #ecf9fd;    
   }
 
   .radioGroup input[type="radio"] {

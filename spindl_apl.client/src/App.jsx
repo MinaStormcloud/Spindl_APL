@@ -14,6 +14,7 @@ import Dashboard from './pages/dashboard/Dashboard'; //under construction
 import DashboardBookings from './pages/dashboard/DashboardBookings'; //under construction
 import DashboardContent from './pages/dashboard/DashboardContent'; //under construction
 import DashboardOverview from './pages/dashboard/DashboardOverview'; //under construction
+import DashboardUser from './pages/dashboard/DashboardUser'; //under construction
 import FAQ from './pages/faq/FAQ'; //under construction
 import NotFound from './pages/404/NotFound';
 
@@ -33,6 +34,8 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             
             {/* The dashboard pages will only be accessible after login*/ }
+            {/* The "Dashboard.jsx" page is for administrators*/ }
+            {/* The "DashboardUser.jsx" page is for users*/ }
 
             {/**
              *  <Route
@@ -49,6 +52,7 @@ function App() {
             <Route path="/dashboard/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/content" element={<DashboardContent />} />
             <Route path="/dashboard/overview" element={<DashboardOverview />} />
+            <Route path="/dashboard/user" element={<DashboardUser />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
