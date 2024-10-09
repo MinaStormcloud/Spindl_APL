@@ -27,7 +27,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityApiEndpoints<User>()
+builder.Services.AddAuthentication();
+
+builder.Services.AddIdentityApiEndpoints<Account>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddSwaggerGen();
@@ -46,7 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapIdentityApi<User>();
+app.MapIdentityApi<Account>();
 
 app.UseHttpsRedirection();
 

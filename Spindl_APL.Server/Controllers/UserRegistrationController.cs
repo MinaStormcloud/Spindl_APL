@@ -32,7 +32,7 @@ namespace Spindl_APL.Server.Controllers
             var passwordHasher = new PasswordHasher();
             string passwordHash = passwordHasher.HashPassword(dto.Password);
 
-            var user = new User
+            var user = new Account
             {
                 Email = dto.Email,
                 //Password = passwordHash,

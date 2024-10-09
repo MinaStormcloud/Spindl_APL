@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Spindl_APL.Server.Models
 {
-    public class User : IdentityUser
+    public class Account : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

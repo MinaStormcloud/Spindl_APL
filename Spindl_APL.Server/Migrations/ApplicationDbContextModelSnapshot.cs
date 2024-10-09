@@ -34,7 +34,7 @@ namespace Spindl_APL.Server.Migrations
 
                     b.HasIndex("CompaniesCompanyId");
 
-                    b.ToTable("CategoryCompany");
+                    b.ToTable("CategoryCompany", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -194,7 +194,7 @@ namespace Spindl_APL.Server.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("Spindl_APL.Server.Models.Category", b =>
@@ -204,7 +204,7 @@ namespace Spindl_APL.Server.Migrations
 
                     b.HasKey("Name");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Spindl_APL.Server.Models.Company", b =>
@@ -229,7 +229,7 @@ namespace Spindl_APL.Server.Migrations
 
                     b.HasKey("CompanyId");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("Spindl_APL.Server.Models.Internship", b =>
@@ -256,7 +256,7 @@ namespace Spindl_APL.Server.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Internships");
+                    b.ToTable("Internships", (string)null);
                 });
 
             modelBuilder.Entity("Spindl_APL.Server.Models.User", b =>
