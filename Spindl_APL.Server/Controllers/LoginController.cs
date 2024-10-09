@@ -18,7 +18,7 @@ namespace Spindl_APL.Server.Controllers
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] LoginDto dto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Username);
 
             if (user == null)
             {
