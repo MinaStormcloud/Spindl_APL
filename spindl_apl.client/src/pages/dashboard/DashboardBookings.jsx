@@ -1,23 +1,4 @@
-import React from "react";
-import '../../dashboard-components/dashboard-css/Dashboard.css';
-
-export default function DashboardBookings() {
-  return (
-    <div id="dashboardbookings">
-      <div>        
-        <h1 className="h1">Dashboard Bookings</h1>         
-      </div>   
-      <div>
-        <p className="dashboard-paragraph">
-        This section is currently under construction.
-        </p>              
-      </div>           
-    </div>
-  );
-}
-
-{/**
-    import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import BookingForm from '../../dashboard-components/bookingform/BookingForm';
 
 export default function DashboardBookings() {
@@ -26,9 +7,7 @@ export default function DashboardBookings() {
   const [editBookingData, setEditBookingData] = useState(null);
 
   useEffect(() => {
-    fetchBookings();
-    fetchRooms();
-    fetchHotels();
+    fetchBookings();    
   }, []);
 
   const fetchBookings = () => {
@@ -94,9 +73,9 @@ export default function DashboardBookings() {
       <table>
         <thead>
           <tr>
-            <th>Guest Name</th>
-            <th>Guest Email</th>
-            <th>Guest Phone</th>            
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>            
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>
@@ -159,4 +138,4 @@ export default function DashboardBookings() {
       </table>
     </div>
   );
-} */}
+}

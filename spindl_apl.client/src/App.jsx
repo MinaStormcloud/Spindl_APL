@@ -1,7 +1,7 @@
 import './App.css';
 import Layout from './Layout';
-import { BrowserRouter, Routes } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import PropTypes from "prop-types";
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
@@ -10,15 +10,25 @@ import Login from './pages/login/Login';
 import Logout from './pages/logout/Logout';
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
-import Dashboard from './pages/dashboard/Dashboard'; //under construction
-import DashboardBookings from './pages/dashboard/DashboardBookings'; //under construction
-import DashboardContent from './pages/dashboard/DashboardContent'; //under construction
-import DashboardOverview from './pages/dashboard/DashboardOverview'; //under construction
-import DashboardUser from './pages/dashboard/DashboardUser'; //under construction
-import FAQ from './pages/faq/FAQ'; //under construction
+import Dashboard from './pages/dashboard/Dashboard'; 
+import DashboardBookings from './pages/dashboard/DashboardBookings'; 
+import DashboardContent from './pages/dashboard/DashboardContent'; 
+import DashboardOverview from './pages/dashboard/DashboardOverview'; 
+import DashboardUser from './pages/dashboard/DashboardUser'; 
+import FAQ from './pages/faq/FAQ'; 
 import NotFound from './pages/404/NotFound';
 
-function App() {
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/login" />;
+};
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+function App() {  
+
   return (
     <div>
       <BrowserRouter>
@@ -31,23 +41,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/privacy" element={<Privacy />} />
-            
-            {/* The dashboard pages will only be accessible after login*/ }
-            {/* The "Dashboard.jsx" page is for administrators*/ }
-            {/* The "DashboardUser.jsx" page is for users*/ }
+            <Route path="/privacy" element={<Privacy />} />   
 
-            {/**
-             *  <Route
-                path="/dashboard/*"
-                element={
-                  <PrivateRoute>
-                  <Dashboard />
-                  </PrivateRoute>
-                }
-              />
-             */}
+           {/* The dashboard pages will only be accessible after login*/ }
+            {/** <Route path="/dashboard/*"
+                element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}
 
+            {/* These links are currently being used for tests*/ }
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/content" element={<DashboardContent />} />
