@@ -79,7 +79,8 @@ namespace Spindl_APL.Server.Controllers
 
             if (result.Succeeded) 
             {
-                return Ok(new { userName, });
+                var roles = await _authService.GetUserRolesAsync(userName);
+                return Ok(new { userName, roles });
             }
 
             return NotFound(new { userName });
