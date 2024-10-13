@@ -24,9 +24,15 @@ namespace Spindl_APL.Server.Services
 
             if (result.Succeeded) 
             {
-                return new Response() { Message = "User added successfully", Succeeded = true };
+                return new Response() 
+                { 
+                    Message = "User added successfully", 
+                    Succeeded = true };
             }
-            return new Response() { Message = string.Join("; ", result.Errors.Select(e => e.Description)), Succeeded = false };
+            return new Response() 
+            { 
+                Message = string.Join("; ", result.Errors.Select(e => e.Description)), 
+                Succeeded = false };
             }
 
         public async Task<Response> LoginAsync(LoginDto user)
@@ -55,6 +61,27 @@ namespace Spindl_APL.Server.Services
         public async Task<Response> AssignRoleAsync(IdentityRole role)
         {
             throw new NotImplementedException();
+        }
+        public async Task<Response> GetUserRolesAsync(string user)
+        {
+            var foundUser = await _userManager.FindByEmailAsync(user);
+
+            if (foundUser == null)
+            {
+                return new Response()
+                {
+                    Message = "User not found",
+                    Succeeded = false
+                };
+            }
+
+            var roles = await _userManager.GetRolesAsync(foundUser);
+
+            return new Response()
+            {
+                Values = roles,
+                Succeeded = true
+            };
         }
     }
 }

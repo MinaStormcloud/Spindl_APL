@@ -56,5 +56,19 @@ namespace Spindl_APL.Server.Controllers
             await _authService.LogoutAsync();
             return Ok(new { Message = "User logged out successfully" });
         }
+
+        [HttpGet("role")]
+        [Authorize]
+        public async Task<ActionResult> GetUserRoles(string user)
+        {
+            var result = await _authService.GetUserRolesAsync(user);
+
+            if (result.Succeeded)
+            {
+                return Ok(new { user, result.Values });
+            }
+
+            return NotFound(new { user });
+        }
     }
 }

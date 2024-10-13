@@ -11,5 +11,6 @@ namespace Spindl_APL.Server.Services
         Task LogoutAsync();
         Task<Response> CreateRoleAsync(IdentityRole role);
         Task<Response> AssignRoleAsync(IdentityRole role);
+        Task<Response> GetUserRolesAsync(string user);
     }
 }
