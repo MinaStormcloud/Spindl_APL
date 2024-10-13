@@ -15,6 +15,9 @@ import DashboardBookings from './pages/dashboard/DashboardBookings';
 import DashboardContent from './pages/dashboard/DashboardContent'; 
 import DashboardOverview from './pages/dashboard/DashboardOverview'; 
 import DashboardUser from './pages/dashboard/DashboardUser'; 
+import DashboardUserBookings from './pages/dashboard/DashboardUserBookings';
+import DashboardUserContent from './pages/dashboard/DashboardUserContent';
+import DashboardUserOverview from './pages/dashboard/DashboardUserOverview';
 import FAQ from './pages/faq/FAQ'; 
 import NotFound from './pages/404/NotFound';
 
@@ -53,6 +56,9 @@ function App() {
             <Route path="/dashboard/content" element={<DashboardContent />} />
             <Route path="/dashboard/overview" element={<DashboardOverview />} />
             <Route path="/dashboard/user" element={<DashboardUser />} />
+            <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
+            <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
+            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
