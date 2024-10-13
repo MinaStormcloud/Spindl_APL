@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Models;
 using System.Text.Json;
 
@@ -6,7 +7,7 @@ namespace Spindl_APL.Server.Data
 {
     public class DataSeeding
     {
-        public static async Task SeedAsync(ApplicationDbContext context)
+        public static async Task SeedAsync(ApplicationDbContext context, IServiceProvider serviceProvider)
         {
             string jsonString;
 
@@ -42,6 +43,26 @@ namespace Spindl_APL.Server.Data
 
                 await context.SaveChangesAsync();
             }
+            
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            if (roleManager != null)
+            {
+                string[] roles = { "User", "Admin" };  //Add more roles to this array
+
+                foreach (var role in roles)
+                {
+                    var existingRole = await roleManager.FindByNameAsync(role);
+
+                    if (existingRole == null)
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(role));
+                    }
+                }
+
+                
+            }
+            
         }
     }
 }

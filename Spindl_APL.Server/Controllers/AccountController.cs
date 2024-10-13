@@ -68,7 +68,7 @@ namespace Spindl_APL.Server.Controllers
                 return Ok(new { user, result.Values });
             }
 
-            return NotFound(new { user });
+            return NotFound(new { user, result.Succeeded });
         }
     }
 }
