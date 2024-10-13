@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Spindl_APL.Server.Models;
 using Spindl_APL.Server.Models.DTOs;
+using Spindl_APL.Server.Services;
 
 namespace Spindl_APL.Server.Controllers
 {
@@ -11,42 +12,49 @@ namespace Spindl_APL.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IAuthService _authService;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) 
+        public AccountController(IAuthService authService) 
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _authService = authService;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<ApplicationUser>> CreateAsync(RegisterDto account)
+        public async Task<ActionResult> Register(RegisterDto account)
         {
-            var existingAccount = await _userManager.FindByEmailAsync(account.Email);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            if (existingAccount != null) 
+            var result = await _authService.RegisterAsync(account);
+
+            if (result.Succeeded) 
             {
-                return BadRequest();
+                return Ok(new { result.Message, result.Succeeded });
             }
 
-            var newAccount = new ApplicationUser { FirstName = account.FirstName, LastName = account.LastName, Email = account.Email, UserName = account.Email};
-            var result = await _userManager.CreateAsync(newAccount, account.Password);
-
-            return Ok(new {Message = "Registration successful"});
+            return BadRequest(new { result.Message, result.Succeeded });
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<ApplicationUser>> SignInAsync(LoginDto account)
+        public async Task<ActionResult> Login(LoginDto account)
         {
-            var signedIn = await _signInManager.PasswordSignInAsync(account.Username, account.Password, true, false);
-            
-            if (!signedIn.Succeeded)
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _authService.LoginAsync(account);
+            if (result.Succeeded)
             {
-                return BadRequest();
+                return Ok(new { result.Message, result.Succeeded });
             }
 
-            return Ok(new {Message = "Login successful"});
+            return Unauthorized(new { result.Message, result.Succeeded });
+        }
+
+        [HttpPost("logout")]
+        public async Task<ActionResult> Logout() 
+        { 
+            await _authService.LogoutAsync();
+            return Ok(new { Message = "User logged out successfully" });
         }
     }
 }
