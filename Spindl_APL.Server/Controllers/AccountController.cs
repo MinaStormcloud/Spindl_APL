@@ -11,17 +11,17 @@ namespace Spindl_APL.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<Account> _userManager;
-        private readonly SignInManager<Account> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(UserManager<Account> userManager, SignInManager<Account> signInManager) 
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) 
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<Account>> CreateAsync(RegisterDto account)
+        public async Task<ActionResult<ApplicationUser>> CreateAsync(RegisterDto account)
         {
             var existingAccount = await _userManager.FindByEmailAsync(account.Email);
 
@@ -30,14 +30,14 @@ namespace Spindl_APL.Server.Controllers
                 return BadRequest();
             }
 
-            var newAccount = new Account { FirstName = account.FirstName, LastName = account.LastName, Email = account.Email, UserName = account.Email};
+            var newAccount = new ApplicationUser { FirstName = account.FirstName, LastName = account.LastName, Email = account.Email, UserName = account.Email};
             var result = await _userManager.CreateAsync(newAccount, account.Password);
 
             return Ok(new {Message = "Registration successful"});
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<Account>> SignInAsync(LoginDto account)
+        public async Task<ActionResult<ApplicationUser>> SignInAsync(LoginDto account)
         {
             var signedIn = await _signInManager.PasswordSignInAsync(account.Username, account.Password, true, false);
             

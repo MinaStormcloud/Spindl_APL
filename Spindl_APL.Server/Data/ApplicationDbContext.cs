@@ -4,7 +4,7 @@ using Spindl_APL.Server.Models;
 
 namespace Spindl_APL.Server.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<Account>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -12,7 +12,6 @@ namespace Spindl_APL.Server.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Internship> Internships { get; set; }
-        public DbSet<Account> Accounts { get; set; }
-        //public Dbset<SeedingCompany> SeedingCompanies { get; set; }
+        public DbSet<ApplicationUser> Accounts { get; set; }
     }
 }

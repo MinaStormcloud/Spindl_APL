@@ -10,6 +10,6 @@ namespace Spindl_APL.Server.Models
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
         [Required]
-        public virtual Account Account { get; set; }
+        public virtual ApplicationUser Account { get; set; }
     }
 }
