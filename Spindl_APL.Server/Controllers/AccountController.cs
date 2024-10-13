@@ -29,10 +29,10 @@ namespace Spindl_APL.Server.Controllers
 
             if (result.Succeeded) 
             {
-                return Ok(new { result.Message, result.Succeeded });
+                return Ok(new { result.Message });
             }
 
-            return BadRequest(new { result.Message, result.Succeeded });
+            return BadRequest(new { result.Message });
         }
 
         [HttpPost("login")]
@@ -44,31 +44,45 @@ namespace Spindl_APL.Server.Controllers
             var result = await _authService.LoginAsync(account);
             if (result.Succeeded)
             {
-                return Ok(new { result.Message, result.Succeeded });
+                return Ok(new { result.Message });
             }
 
-            return Unauthorized(new { result.Message, result.Succeeded });
+            return Unauthorized(new { result.Message });
         }
 
         [HttpPost("logout")]
         public async Task<ActionResult> Logout() 
         { 
-            await _authService.LogoutAsync();
-            return Ok(new { Message = "User logged out successfully" });
+            var result = await _authService.LogoutAsync();
+            return Ok(new { result.Message });
         }
 
         [HttpGet("role")]
-        [Authorize]
-        public async Task<ActionResult> GetUserRoles(string user)
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> GetUserRoles(string userName)
         {
-            var result = await _authService.GetUserRolesAsync(user);
+            var result = await _authService.GetUserRolesAsync(userName);
 
             if (result.Succeeded)
             {
-                return Ok(new { user, result.Values });
+                return Ok(new { userName, result.Values });
             }
 
-            return NotFound(new { user, result.Succeeded });
+            return NotFound(new { userName });
+        }
+
+        [HttpPost("assign-role")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> AssignRole(string userName, string role)
+        {
+            var result = await _authService.AssignRoleToUserAsync(userName, role);
+
+            if (result.Succeeded) 
+            {
+                return Ok(new { userName, });
+            }
+
+            return NotFound(new { userName });
         }
     }
 }

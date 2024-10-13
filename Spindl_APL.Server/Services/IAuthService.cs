@@ -8,9 +8,9 @@ namespace Spindl_APL.Server.Services
     {
         Task<Response> RegisterAsync(RegisterDto user);
         Task<Response> LoginAsync(LoginDto user);
-        Task LogoutAsync();
-        Task<Response> CreateRoleAsync(IdentityRole role);
-        Task<Response> AssignRoleAsync(IdentityRole role);
-        Task<Response> GetUserRolesAsync(string user);
+        Task<Response> LogoutAsync();
+        Task<Response> CreateRoleAsync(string role);
+        Task<Response> AssignRoleToUserAsync(string userName, string role);
+        Task<Response> GetUserRolesAsync(string userName);
     }
 }

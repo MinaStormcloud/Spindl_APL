@@ -27,13 +27,15 @@ namespace Spindl_APL.Server.Services
                 return new Response() 
                 { 
                     Message = "User added successfully", 
-                    Succeeded = true };
+                    Succeeded = true 
+                };
             }
             return new Response() 
             { 
                 Message = string.Join("; ", result.Errors.Select(e => e.Description)), 
-                Succeeded = false };
-            }
+                Succeeded = false 
+            };
+        }
 
         public async Task<Response> LoginAsync(LoginDto user)
         {
@@ -50,21 +52,56 @@ namespace Spindl_APL.Server.Services
                 Succeeded = false
             }; 
         }
-        public async Task LogoutAsync()
+        public async Task<Response> LogoutAsync()
         {
             await _signInManager.SignOutAsync();
+
+            return new Response()
+            {
+                Message = "User logged out successfully",
+                Succeeded = true
+            };
         }
-        public async Task<Response> CreateRoleAsync(IdentityRole role)
+
+        public async Task<Response> CreateRoleAsync(string role)
         {
             throw new NotImplementedException();
         }
-        public async Task<Response> AssignRoleAsync(IdentityRole role)
+
+        public async Task<Response> AssignRoleToUserAsync(string userName, string role)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user == null) 
+            {
+                return new Response()
+                {
+                    Message = "User not found",
+                    Succeeded = false
+                };
+            }
+
+            var result = await _userManager.AddToRoleAsync(user, role);
+
+            if (result.Succeeded)
+            {
+                return new Response() 
+                { 
+                    Message = $"Role {role} successfully added to user {userName}", 
+                    Succeeded = true 
+                };
+            }
+
+            return new Response() 
+            { 
+                Message = $"User {userName} already has role {role}", 
+                Succeeded = false 
+            };
         }
-        public async Task<Response> GetUserRolesAsync(string user)
+
+        public async Task<Response> GetUserRolesAsync(string userName)
         {
-            var foundUser = await _userManager.FindByEmailAsync(user);
+            var foundUser = await _userManager.FindByEmailAsync(userName);
 
             if (foundUser == null)
             {

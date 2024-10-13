@@ -59,10 +59,27 @@ namespace Spindl_APL.Server.Data
                         await roleManager.CreateAsync(new IdentityRole(role));
                     }
                 }
-
-                
             }
             
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            if (userManager != null)
+            {
+                var admin = new ApplicationUser()
+                { 
+                    FirstName = "Admin",
+                    LastName = "",
+                    UserName = "admin@test.com",
+                    Email = "admin@test.com",
+                };
+
+                var result = await userManager.CreateAsync(admin, "@Bc123");
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(admin, "Admin");
+                }
+            }
         }
     }
 }
