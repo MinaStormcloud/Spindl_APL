@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Spindl_APL.Server.Models;
 using Spindl_APL.Server.Models.DTOs;
 
@@ -32,7 +33,7 @@ namespace Spindl_APL.Server.Controllers
             var newAccount = new Account { FirstName = account.FirstName, LastName = account.LastName, Email = account.Email, UserName = account.Email};
             var result = await _userManager.CreateAsync(newAccount, account.Password);
 
-            return Ok(result);
+            return Ok(new {Message = "Registration successful"});
         }
 
         [HttpPost("login")]
@@ -45,7 +46,7 @@ namespace Spindl_APL.Server.Controllers
                 return BadRequest();
             }
 
-            return Ok(signedIn);
+            return Ok(new {Message = "Login successful"});
         }
     }
 }
