@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Data;
@@ -9,6 +10,7 @@ namespace Spindl_APL.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CompanyController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
