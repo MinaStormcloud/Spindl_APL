@@ -76,7 +76,7 @@ function SearchBar({ onSearch }) {
         <hr className="hr-style" />
       </div>
       {/* List of results */}
-      <div>
+      <div className="table-container">
         <table>
           <thead>
             <tr className="tr-font">

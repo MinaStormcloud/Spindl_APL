@@ -116,20 +116,16 @@
     background-color:var(--light-ash);
     color: black;
   }  
- 
+
   .btn-login-navbar {
-    font-weight: 700;
-    border-radius: 0.25rem;
-    padding: 1rem 3rem;
-    cursor: pointer;
-    color: var(--white);    
-    border: 1px solid var(--gray-blue);
-    background-color: var(--gray-blue);
-    transition: ease-in-out 0.5s;
-    float: right;
-    margin: 5px;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;  
+    margin-top: 1rem;    
+    background-color: var(--light-ash);
+    border-color: var(--gray-blue);
+    color: var(--gray-blue);
     margin-right: 1rem;
-  }  
+    float: right;
+  }   
   
   

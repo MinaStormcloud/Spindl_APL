@@ -1,6 +1,7 @@
 .side-menu-container {
     display: flex;
     width: 10vw;
+    height: auto;
     flex-direction: column;
     justify-content: start;
     align-items: center;
@@ -10,13 +11,13 @@
   
   .side-menu-container h2 {
     margin: 2rem 0;
-    color: var(--yellow);
+    color: var(--dark-grey);
   }
   
   .side-menu-container a {
     width: 100%;
     text-align: center;
-    color: var(--yellow);
+    color: var(--dark-grey);
     transition: ease-in-out 0.5s;
     padding: 1rem 0;
     text-decoration: none;
@@ -41,3 +42,12 @@
   #exit-dashboard {
     margin-top: 2rem;
   }
+
+  @media screen and (max-width: 1200px) {
+    .side-menu-container {      
+      width: fit-content; 
+      padding-left: 1rem;
+      padding-right: 1rem;    
+    }   
+  } 
+  

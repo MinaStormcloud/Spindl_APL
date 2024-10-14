@@ -35,6 +35,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
@@ -50,4 +52,30 @@
   .overview-card h5 {
     color: var(--dark-blue);
     margin-bottom: 1rem;
-  }
+  } 
+
+  @media screen and (min-width:481px) and (max-width:800px)  {
+    .overview-row {
+		  display: grid; 
+      width: fit-content;     
+      align-self: center;
+    } 
+    
+    .overview-col {
+      width: 100%;
+    }
+
+    .overview-card {
+		  max-width: 18rem;
+      align-self: center;
+    }  
+  }  
+
+  @media screen and (max-width: 480px) {
+    .overview-card {
+		  max-width: 13rem;
+      align-self: center;
+    }   
+  }  
+
+  

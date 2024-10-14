@@ -16,6 +16,12 @@
     margin-bottom: 3rem;
     color: var(--dark-blue);
   }
+
+  @media screen and (max-width: 600px) {      
+      .dashboard table {
+        font-size: small;        
+      }
+  }
   
   .dashboard table {
     width: 100%;
@@ -23,12 +29,13 @@
     border-radius: 0.5rem;
     border-collapse: collapse;
     border-spacing: 0;
+    font-style: italic;
   }
   
   .dashboard th {
     text-align: start;
     color: var(--white);
-    background-color: var(--dark-blue);
+    background-color: var(--light-ash);
   }
   
   .dashboard th:first-of-type {

@@ -29,15 +29,26 @@
   padding: 1rem;
 }
 
+@media screen and (max-width: 600px) {
+  table tr th {
+      font-size: small;               
+    }         
+}
+
 table {
   width: 100%;
   table-layout: fixed;
   margin-top: 20px;
 }
+
 table tr th {
   text-align: left;
-  background: #333;
+  background: var(--light-ash);
   color: white;
+}
+
+.table-container {
+  padding-bottom: 3rem;
 }
 
 .tr-font {

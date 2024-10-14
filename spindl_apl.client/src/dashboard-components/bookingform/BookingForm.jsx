@@ -127,7 +127,7 @@ export default function BookingForm({
       <h2>{editBookingData ? "Edit Booking" : "Add Booking"}</h2>
       {error && <p className="error">{error}</p>}
       <div>
-        <label>Guest Name:</label>
+        <label>Name:</label>
         <input
           type="text"
           name="guestName"
@@ -137,7 +137,7 @@ export default function BookingForm({
         />
       </div>
       <div>
-        <label>Guest Email:</label>
+        <label>Email:</label>
         <input
           type="email"
           name="guestEmail"
@@ -147,7 +147,7 @@ export default function BookingForm({
         />
       </div>
       <div>
-        <label>Guest Phone:</label>
+        <label>Phone:</label>
         <input
           type="tel"
           name="guestPhone"

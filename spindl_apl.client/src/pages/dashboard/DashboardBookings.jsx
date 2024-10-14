@@ -55,7 +55,7 @@ export default function DashboardBookings() {
     <div className="dashboard">
       <div className="dashboard-header">
         <h2>Bookings</h2>
-        <button className="btn btn-blue" onClick={() => setShowInputForm(true)}>
+        <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
           Add Booking
         </button>
       </div>
