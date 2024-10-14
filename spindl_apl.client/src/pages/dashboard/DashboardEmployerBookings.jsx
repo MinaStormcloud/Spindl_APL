@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BookingForm from '../../dashboard-components/bookingform/BookingForm';
 
-export default function DashboardBookings() {
+export default function DashboardEmployerBookings() {
   const [bookings, setBookings] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
   const [editBookingData, setEditBookingData] = useState(null);

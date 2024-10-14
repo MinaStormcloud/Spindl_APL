@@ -56,7 +56,7 @@ export default function DashboardUserBookings() {
       <div className="dashboard-header">
         <h2>Bookings</h2>
         <button className="btn btn-blue" onClick={() => setShowInputForm(true)}>
-          + Add Booking
+          Add Booking
         </button>
       </div>
 
@@ -79,7 +79,7 @@ export default function DashboardUserBookings() {
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>
-            <th>Manage</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
