@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../../dashboard-components/dashboard-css/DashboardOverview.css';
 
-export default function DashboardUserOverview() {  
+export default function DashboardEmployerOverview() {  
   const [bookingCount, setBookingCount] = useState(0);
   const [userCount, setUserCount] = useState(0);  
 
@@ -47,9 +47,17 @@ export default function DashboardUserOverview() {
           <h2>{bookingCount}</h2>
         </div>
         {<div className="overview-card overview-col">
-          <h5>My profile</h5>
+          <h5>Company profile</h5>
           <h2>{/*userCount*/}</h2>
-        </div> }             
+        </div> }    
+        {<div className="overview-card overview-col">
+          <h5>Internship history</h5>
+          <h2>{/*userCount*/}</h2>
+        </div> } 
+        {<div className="overview-card overview-col">
+          <h5>Upcoming internships</h5>
+          <h2>{/*userCount*/}</h2>
+        </div> }     
       </div>
     </div>
   );
