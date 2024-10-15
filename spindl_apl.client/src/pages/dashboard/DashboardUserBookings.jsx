@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BookingForm from '../../dashboard-components/bookingform/BookingForm';
+import SideMenu from '../../dashboard-components/sidemenu/UserSideMenu';
 /*This page needs to be customized to fetch all bookings 
 matching the user ID of the user that just logged in*/
 
@@ -54,12 +55,11 @@ export default function DashboardUserBookings() {
   };
 
   return (
-    <div className="dashboard">
+    <div className="dashboard-container">
+      <SideMenu />
+      <div className="dashboard">
       <div className="dashboard-header">
-        <h2>Bookings</h2>
-        <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
-          Add Booking
-        </button>
+        <h2>Bookings</h2>        
       </div>
 
       {showInputForm && (
@@ -80,8 +80,7 @@ export default function DashboardUserBookings() {
             <th>Phone</th>            
             <th>Date</th>
             <th>Time</th>
-            <th>Status</th>
-            <th>Edit</th>
+            <th>Status</th>            
           </tr>
         </thead>
         <tbody>
@@ -93,51 +92,13 @@ export default function DashboardUserBookings() {
               <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
               <td style={{ color: getStatusColor(booking.status) }}>
                 {booking.status}
-              </td>
-              <td>
-                <button
-                  className="btn-overview btn-blue"
-                  onClick={() => handleEdit(booking)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="btn-overview btn-red"
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        `Are you sure you want to delete booking with ID ${booking.bookingId}?`
-                      )
-                    ) {
-                      fetch(
-                        `https://localhost:7127/api/Bookings/${booking.bookingId}`,
-                        {
-                          method: "DELETE",
-                        }
-                      )
-                        .then((response) => {
-                          if (response.ok) {
-                            const updatedBookings = bookings.filter(
-                              (b) => b.bookingId !== booking.bookingId
-                            );
-                            setBookings(updatedBookings);
-                          } else {
-                            throw new Error("Failed to delete booking");
-                          }
-                        })
-                        .catch((error) =>
-                          console.error("Error deleting booking:", error)
-                        );
-                    }
-                  }}
-                >
-                  Delete
-                </button>
-              </td>
+              </td>              
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+    </div>
+    
   );
 }
