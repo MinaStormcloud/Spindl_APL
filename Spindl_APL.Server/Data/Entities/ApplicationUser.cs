@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace Spindl_APL.Server.Models
+namespace Spindl_APL.Server.Data.Entities
 {
     public class ApplicationUser : IdentityUser
     {

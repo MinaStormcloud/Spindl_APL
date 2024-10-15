@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Spindl_APL.Server.Models;
-using Spindl_APL.Server.Models.DTOs;
+using Spindl_APL.Server.DTOs;
+using Spindl_APL.Server.Data.Entities;
+using Spindl_APL.Server.Services.Interfaces;
 
 namespace Spindl_APL.Server.Services
 {
