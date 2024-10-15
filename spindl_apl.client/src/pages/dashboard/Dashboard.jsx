@@ -6,7 +6,7 @@ import '../../dashboard-components/dashboard-css/Dashboard.css';
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
-      {<SideMenu />}
+      <SideMenu />
       <DashboardContent />
     </div>
   );
