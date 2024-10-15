@@ -3,39 +3,39 @@ using Spindl_APL.Server.Data;
 
 namespace Spindl_APL.Server.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class 
+    public class Repository<Tentity> : IRepository<Tentity> where Tentity : class 
     {
         protected readonly ApplicationDbContext _context;
-        private readonly DbSet<T> _dbSet;
+        protected readonly DbSet<Tentity> _dbSet;
 
         public Repository(ApplicationDbContext context)
         {
             _context = context;
-            _dbSet = _context.Set<T>();
+            _dbSet = _context.Set<Tentity>();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<Tentity>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync<T>();
+            return await _dbSet.ToListAsync<Tentity>();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<Tentity?> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(Tentity entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task UpdateAsync(Tentity entity)
         {
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteAsync(T entity)
+        public async Task DeleteAsync(Tentity entity)
         {
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();

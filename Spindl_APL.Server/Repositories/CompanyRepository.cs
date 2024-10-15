@@ -1,5 +1,6 @@
 ﻿using Spindl_APL.Server.Data;
 using Spindl_APL.Server.Models;
+using Spindl_APL.Server.Repositories.Interfaces;
 
 namespace Spindl_APL.Server.Repositories
 {
