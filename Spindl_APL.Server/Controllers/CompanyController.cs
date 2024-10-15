@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Data;
-using Spindl_APL.Server.Models;
-using Spindl_APL.Server.Models.DTOs;
+using Spindl_APL.Server.Data.Entities;
+using Spindl_APL.Server.DTOs;
 
 namespace Spindl_APL.Server.Controllers
 {
@@ -47,7 +47,7 @@ namespace Spindl_APL.Server.Controllers
         }
 
         [HttpPost("search")]
-        public async Task<ActionResult<List<Company>>> Search([FromBody]SearchDto search)
+        public async Task<ActionResult<List<Company>>> Search([FromBody] SearchDto search)
         {
             List<Company> companies;
 
@@ -72,7 +72,7 @@ namespace Spindl_APL.Server.Controllers
                     .Where(c => c.Location == search.Location && c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
                     .ToListAsync();
             }
-            
+
             if (companies.Count == 0)
             {
                 return NotFound();

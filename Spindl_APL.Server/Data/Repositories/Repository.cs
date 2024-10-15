@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Data;
 
-namespace Spindl_APL.Server.Repositories
+namespace Spindl_APL.Server.Data.Repositories
 {
-    public class Repository<Tentity> : IRepository<Tentity> where Tentity : class 
+    public class Repository<Tentity> : IRepository<Tentity> where Tentity : class
     {
         protected readonly ApplicationDbContext _context;
         protected readonly DbSet<Tentity> _dbSet;
@@ -16,7 +16,7 @@ namespace Spindl_APL.Server.Repositories
 
         public async Task<IEnumerable<Tentity>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync<Tentity>();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task<Tentity?> GetByIdAsync(int id)

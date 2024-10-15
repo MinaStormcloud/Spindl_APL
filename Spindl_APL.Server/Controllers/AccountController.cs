@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Spindl_APL.Server.Models;
-using Spindl_APL.Server.Models.DTOs;
+using Spindl_APL.Server.Data.Entities;
+using Spindl_APL.Server.DTOs;
 using Spindl_APL.Server.Services;
+using Spindl_APL.Server.Services.Interfaces;
 
 namespace Spindl_APL.Server.Controllers
 {
@@ -14,7 +15,7 @@ namespace Spindl_APL.Server.Controllers
     {
         private readonly IAuthService _authService;
 
-        public AccountController(IAuthService authService) 
+        public AccountController(IAuthService authService)
         {
             _authService = authService;
         }
@@ -27,7 +28,7 @@ namespace Spindl_APL.Server.Controllers
 
             var result = await _authService.RegisterAsync(account);
 
-            if (result.Succeeded) 
+            if (result.Succeeded)
             {
                 return Ok(new { result.Message });
             }
@@ -51,8 +52,8 @@ namespace Spindl_APL.Server.Controllers
         }
 
         [HttpPost("logout")]
-        public async Task<ActionResult> Logout() 
-        { 
+        public async Task<ActionResult> Logout()
+        {
             var result = await _authService.LogoutAsync();
             return Ok(new { result.Message });
         }
@@ -77,7 +78,7 @@ namespace Spindl_APL.Server.Controllers
         {
             var result = await _authService.AssignRoleToUserAsync(userName, role);
 
-            if (result.Succeeded) 
+            if (result.Succeeded)
             {
                 var roles = await _authService.GetUserRolesAsync(userName);
                 return Ok(new { userName, roles });

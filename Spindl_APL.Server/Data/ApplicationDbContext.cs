@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Spindl_APL.Server.Models;
+using Spindl_APL.Server.Data.Entities;
 
 namespace Spindl_APL.Server.Data
 {

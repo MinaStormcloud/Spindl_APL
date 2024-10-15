@@ -1,4 +1,4 @@
-﻿namespace Spindl_APL.Server.Repositories
+﻿namespace Spindl_APL.Server.Data.Repositories
 {
     public interface IRepository<T> where T : class
     {

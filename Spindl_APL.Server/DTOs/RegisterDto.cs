@@ -1,4 +1,4 @@
-namespace Spindl_APL.Server.Models.DTOs
+namespace Spindl_APL.Server.DTOs
 {
     public class RegisterDto
     {

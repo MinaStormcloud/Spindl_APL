@@ -1,8 +1,7 @@
-﻿using Spindl_APL.Server.Data;
-using Spindl_APL.Server.Models;
-using Spindl_APL.Server.Repositories.Interfaces;
+﻿using Spindl_APL.Server.Data.Entities;
+using Spindl_APL.Server.Data.Repositories.Interfaces;
 
-namespace Spindl_APL.Server.Repositories
+namespace Spindl_APL.Server.Data.Repositories
 {
     public class CompanyRepository : Repository<Company>, ICompanyRepository
     {

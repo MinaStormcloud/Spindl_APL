@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Spindl_APL.Server.Data;
-using Spindl_APL.Server.Models;
+using Spindl_APL.Server.Data.Entities;
 using System.Text.Json.Serialization;
 using Spindl_APL.Server.Services;
+using Spindl_APL.Server.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
