@@ -1,11 +1,12 @@
 .dashboard-container {
     display: flex;
-    min-height: 100vh;
+    min-height: 75vh;
   }
   
   .dashboard {
-    width: 80%;
-    margin: auto;
+    width: 80%;    
+    margin-top: 3rem;
+    margin-left: 3rem;
     padding: 4rem 0;
   }
   

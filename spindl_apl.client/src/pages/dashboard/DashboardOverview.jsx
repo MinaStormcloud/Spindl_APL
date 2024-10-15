@@ -40,16 +40,25 @@ export default function DashboardOverview() {
       <div className="overview-header">
         <h2>Overview</h2>
       </div>
-      <div className="overview-row">
-        
+      <div className="overview-row">        
         <div className="overview-card overview-col">
-          <h5>Bookings</h5>
+          <h5>Booked Meetings</h5>
           <h2>{bookingCount}</h2>
         </div>
         {<div className="overview-card overview-col">
-          <h5>Users</h5>
+          <h5>Registered Users</h5>
           <h2>{userCount}</h2>
         </div> }        
+      </div>
+      <div className="overview-row">
+      {<div className="overview-card overview-col">
+          <h5>Internship requests</h5>
+          <h2>{userCount}</h2> {/**Change this */}
+        </div> } 
+        {<div className="overview-card overview-col">
+          <h5>Available internships</h5>
+          <h2>{userCount}</h2> {/**Change this */}
+        </div> }
       </div>
     </div>
   );
