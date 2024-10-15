@@ -49,15 +49,17 @@ export default function DashboardEmployerOverview() {
         {<div className="overview-card overview-col">
           <h5>Company profile</h5>
           <h2>{/*userCount*/}</h2>
-        </div> }    
-        {<div className="overview-card overview-col">
+        </div> }              
+      </div>
+      <div className="overview-row">
+      {<div className="overview-card overview-col">
           <h5>Internship history</h5>
           <h2>{/*userCount*/}</h2>
         </div> } 
         {<div className="overview-card overview-col">
           <h5>Upcoming internships</h5>
           <h2>{/*userCount*/}</h2>
-        </div> }     
+        </div> }
       </div>
     </div>
   );
