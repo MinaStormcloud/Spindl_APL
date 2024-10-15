@@ -3,6 +3,10 @@
     margin: 0px; 
     padding-bottom: 0px !important;   
     text-align: center;
+    --charcoal: #222;
     --dark-ash: #333;
     --light-ash: #777777;
+    --highlight: #888888;
+    --orange: #ff7b08;
+    --yellow: #f9d806;
 }

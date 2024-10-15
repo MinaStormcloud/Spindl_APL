@@ -11,13 +11,13 @@
   
   .side-menu-container h2 {
     margin: 2rem 0;
-    color: var(--dark-grey);
+    color: var(--dark-ash);
   }
   
   .side-menu-container a {
     width: 100%;
     text-align: center;
-    color: var(--dark-grey);
+    color: var(--dark-ash);
     transition: ease-in-out 0.5s;
     padding: 1rem 0;
     text-decoration: none;
@@ -25,8 +25,8 @@
   
   .side-menu-container a:hover {
     opacity: 0.7;
-    color: var(--dark-blue);
-    background-color: var(--yellow);
+    color: var(#CCCCCC);
+    background-color: var(--highlight);
     text-decoration: none;
   }
   
@@ -35,8 +35,8 @@
   }
   
   .side-menu-container .selected {
-    color: var(--dark-blue);
-    background-color: var(--yellow);
+    color: var(--charcoal);
+    background-color: var(--light-ash);
   }
   
   #exit-dashboard {
