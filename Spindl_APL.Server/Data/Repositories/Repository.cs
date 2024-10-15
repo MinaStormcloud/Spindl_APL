@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spindl_APL.Server.Data;
 
 namespace Spindl_APL.Server.Data.Repositories
 {
@@ -27,19 +26,20 @@ namespace Spindl_APL.Server.Data.Repositories
         public async Task AddAsync(Tentity entity)
         {
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Tentity entity)
+        //This needs to be better
+        public void Update(Tentity entity)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
         }
-        public async Task DeleteAsync(Tentity entity)
+
+        //This as well
+        public void Delete(Tentity entity)
         {
             _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
         }
+
         public async Task DeleteByIdAsync(int id)
         {
             var entity = await _dbSet.FindAsync(id);
@@ -47,8 +47,12 @@ namespace Spindl_APL.Server.Data.Repositories
             if (entity != null)
             {
                 _dbSet.Remove(entity);
-                await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

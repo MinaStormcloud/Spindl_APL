@@ -3,11 +3,11 @@ using Spindl_APL.Server.Services.Interfaces;
 
 namespace Spindl_APL.Server.Services
 {
-    public class CompanyService : ICompanyService
+    public class InternshipService : IInternshipService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public CompanyService(IUnitOfWork unitOfWork)
+        public InternshipService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
