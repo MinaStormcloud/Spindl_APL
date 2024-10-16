@@ -13,6 +13,11 @@ namespace Spindl_APL.Server.Data.Repositories
             _dbSet = _context.Set<Tentity>();
         }
 
+        public IQueryable<Tentity> GetQueryable()
+        {
+            return _dbSet.AsQueryable();
+        }
+
         public async Task<IEnumerable<Tentity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
