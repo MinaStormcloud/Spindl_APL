@@ -11,6 +11,10 @@ const NavBar = () => {
     navigate('/login');
   };
 
+  const handleLogout = () => {
+    navigate('/logout');
+  };
+
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
   const handleMouseEnter = () => {
@@ -34,13 +38,15 @@ const NavBar = () => {
         </ul> 
         <div>
         {/*When a user is logged in, this button says "Log out"*/}
-        {<button className="btn-login-navbar" onClick={handleLogin}>Sign In</button> }       
+        <button className="btn-login-navbar" onClick={handleLogin}>Sign In</button> 
+        {/*<button className="btn-logout-navbar" onClick={handleLogout}>Sign Out</button> */}       
       </div>             
       </div>      
       <div className="dropdown-menu"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
             <button className="btn-login-mini" onClick={handleLogin}>Sign In</button>
+            {/*<button className="btn-logout-mini" onClick={handleLogout}>Sign Out</button>*/}
           <button className="btn-dropdown"><b>=</b></button>          
             {isDropdownVisible && <DropdownMenu />}            
       </div>            
