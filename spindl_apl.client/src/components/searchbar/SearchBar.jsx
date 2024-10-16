@@ -6,6 +6,7 @@ function SearchBar({ onSearch }) {
   const [companies, setCompanies] = useState([]);
   const [location, setLocation] = useState('');
   const [positions, setPositions] = useState('');
+  const [jobTitle, setJobTitles] = useState('');
 
   // Sets all properties that should be seached for
   const getSearchTerms = () => {
@@ -15,6 +16,9 @@ function SearchBar({ onSearch }) {
     }
     if (positions) {
       terms.numberOfStudents = positions;
+    }
+    if (positions) {
+      terms.jobTitle = jobTitle;
     }
     return terms;
   };
@@ -49,6 +53,15 @@ function SearchBar({ onSearch }) {
         className="input"
         placeholder="Search for a company"
       /> */}
+      {/* Category search bar */}
+      {<input
+        type="search"
+        id="keywords"
+        value={jobTitle}
+        onChange={(e) => setJobTitles(e.target.value)}
+        className="input"
+        placeholder="Search for a job title"
+      /> }
       {/* Location search bar */}
       <input
         type="search"
@@ -81,6 +94,7 @@ function SearchBar({ onSearch }) {
           <thead>
             <tr className="tr-font">
               <th className="centered" scope="col">Internship Provider</th>
+              <th className="centered" scope="col">Title</th>
               <th className="centered" scope="col">Location</th>
               <th className="centered" scope="col">Positions</th>
             </tr>
@@ -91,6 +105,7 @@ function SearchBar({ onSearch }) {
                 {company.internships.map((intern, key) => (
                   <tr key={key}>
                     <th>{company.name}</th>
+                    {/*<th>{company.jobTitle}</th>*/}
                     <td>{company.location}</td>
                     <td>{intern.numberOfStudents}</td>
                   </tr>
