@@ -79,6 +79,17 @@
       margin-right: 1rem;
       float: right;
     } 
+
+    .btn-logout-mini {
+      margin-bottom: 1rem;
+      margin-left: 1rem;  
+      margin-top: 1rem;    
+      background-color: var(--red);
+      border-color: var(--gray-blue);
+      color: var(--gray-blue);
+      margin-right: 1rem;
+      float: right;
+    } 
   } 
 
   @media screen and (max-width: 600px) {
@@ -126,6 +137,17 @@
     color: var(--gray-blue);
     margin-right: 1rem;
     float: right;
-  }   
+  }
+  
+  .btn-logout-navbar {
+    margin-bottom: 1rem;
+    margin-left: 1rem;  
+    margin-top: 1rem;    
+    background-color: var(--red);
+    border-color: var(--gray-blue);
+    color: var(--gray-blue);
+    margin-right: 1rem;
+    float: right;    
+  } 
   
   

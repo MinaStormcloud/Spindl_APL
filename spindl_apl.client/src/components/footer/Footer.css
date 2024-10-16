@@ -92,3 +92,12 @@ footer .fa-solid {
 .footer-icon:hover {
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 600px) {
+  .footer-nav {
+    font-size: small;
+  } 
+  .footer-bottom-row {
+    font-size: small;
+  }      
+} 

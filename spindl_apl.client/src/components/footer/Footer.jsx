@@ -29,9 +29,9 @@ export default function Footer() {
         </div>        
         <div className="footer-col">
           <h4>Contributors</h4>          
-          <a href="https://github.com/Filip-d-v" target="_blank">
+          {/*<a href="https://github.com/Filip-d-v" target="_blank">
             Filip
-          </a>
+          </a>*/}
           <a href="https://github.com/ZainabDaebes21" target="_blank">
             Zainab
           </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             Mattias
           </a>
         </div>
-        <div className="footer-col">
+        {/*<div className="footer-col">
           <h4 className="h4-contact">Contact Us</h4>
           <p className="contactinfo">
             (+46) TBD
@@ -50,7 +50,7 @@ export default function Footer() {
           <p className="contactinfo">
             TBD
           </p>
-        </div>
+        </div>*/}
       </div>
       <hr />
       <div className="footer-bottom-row">
