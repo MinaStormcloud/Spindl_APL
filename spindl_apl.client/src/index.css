@@ -26,7 +26,8 @@ body {
   margin: 0px !important;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: fit-content;
+  background-color: var(--pale-gray);
 }
 
 h1 {
