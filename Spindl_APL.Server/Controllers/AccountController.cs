@@ -13,9 +13,9 @@ namespace Spindl_APL.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAuthService _authService;
+        private readonly IAccountService _authService;
 
-        public AccountController(IAuthService authService)
+        public AccountController(IAccountService authService)
         {
             _authService = authService;
         }
@@ -30,10 +30,10 @@ namespace Spindl_APL.Server.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(new { result.Message });
+                return Ok(new { result.Data });
             }
 
-            return BadRequest(new { result.Message });
+            return BadRequest(new { result.Errors });
         }
 
         [HttpPost("login")]
@@ -45,17 +45,17 @@ namespace Spindl_APL.Server.Controllers
             var result = await _authService.LoginAsync(account);
             if (result.Succeeded)
             {
-                return Ok(new { result.Message });
+                return Ok(new { result.Data });
             }
 
-            return Unauthorized(new { result.Message });
+            return Unauthorized(new { result.Errors });
         }
 
         [HttpPost("logout")]
         public async Task<ActionResult> Logout()
         {
             var result = await _authService.LogoutAsync();
-            return Ok(new { result.Message });
+            return Ok(new { result.Data });
         }
 
         [HttpGet("role")]
@@ -66,7 +66,7 @@ namespace Spindl_APL.Server.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(new { userName, result.Values });
+                return Ok(new { userName, result.Data });
             }
 
             return NotFound(new { userName });
