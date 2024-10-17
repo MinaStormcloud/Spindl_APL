@@ -6,17 +6,17 @@ using System.Text.Json.Serialization;
 using Spindl_APL.Server.Services;
 using Spindl_APL.Server.Services.Interfaces;
 using Spindl_APL.Server.Data.UnitOfWork;
-using Spindl_APL.Server.Data.Repositories;
-using Spindl_APL.Server.Data.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add UoW to the container.
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// Add services.
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IInternshipService, InternshipService>();
 
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(x =>

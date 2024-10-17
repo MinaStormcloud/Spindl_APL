@@ -15,7 +15,17 @@ namespace Spindl_APL.Server.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<Company>> Search(SearchDto search)
+        public async Task<List<Company>> GetAllCompaniesAsync()
+        {
+            return await _unitOfWork.Companies.GetAllAsync();
+        }
+
+        public async Task<Company?> GetCompanyByIdAsync(int id)
+        {
+            return await _unitOfWork.Companies.GetByIdAsync(id);
+        }
+
+        public async Task<List<Company>> Search(SearchDto search)
         {
             var query = _unitOfWork.Companies.GetQueryable();
 
@@ -38,7 +48,7 @@ namespace Spindl_APL.Server.Services
                              .Where(c => c.Location == search.Location);
             }
 
-            // Both null at the same time is checked by the controller
+            // Both null at the same time should be checked by the controller
 
             return await query.ToListAsync();
         }

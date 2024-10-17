@@ -5,6 +5,8 @@ namespace Spindl_APL.Server.Services.Interfaces
 {
     public interface ICompanyService
     {
-        Task<IEnumerable<Company>> Search(SearchDto searchDto);
+        Task<List<Company>> GetAllCompaniesAsync();
+        Task<Company?> GetCompanyByIdAsync(int id);
+        Task<List<Company>> Search(SearchDto searchDto);
     }
 }
