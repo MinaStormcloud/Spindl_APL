@@ -17,7 +17,7 @@ function Subscribe() {
 
                 <label for="lemail">Email</label>
                 <input type="text" id="lemail" name="email" placeholder="Your Email.." />
-                <button id="SendRequest"className="btn btn-light-ash">Submit</button>
+                <button id="SendRequest"className="btn btn-dark-gray">Submit</button>
                 </div>
             </article>
         </div>

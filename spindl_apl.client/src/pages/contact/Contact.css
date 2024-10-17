@@ -21,8 +21,7 @@
   .contact-wrapper {
     min-width: 20%;
     display: flex;
-    margin: 0 auto;
-    background-color: white;       
+    margin: 0 auto;           
   }
   
   .side label {
@@ -92,4 +91,10 @@
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+  }
+
+  @media screen and (max-width: 600px) {
+    .contact-wrapper {
+      font-size: small;
+    }     
   }

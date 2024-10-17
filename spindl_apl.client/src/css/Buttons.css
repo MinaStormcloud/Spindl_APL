@@ -1,8 +1,17 @@
 :root {    
     --light-blue: #0688b4;
     --dark-blue: #073b4c;
-    --gray-blue: #a5c4ce;
+    --gray-blue: #99b4bd;
+    --dark-gray: #7d8f95;
+    --highlight: #888888;
     --light-ash: #777777;
+    --pale-gray: #dbe5e9;
+    --off-white: #CCCCCC;
+    --charcoal: #222;
+    --dark-ash: #333;    
+    
+    --orange: #ff7b08;
+    --yellow: #f9d806;
     --black: #020e13;
     --white: #ecf9fd;
     --red: #c90734;
@@ -57,10 +66,10 @@
     background-color: var(--white);
   }  
 
-  .btn-light-ash {
+  .btn-dark-gray {
     color: var(--white);
-    border: 1px solid var(--light-ash);
-    background-color: var(--light-ash);
+    border: 1px solid var(--dark-gray);
+    background-color: var(--dark-gray);
   }
 
   .btn-light-ash-reverse {
