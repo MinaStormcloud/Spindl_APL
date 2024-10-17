@@ -55,7 +55,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await DataSeeding.SeedAsync(context, scope.ServiceProvider);
+    await DataSeeder.SeedAsync(context, scope.ServiceProvider);
 }
 
 if (app.Environment.IsDevelopment())

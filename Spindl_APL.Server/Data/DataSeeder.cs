@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace Spindl_APL.Server.Data
 {
-    public class DataSeeding
+    public class DataSeeder
     {
         public static async Task SeedAsync(ApplicationDbContext context, IServiceProvider serviceProvider)
         {
