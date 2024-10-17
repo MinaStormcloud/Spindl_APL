@@ -59,7 +59,7 @@ namespace Spindl_APL.Server.Controllers
 
             IEnumerable<Company> companies = await _companyService.Search(search);
 
-            if (companies.Any())
+            if (!companies.Any())
             {
                 return NotFound();
             }
