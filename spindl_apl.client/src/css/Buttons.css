@@ -133,4 +133,8 @@
         border: 1px solid var(--gray-blue);
         background-color: var(--gray-blue);
       }
+
+      .btn-gray-blue-reverse {
+        margin-bottom: 1rem;
+      }
   }

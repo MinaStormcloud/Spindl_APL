@@ -96,5 +96,13 @@
   @media screen and (max-width: 600px) {
     .contact-wrapper {
       font-size: small;
-    }     
+    } 
+
+    .contact-title{
+      font-size: medium;
+    }
+    
+    .side label{
+      font-size: small;
+    }
   }
