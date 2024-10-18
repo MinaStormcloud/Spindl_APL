@@ -13,11 +13,11 @@ namespace Spindl_APL.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAccountService _authService;
+        private readonly IAccountService _accountService;
 
-        public AccountController(IAccountService authService)
+        public AccountController(IAccountService accountService)
         {
-            _authService = authService;
+            _accountService = accountService;
         }
 
         [HttpPost("register")]
@@ -26,7 +26,7 @@ namespace Spindl_APL.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.RegisterAsync(account);
+            var result = await _accountService.RegisterAsync(account);
 
             if (result.Succeeded)
             {
@@ -42,7 +42,7 @@ namespace Spindl_APL.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.LoginAsync(account);
+            var result = await _accountService.LoginAsync(account);
             if (result.Succeeded)
             {
                 return Ok(new { result.Data });
@@ -54,7 +54,7 @@ namespace Spindl_APL.Server.Controllers
         [HttpPost("logout")]
         public async Task<ActionResult> Logout()
         {
-            var result = await _authService.LogoutAsync();
+            var result = await _accountService.LogoutAsync();
             return Ok(new { result.Data });
         }
 
@@ -62,7 +62,7 @@ namespace Spindl_APL.Server.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> GetUserRoles(string userName)
         {
-            var result = await _authService.GetUserRolesAsync(userName);
+            var result = await _accountService.GetUserRolesAsync(userName);
 
             if (result.Succeeded)
             {
@@ -76,11 +76,11 @@ namespace Spindl_APL.Server.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> AssignRole(string userName, string role)
         {
-            var result = await _authService.AssignRoleToUserAsync(userName, role);
+            var result = await _accountService.AssignRoleToUserAsync(userName, role);
 
             if (result.Succeeded)
             {
-                var roles = await _authService.GetUserRolesAsync(userName);
+                var roles = await _accountService.GetUserRolesAsync(userName);
                 return Ok(new { userName, roles });
             }
 

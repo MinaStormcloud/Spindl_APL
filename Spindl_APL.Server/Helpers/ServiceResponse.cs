@@ -4,7 +4,7 @@
     {
         public T? Data { get; set; }
         public bool Succeeded { get; set; } = true;
-        public List<string> Errors { get; set; } = new List<string>();
+        public List<string>? Errors { get; set; }
 
         public static ServiceResponse<T> SuccessResponse(T data)
         {
