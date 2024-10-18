@@ -5,7 +5,6 @@ namespace Spindl_APL.Server.Data.Repositories
 {
     public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
-
         public CompanyRepository(ApplicationDbContext context) : base(context) { }
     }
 }

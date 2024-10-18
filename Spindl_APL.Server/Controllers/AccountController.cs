@@ -13,11 +13,11 @@ namespace Spindl_APL.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAuthService _authService;
+        private readonly IAccountService _accountService;
 
-        public AccountController(IAuthService authService)
+        public AccountController(IAccountService accountService)
         {
-            _authService = authService;
+            _accountService = accountService;
         }
 
         [HttpPost("register")]
@@ -26,14 +26,14 @@ namespace Spindl_APL.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.RegisterAsync(account);
+            var result = await _accountService.RegisterAsync(account);
 
             if (result.Succeeded)
             {
-                return Ok(new { result.Message });
+                return Ok(new { result.Data });
             }
 
-            return BadRequest(new { result.Message });
+            return BadRequest(new { result.Errors });
         }
 
         [HttpPost("login")]
@@ -42,31 +42,31 @@ namespace Spindl_APL.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.LoginAsync(account);
+            var result = await _accountService.LoginAsync(account);
             if (result.Succeeded)
             {
-                return Ok(new { result.Message });
+                return Ok(new { result.Data });
             }
 
-            return Unauthorized(new { result.Message });
+            return Unauthorized(new { result.Errors });
         }
 
         [HttpPost("logout")]
         public async Task<ActionResult> Logout()
         {
-            var result = await _authService.LogoutAsync();
-            return Ok(new { result.Message });
+            var result = await _accountService.LogoutAsync();
+            return Ok(new { result.Data });
         }
 
         [HttpGet("role")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> GetUserRoles(string userName)
         {
-            var result = await _authService.GetUserRolesAsync(userName);
+            var result = await _accountService.GetUserRolesAsync(userName);
 
             if (result.Succeeded)
             {
-                return Ok(new { userName, result.Values });
+                return Ok(new { userName, result.Data });
             }
 
             return NotFound(new { userName });
@@ -76,11 +76,11 @@ namespace Spindl_APL.Server.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> AssignRole(string userName, string role)
         {
-            var result = await _authService.AssignRoleToUserAsync(userName, role);
+            var result = await _accountService.AssignRoleToUserAsync(userName, role);
 
             if (result.Succeeded)
             {
-                var roles = await _authService.GetUserRolesAsync(userName);
+                var roles = await _accountService.GetUserRolesAsync(userName);
                 return Ok(new { userName, roles });
             }
 

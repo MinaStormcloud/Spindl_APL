@@ -3,13 +3,13 @@ using Spindl_APL.Server.Services.Interfaces;
 
 namespace Spindl_APL.Server.Services
 {
-    public class BookingService : IBookingService
+    public class InternshipService : IInternshipService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public BookingService(IUnitOfWork unitOfWork)
+        public InternshipService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork; 
+            _unitOfWork = unitOfWork;
         }
     }
 }

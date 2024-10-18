@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Spindl_APL.Server.Data;
 using Spindl_APL.Server.Data.Entities;
 using Spindl_APL.Server.DTOs;
+using Spindl_APL.Server.Services.Interfaces;
 
 namespace Spindl_APL.Server.Controllers
 {
@@ -13,17 +14,17 @@ namespace Spindl_APL.Server.Controllers
     [Authorize]
     public class CompanyController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICompanyService _companyService;
 
-        public CompanyController(ApplicationDbContext context)
+        public CompanyController(ICompanyService companyService)
         {
-            _context = context;
+            _companyService = companyService;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Company>>> GetAll()
         {
-            var companies = await _context.Companies.ToListAsync();
+            var companies = await _companyService.GetAllCompaniesAsync();
 
             if (companies.Count == 0)
             {
@@ -36,7 +37,7 @@ namespace Spindl_APL.Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Company>> GetById(int id)
         {
-            var company = await _context.Companies.FindAsync(id);
+            var company = await _companyService.GetCompanyByIdAsync(id);
 
             if (company == null)
             {
@@ -49,31 +50,15 @@ namespace Spindl_APL.Server.Controllers
         [HttpPost("search")]
         public async Task<ActionResult<List<Company>>> Search([FromBody] SearchDto search)
         {
-            List<Company> companies;
-
-            if (search.Location == "")
+            // Doesn't work; the dto gets default values in binding if request JSON is empty.
+            if (search == null)
             {
-                companies = await _context.Companies
-                    .Include(c => c.Internships.Where(i => i.NumberOfStudents >= search.NumberOfStudents))
-                    .Where(c => c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
-                    .ToListAsync();
-            }
-            else if (search.NumberOfStudents == -1)
-            {
-                companies = await _context.Companies
-                    .Include(c => c.Internships)
-                    .Where(c => c.Location == search.Location)
-                    .ToListAsync();
-            }
-            else
-            {
-                companies = await _context.Companies
-                    .Include(c => c.Internships.Where(i => i.NumberOfStudents >= search.NumberOfStudents))
-                    .Where(c => c.Location == search.Location && c.Internships.Any(i => i.NumberOfStudents >= search.NumberOfStudents))
-                    .ToListAsync();
+                return BadRequest();
             }
 
-            if (companies.Count == 0)
+            IEnumerable<Company> companies = await _companyService.Search(search);
+
+            if (!companies.Any())
             {
                 return NotFound();
             }

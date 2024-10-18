@@ -15,7 +15,7 @@ function SearchBar({ onSearch }) {
       terms.location = location;
     }
     if (positions) {
-      terms.numberOfStudents = positions;
+      terms.numberOfStudents = Number(positions);
     }
     if (positions) {
       terms.jobTitle = jobTitle;
@@ -28,6 +28,7 @@ function SearchBar({ onSearch }) {
     await fetch('https://localhost:7127/api/company/search', {
       method: 'POST',
       body: JSON.stringify(getSearchTerms()),
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -54,14 +55,16 @@ function SearchBar({ onSearch }) {
         placeholder="Search for a company"
       /> */}
       {/* Category search bar */}
-      {<input
-        type="search"
-        id="keywords"
-        value={jobTitle}
-        onChange={(e) => setJobTitles(e.target.value)}
-        className="input"
-        placeholder="Search for a job title"
-      /> }
+      {
+        <input
+          type="search"
+          id="keywords"
+          value={jobTitle}
+          onChange={(e) => setJobTitles(e.target.value)}
+          className="input"
+          placeholder="Search for a job title"
+        />
+      }
       {/* Location search bar */}
       <input
         type="search"
@@ -93,10 +96,18 @@ function SearchBar({ onSearch }) {
         <table>
           <thead>
             <tr className="tr-font">
-              <th className="centered" scope="col">Internship Provider</th>
-              <th className="centered" scope="col">Title</th>
-              <th className="centered" scope="col">Location</th>
-              <th className="centered" scope="col">Positions</th>
+              <th className="centered" scope="col">
+                Internship Provider
+              </th>
+              <th className="centered" scope="col">
+                Title
+              </th>
+              <th className="centered" scope="col">
+                Location
+              </th>
+              <th className="centered" scope="col">
+                Positions
+              </th>
             </tr>
           </thead>
           {companies.length > 0 ? (

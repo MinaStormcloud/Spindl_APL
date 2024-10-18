@@ -5,16 +5,22 @@ using Spindl_APL.Server.Data.Entities;
 using System.Text.Json.Serialization;
 using Spindl_APL.Server.Services;
 using Spindl_APL.Server.Services.Interfaces;
+using Spindl_APL.Server.Data.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add UoW to the container.
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Add services.
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IInternshipService, InternshipService>();
 
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(x =>
    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -49,7 +55,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await DataSeeding.SeedAsync(context, scope.ServiceProvider);
+    await DataSeeder.SeedAsync(context, scope.ServiceProvider);
 }
 
 if (app.Environment.IsDevelopment())
