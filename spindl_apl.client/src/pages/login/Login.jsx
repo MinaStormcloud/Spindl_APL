@@ -13,13 +13,14 @@ function Login() {
     await fetch('https://localhost:7127/api/account/login', {
       method: 'POST',
       body: JSON.stringify({ username: email, password: password }),
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((res) => res.json())
       .then((data) =>
-        data.message === 'Login successful'
+        data.data === 'Login successful'
           ? navigate('/dashboard')
           : setError('Login failed')
       )
