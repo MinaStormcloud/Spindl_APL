@@ -17,7 +17,7 @@ h1 {
 }
 
 @media screen and (max-width: 600px) {
-    .about-paragraph {
-	font-size: small;
-	text-align: left;      
+  .about-paragraph {
+     font-size: small;
+     text-align: left;      
 }
