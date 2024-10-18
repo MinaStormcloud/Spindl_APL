@@ -16,7 +16,8 @@ h1 {
     padding: 1rem;
 }
 
-.about-paragraph {
-    font-size: small;
-    text-align: left;
+@media screen and (max-width: 600px) {
+    .about-paragraph {
+		font-size: small;
+		text-align: left;      
   }
