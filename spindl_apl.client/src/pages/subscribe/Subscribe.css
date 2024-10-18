@@ -12,7 +12,7 @@
     font-size: 1.5rem;
   }
   
-  .side p {
+  .subscribe-side p {
     margin: 0;
     padding: 0;
   }
@@ -23,13 +23,13 @@
     margin: 0 auto;    
   }
   
-  .side label {
+  .subscribe-side label {
     float: left;
     font-weight: 700;
     font-size: 1rem;
   }
   
-  .side textarea,
+  .subscribe-side textarea,
   input {
     line-height: 1.5rem;
     border: 0;
@@ -40,17 +40,17 @@
     background-color: white;
   }
   
-  .side textarea {
+  .subscribe-side textarea {
     width: 100%;
     height: 15rem;
     resize: none;
   }
   
-  .side input {
+  .subscribe-side input {
     width: 50%;
     margin-bottom: 1rem;
   }
-  .side button {
+  .subscribe-side button {
     float: right;
   }
   
@@ -61,7 +61,7 @@
     margin-bottom: 1rem;
   }
   
-  .side {
+  .subscribe-side {
     height: 20rem;
     background-color: var(--pale-gray) !important;
     outline: 1px solid transparent;    
@@ -71,7 +71,7 @@
       border-radius: 1rem 1rem 0 0;
       box-shadow: inset 0 0.75rem 2rem var(--gray-blue) !important;
     }
-    &.side:nth-of-type(2) {
+    &.subscribe-side:nth-of-type(2) {
       padding: 2rem;
       border-radius: 0 0 1rem 1rem;
       box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.05),
@@ -79,7 +79,7 @@
     }
   }
 
-  .side-title {
+  .subscribe-side-title {
     height: 3rem;
     background-color: var(--pale-gray) !important;
     outline: 1px solid transparent;    
@@ -89,7 +89,7 @@
       border-radius: 1rem 1rem 0 0;
       box-shadow: inset 0 0.75rem 2rem var(--gray-blue) !important;
     }
-    &.side:nth-of-type(2) {
+    &.subscribe-side:nth-of-type(2) {
       padding: 2rem;
       border-radius: 0 0 1rem 1rem;
       box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.05),
@@ -113,5 +113,13 @@
   @media screen and (max-width: 600px) {
     .subscribe-wrapper {
       font-size: small;
-    }      
+    } 
+
+    .subscribe-title{
+      font-size: medium;
+    }
+    
+    .subscribe-side label{
+      font-size: small;
+    }
   }

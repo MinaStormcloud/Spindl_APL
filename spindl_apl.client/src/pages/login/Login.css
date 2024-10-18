@@ -122,5 +122,9 @@
   @media screen and (max-width: 600px) {
     .form-container {
       font-size: small;
-    }      
+    }     
+
+    .login-title {
+      font-size: medium;
+    }
   }

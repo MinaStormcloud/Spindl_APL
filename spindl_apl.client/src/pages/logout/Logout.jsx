@@ -10,7 +10,7 @@ export default function Logout() {
   return (
     <div id="logout">
       <div>        
-        <h1 className="h1">See You Again Soon!</h1>         
+        <h1 className="h1">Bye For Now!</h1>         
       </div>   
       <div>
         <p className="logout-paragraph">

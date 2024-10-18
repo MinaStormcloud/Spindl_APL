@@ -8,7 +8,14 @@ h1 {
     text-align: center;
 }
 
-.privacy-paragraph{
+.privacy-paragraph {
     text-align: center;
     font-size: 1.5rem;
 }
+
+@media screen and (max-width: 600px) {      
+    .privacy-paragraph {
+      font-size: small;
+      text-align: left;
+    }
+  }

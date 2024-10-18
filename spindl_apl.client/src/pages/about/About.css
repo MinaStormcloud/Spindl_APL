@@ -15,3 +15,8 @@ h1 {
 .google-map{
     padding: 1rem;
 }
+
+.about-paragraph {
+    font-size: small;
+    text-align: left;
+  }

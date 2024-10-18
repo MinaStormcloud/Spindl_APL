@@ -39,13 +39,7 @@
     font-weight: 700;
     font-size: 1rem;
     text-align: center;
-  }
-  
-  .login-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-align: center;
-  }
+  } 
   
   .form-group {
     margin-bottom: 15px;
@@ -130,5 +124,17 @@
   @media screen and (max-width: 600px) {
     .form-container {
       font-size: small;
-    }      
+    }  
+    
+    .form-group label{
+      font-size: small;
+    }
+    
+    .register-subtitle{
+      font-size: small;
+    }
+
+    .register-title{
+      font-size: medium;
+    }
   }

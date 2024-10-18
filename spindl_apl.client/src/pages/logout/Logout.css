@@ -12,3 +12,12 @@ h1 {
     text-align: center;
     font-size: 1.5rem;
 }
+
+  @media screen and (max-width: 600px) {      
+    .logout-paragraph {
+      font-size: small;
+      text-align: left;
+    }   
+  }
+
+  
