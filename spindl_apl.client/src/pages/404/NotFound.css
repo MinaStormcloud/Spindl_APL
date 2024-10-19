@@ -4,14 +4,18 @@
   text-align: left;    
 }
 
-h1 {
-  color: var(--light-blue);
-  font-size: 4rem;
-  margin-bottom: 1rem;
+h1 {  
   text-align: center;
 }
 
-.not-found-paragraph{
+.not-found-paragraph {
   text-align: center;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {      
+  .not-found-paragraph {
+    font-size: small;
+    text-align: left;
+  }
 }

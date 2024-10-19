@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div id="not-found">
       <div>        
-        <h1 className="h1">404 - Not Found</h1>         
+        <h1 className="h1">404: Not Found</h1>         
       </div>   
       <div>
         <p className="not-found-paragraph">
