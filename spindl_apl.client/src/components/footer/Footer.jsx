@@ -28,19 +28,19 @@ export default function Footer() {
           <Link to="/faq">FAQ</Link>        
         </div>        
         <div className="footer-col">
-          <h4>Contributors</h4>          
-          {/*<a href="https://github.com/Filip-d-v" target="_blank">
-            Filip
-          </a>*/}
-          {/*<a href="https://github.com/ZainabDaebes21" target="_blank">
-            Zainab
-          </a>*/}
+          <h4>Contributors</h4>              
           <a href="https://github.com/mattiasvlex" target="_blank">
             Mattias
           </a>
           <a href="https://github.com/MinaStormcloud" target="_blank">
             Amina
-          </a>          
+          </a>
+          <a href="https://github.com/Filip-d-v" target="_blank">
+            Filip
+          </a>
+          <a href="https://github.com/ZainabDaebes21" target="_blank">
+            Zainab
+          </a>
         </div>
         {/*<div className="footer-col">
           <h4 className="h4-contact">Contact Us</h4>
