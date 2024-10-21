@@ -2,13 +2,8 @@
     --light-blue: #0688b4;
     --dark-blue: #073b4c;
     --gray-blue: #99b4bd;
-    --dark-gray: #7d8f95;
-    --highlight: #888888;
-    --light-ash: #777777;
-    --pale-gray: #dbe5e9;
-    --off-white: #CCCCCC;
-    --charcoal: #222;
-    --dark-ash: #333;    
+    --dark-gray: #7d8f95;    
+    --pale-gray: #dbe5e9;    
     
     --orange: #ff7b08;
     --yellow: #f9d806;
@@ -122,7 +117,7 @@
     margin-right: 1rem;
     border: 1px solid var(--gray-blue);
     background-color: var(--gray-blue);
-  }
+  }  
 
   @media screen and (max-width: 600px) {
     .btn-gray-blue-responsive {

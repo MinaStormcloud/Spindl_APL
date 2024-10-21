@@ -78,6 +78,7 @@
     font-weight: 700;
     border-radius: 0.25rem;
     padding: 1rem 3rem;
+    margin-right: 1rem;
     cursor: pointer;
     color: var(--white);
     border: 1px solid var(--white);
@@ -95,19 +96,7 @@
     border: 1px solid var(--white);
     background-color: var(--red);
     transition: ease-in-out 0.5s;  
-  }
-  
-  .btn-login-right {
-    font-weight: 700;
-    border-radius: 0.25rem;
-    padding: 1rem 3rem;
-    cursor: pointer;
-    color: var(--white);
-    border: 1px solid var(--white);
-    background-color: var(--green);
-    transition: ease-in-out 0.5s;
-    float: right;
-  }
+  } 
   
   .clearfix::after {
     content: "";
@@ -117,6 +106,10 @@
   
   p a {
     color: dodgerblue;
+  }
+
+  .spacer {
+    height: 2rem;
   }
 
   @media screen and (max-width: 600px) {

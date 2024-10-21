@@ -12,6 +12,4 @@ Now the application is ready to run. When Swagger starts up, backend data is pas
 
 Install the new certificates and run the application.
 
-Open the React part of the application in Visual Studio Code, activate the Terminal window, and go to the directory containing the frontend folder. Write "npm install" and wait for the installation to finish. Write "npm run dev" and wait for Vite to start up.
-
-Open a new tab in the browser and go to "https://localhost:5173/". The page might have to be reloaded once. 
+Open the React part of the application in Visual Studio Code, activate the Terminal window, and go to the directory containing the frontend folder. Write "npm install" and wait for the installation to finish. Write "npm run dev" and wait for Vite to start up. Open a new tab in the browser and go to "https://localhost:5173/". The page might have to be reloaded once. 

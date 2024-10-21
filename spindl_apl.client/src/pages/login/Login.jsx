@@ -59,11 +59,11 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
-        <button type="submit" className="btn-login-right">
-          Sign In
-        </button>
-
+        <div className="spacer"></div>
+        <div className="clearfix">
+          <button type="submit" className="btn-login">Sign In</button>
+            <button type="button" className="btn-cancel">Cancel</button>                        
+        </div>
         <div className="form-group">
           <input id="form-checkbox" type="checkbox" name="remember" />
           <label htmlFor="formRemember">
@@ -71,10 +71,7 @@ function Login() {
             Remember me
           </label>
         </div>
-        <div className="container">
-          <button type="button" className="btn-cancel">
-            Cancel
-          </button>
+        <div className="container">          
           <span className="forgot-password">
             {' '}
             Forgot <a href="#">password?</a>

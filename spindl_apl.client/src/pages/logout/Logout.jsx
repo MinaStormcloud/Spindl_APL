@@ -14,7 +14,7 @@ export default function Logout() {
       </div>   
       <div>
         <p className="logout-paragraph">
-        You have successfully logged out from your account, and you will be redirected to the Home page in a moment.
+        You have successfully logged out from your account, and you will be redirected in a moment.
         </p>              
       </div>           
     </div>
