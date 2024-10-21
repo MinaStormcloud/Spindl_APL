@@ -73,8 +73,8 @@ function Register() {
                     </div>
                     <p>By creating an account, you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
                     <div className="clearfix">
-                        <button type="button" className="btn-cancel">Cancel</button>
-                        <button type="submit" className="btn-login">Sign Up</button>
+                    <button type="submit" className="btn-signup">Sign Up</button>
+                        <button type="button" className="btn-cancel">Cancel</button>                        
                     </div>
                 </form>
                 {error && <p>{error}</p>}

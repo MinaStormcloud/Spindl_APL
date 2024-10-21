@@ -12,7 +12,7 @@
     }
     .topnav.responsive ul li {
       float: none;
-      display: inline-flex; /*inline-flex/block*/
+      display: inline-flex; 
       text-align: left;
     }
   }    

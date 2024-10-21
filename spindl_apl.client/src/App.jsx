@@ -55,6 +55,9 @@ function App() {
                 element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}
 
             {/* These links are currently being used for tests*/ }
+            
+            {/* The employer dashboard will be developed when the
+            admin and user dashboards are in working order */ }
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/content" element={<DashboardContent />} />

@@ -3,7 +3,7 @@
     --dark-blue: #073b4c;
     --black: #020e13;
     --white: #ecf9fd;
-  }
+  }  
   
   .subscribe-title {
     margin: 0;
@@ -121,5 +121,5 @@
     
     .subscribe-side label{
       font-size: small;
-    }
+    }    
   }
