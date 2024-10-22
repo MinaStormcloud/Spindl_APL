@@ -46,18 +46,21 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/logout" element={<Logout />} />            
+            <Route path="*" element={<NotFound />} /> 
+            <Route path="/privacy" element={<Privacy />} />
+            {/**Subscribe and FAQ have been commented out in Navbar.jsx,
+            DropdownMenu.jsx and Footer.jsx. */}
             <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/privacy" element={<Privacy />} />   
+            <Route path="/faq" element={<FAQ />} />                       
 
-           {/* The dashboard pages will only be accessible after login*/ }
+            {/* The dashboard pages will only be accessible after login
+           when the Private Route has been activated*/ }
             {/** <Route path="/dashboard/*"
                 element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}
 
-            {/* These links are currently being used for tests*/ }
-            
-            {/* The employer dashboard will be developed when the
-            admin and user dashboards are in working order */ }
+            { /**All Dashboard links can be deleted or moved here when it's time 
+             * to implement the Private Route. */}       
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/content" element={<DashboardContent />} />
@@ -71,9 +74,8 @@ function App() {
             <Route path="/dashboard/user" element={<DashboardUser />} />
             <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
             <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
-            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />           
+            
           </Routes>
         </Layout>
       </BrowserRouter>
