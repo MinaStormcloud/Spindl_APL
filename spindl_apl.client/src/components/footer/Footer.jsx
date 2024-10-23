@@ -23,7 +23,7 @@ export default function Footer() {
           <Link to="/contact">Contact</Link>
           <Link to="/register">Sign Up</Link>
           <Link to="/login">Sign In</Link>
-          {/*<Link to="/subscribe">Newsletter</Link>*/}
+          <Link to="/subscribe">Newsletter</Link>
           <Link to="/privacy">Privacy</Link>   
           {/*<Link to="/faq">FAQ</Link> */}       
         </div>        

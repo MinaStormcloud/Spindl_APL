@@ -4,22 +4,46 @@
     text-align: left;    
 }
 
-h1 {
+.logout-h1 {
     text-align: center;
 }
 
 .logout-paragraph{
-    text-align: center;
-    font-size: 1.5rem;
+    text-align: center;    
+}
+
+#logout .logout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#logout .logout-container {
+  padding: 8rem 4rem;    
+}
+
+#logout .img {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1729457046242-2d36eba14597?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
 
   @media screen and (max-width: 600px) {      
     .logout-paragraph {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 1rem;      
       font-size: small;
       text-align: left;
     }   
+
+    #logout .logout-container {
+      padding: 4rem 2rem;    
+    }
+
+    .logout-h1 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      text-align: left;
+    }
   }
 
   
