@@ -284,4 +284,25 @@ button:focus-visible {
       width: 50vw;
     }
   }
+
+  /* Privacy Page */
+  .privacy {
+    width: 100%;
+    padding: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    img {
+      bottom: -6vh;
+      right: 50%;
+      transform: translateX(50%);
+      width: 50vw;
+    }
+  }
 }

@@ -4,20 +4,44 @@
     text-align: left;    
 }
 
-h1 {
+.privacy-h1 {
     text-align: center;
 }
 
 .privacy-paragraph {
-    text-align: center;
-    font-size: 1.5rem;
+    text-align: center;    
 }
+
+#privacy .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+#privacy .container {
+    padding: 8rem 4rem;    
+}
+
+#privacy .img {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://images.unsplash.com/photo-1728237895204-695f3528c4f2?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
 
 @media screen and (max-width: 600px) {      
     .privacy-paragraph {
+      padding-left: 1rem;      
+      font-size: small;
+      text-align: left;
+    }
+
+    #privacy .container {
+      padding: 4rem 2rem;    
+    }
+
+    .privacy-h1 {
       padding-left: 1rem;
       padding-right: 1rem;
-      font-size: small;
       text-align: left;
     }
   }

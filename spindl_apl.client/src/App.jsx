@@ -49,9 +49,9 @@ function App() {
             <Route path="/logout" element={<Logout />} />            
             <Route path="*" element={<NotFound />} /> 
             <Route path="/privacy" element={<Privacy />} />
-            {/**Subscribe and FAQ have been commented out in Navbar.jsx,
-            DropdownMenu.jsx and Footer.jsx. */}
             <Route path="/subscribe" element={<Subscribe />} />
+            {/**FAQ has been commented out in Navbar.jsx,
+            DropdownMenu.jsx and Footer.jsx. */}            
             <Route path="/faq" element={<FAQ />} />                       
 
             {/* The dashboard pages will only be accessible after login
