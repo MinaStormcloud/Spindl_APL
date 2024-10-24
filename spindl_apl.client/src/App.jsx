@@ -10,21 +10,27 @@ import Login from './pages/login/Login';
 import Logout from './pages/logout/Logout';
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
-import Dashboard from './pages/dashboard/Dashboard'; 
-import DashboardBookings from './pages/dashboard/DashboardBookings'; 
-import DashboardContent from './pages/dashboard/DashboardContent'; 
-import DashboardOverview from './pages/dashboard/DashboardOverview'; 
-import DashboardEmployer from './pages/dashboard/DashboardEmployer';
-import DashboardEmployerBookings from './pages/dashboard/DashboardEmployerBookings';
-import DashboardEmployerContent from './pages/dashboard/DashboardEmployerContent';
-import DashboardEmployerOverview from './pages/dashboard/DashboardEmployerOverview'; 
-import DashboardUser from './pages/dashboard/DashboardUser'; 
-import DashboardUserBookings from './pages/dashboard/DashboardUserBookings';
-import DashboardUserContent from './pages/dashboard/DashboardUserContent';
-import DashboardUserDetails from './pages/dashboard/DashboardUserDetails';
-import DashboardUserOverview from './pages/dashboard/DashboardUserOverview';
 import FAQ from './pages/faq/FAQ'; 
 import NotFound from './pages/404/NotFound';
+
+import Dashboard from './pages/dashboard/admin/Dashboard'; 
+import DashboardBookings from './pages/dashboard/admin/DashboardBookings'; 
+import DashboardContent from './pages/dashboard/admin/DashboardContent'; 
+import DashboardOverview from './pages/dashboard/admin/DashboardOverview'; 
+import DashboardAllEmployers from './pages/dashboard/admin/DashboardAllEmployers'; 
+import DashboardAllUsers from './pages/dashboard/admin/DashboardAllUsers';
+import DashboardInternships from './pages/dashboard/admin/DashboardInternships';
+
+import DashboardEmployer from './pages/dashboard/employer/DashboardEmployer';
+import DashboardEmployerBookings from './pages/dashboard/employer/DashboardEmployerBookings';
+import DashboardEmployerContent from './pages/dashboard/employer/DashboardEmployerContent';
+import DashboardEmployerOverview from './pages/dashboard/employer/DashboardEmployerOverview'; 
+import DashboardUser from './pages/dashboard/user/DashboardUser'; 
+import DashboardUserBookings from './pages/dashboard/user/DashboardUserBookings';
+import DashboardUserContent from './pages/dashboard/user/DashboardUserContent';
+import DashboardUserDetails from './pages/dashboard/user/DashboardUserDetails';
+import DashboardUserOverview from './pages/dashboard/user/DashboardUserOverview';
+
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -62,10 +68,13 @@ function App() {
 
             { /**All Dashboard links can be deleted or moved here when it's time 
              * to implement the Private Route. */}       
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/bookings" element={<DashboardBookings />} />
-            <Route path="/dashboard/content" element={<DashboardContent />} />
-            <Route path="/dashboard/overview" element={<DashboardOverview />} />
+            <Route path="/dashboard/admin" element={<Dashboard />} />
+            <Route path="/dashboard/admin/bookings" element={<DashboardBookings />} />
+            <Route path="/dashboard/admin/content" element={<DashboardContent />} />
+            <Route path="/dashboard/admin/overview" element={<DashboardOverview />} />
+            <Route path="/dashboard/admin/allemployers" element={<DashboardAllEmployers />} />
+            <Route path="/dashboard/admin/allusers" element={<DashboardAllUsers />} />
+            <Route path="/dashboard/admin/internships" element={<DashboardInternships />} />
 
             <Route path="/dashboard/employer" element={<DashboardEmployer />} />
             <Route path="/dashboard/employer/bookings" element={<DashboardEmployerBookings />} />

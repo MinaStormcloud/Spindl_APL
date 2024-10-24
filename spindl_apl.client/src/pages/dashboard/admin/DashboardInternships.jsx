@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import BookingForm from '../../dashboard-components/bookingform/BookingForm';
-import SideMenu from '../../dashboard-components/sidemenu/SideMenu';
-import '../../dashboard-components/dashboard-css/Dashboard.css';
+import Internships from '../../../dashboard-components/internshipdata/Internships';
+import SideMenu from '../../../dashboard-components/sidemenu/SideMenu';
+import '../../../dashboard-components/dashboard-css/Dashboard.css';
 
-export default function DashboardBookings() {
+export default function DashboardInternships() {
   const [bookings, setBookings] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
   const [editBookingData, setEditBookingData] = useState(null);
+  //replace the booking form with an internship form
 
   useEffect(() => {
     fetchBookings();    
@@ -58,14 +59,14 @@ export default function DashboardBookings() {
       <SideMenu />
         <div className="dashboard">      
         <div className="dashboard-header">
-          <h2>Bookings</h2>
+          <h2>Internships</h2>
           <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
-            Add Booking
+            Add Internship
           </button>
         </div>
 
         {showInputForm && (
-          <BookingForm
+          <Internships
             onBookingAdded={handleBookingAdded}
             onBookingUpdated={handleBookingUpdated}
             onCancel={handleCancelForm}         
@@ -77,7 +78,7 @@ export default function DashboardBookings() {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Company Name</th>
               <th>Email</th>
               <th>Phone</th>            
               <th>Date</th>

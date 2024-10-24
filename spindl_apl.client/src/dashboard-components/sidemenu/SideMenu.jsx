@@ -15,14 +15,29 @@ function SideMenu() {
     <div className="side-menu-container">
       <h2>Dashboard</h2>
       <Link
-        to="/dashboard"
-        className={selectedMenu === "/dashboard" ? "selected" : ""}>
+        to="/dashboard/admin"
+        className={selectedMenu === "/dashboard/admin" ? "selected" : ""}>
          Overview
       </Link>      
       <Link
-        to="/dashboard/bookings"
-        className={selectedMenu === "/dashboard/bookings" ? "selected" : ""}>
+        to="/dashboard/admin/bookings"
+        className={selectedMenu === "/dashboard/admin/bookings" ? "selected" : ""}>
          Bookings
+      </Link>
+      <Link
+        to="/dashboard/admin/allemployers"
+        className={selectedMenu === "/dashboard/admin/allemployers" ? "selected" : ""}>
+         Employers
+      </Link>
+      <Link
+        to="/dashboard/admin/allusers"
+        className={selectedMenu === "/dashboard/admin/allusers" ? "selected" : ""}>
+         Users
+      </Link>
+      <Link
+        to="/dashboard/admin/internships"
+        className={selectedMenu === "/dashboard/admin/internships" ? "selected" : ""}>
+         Internships
       </Link>
       <Link
         to="/"
