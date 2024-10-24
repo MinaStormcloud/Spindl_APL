@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../../dashboard-components/dashboard-css/DashboardOverview.css';
 
 export default function DashboardUserOverview() {  
-  const [bookingCount, setBookingCount] = useState(0);
-  const [userCount, setUserCount] = useState(0);  
+  const [bookingCount, setBookingCount] = useState(0);  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,11 +44,7 @@ export default function DashboardUserOverview() {
         <div className="overview-card overview-col">
           <h5>Bookings</h5>
           <h2>{bookingCount}</h2>
-        </div>
-        {<div className="overview-card overview-col">
-          <h5>My profile</h5>
-          <h2>{/*userCount*/}</h2>
-        </div> }             
+        </div>                    
       </div>
     </div>
   );

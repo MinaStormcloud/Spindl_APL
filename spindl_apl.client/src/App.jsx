@@ -21,6 +21,7 @@ import DashboardEmployerOverview from './pages/dashboard/DashboardEmployerOvervi
 import DashboardUser from './pages/dashboard/DashboardUser'; 
 import DashboardUserBookings from './pages/dashboard/DashboardUserBookings';
 import DashboardUserContent from './pages/dashboard/DashboardUserContent';
+import DashboardUserDetails from './pages/dashboard/DashboardUserDetails';
 import DashboardUserOverview from './pages/dashboard/DashboardUserOverview';
 import FAQ from './pages/faq/FAQ'; 
 import NotFound from './pages/404/NotFound';
@@ -74,6 +75,7 @@ function App() {
             <Route path="/dashboard/user" element={<DashboardUser />} />
             <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
             <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
+            {<Route path="/dashboard/user/details" element={<DashboardUserDetails />} />}
             <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />           
             
           </Routes>

@@ -25,6 +25,11 @@ function UserSideMenu() {
          My Bookings
       </Link>
       <Link
+        to="/dashboard/user/details"
+        className={selectedMenu === "/dashboard/user/details" ? "selected" : ""}>
+         My Profile
+      </Link>
+      <Link
         to="/"
         id="exit-dashboard"
         className={selectedMenu === "/" ? "selected" : ""}
