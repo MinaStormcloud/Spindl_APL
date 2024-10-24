@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import BookingForm from '../../dashboard-components/bookingform/BookingForm';
-import EmployerSideMenu from '../../dashboard-components/sidemenu/EmployerSideMenu';
+import BookingForm from '../../../dashboard-components/bookingform/BookingForm';
+import UserSideMenu from '../../../dashboard-components/sidemenu/UserSideMenu';
 /*This page needs to be customized to fetch all bookings 
 matching the user ID of the user that just logged in*/
 
-export default function DashboardEmployerBookings() {
+export default function DashboardUserBookings() {
   const [bookings, setBookings] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
   const [editBookingData, setEditBookingData] = useState(null);
@@ -56,7 +56,7 @@ export default function DashboardEmployerBookings() {
 
   return (
     <div className="dashboard-container">
-      <EmployerSideMenu />
+      <UserSideMenu />
       <div className="dashboard">
       <div className="dashboard-header">
         <h2>Bookings</h2>        
@@ -98,7 +98,6 @@ export default function DashboardEmployerBookings() {
         </tbody>
       </table>
     </div>
-    </div>
-    
+    </div>    
   );
 }

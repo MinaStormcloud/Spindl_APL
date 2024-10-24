@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserDetails from '../../dashboard-components/userdetails/UserDetails';
-import UserSideMenu from '../../dashboard-components/sidemenu/UserSideMenu';
+import UserDetails from '../../../dashboard-components/userdetails/UserDetails';
+import UserSideMenu from '../../../dashboard-components/sidemenu/UserSideMenu';
 /*This page needs to be customized to fetch all bookings 
 matching the user ID of the user that just logged in*/
 

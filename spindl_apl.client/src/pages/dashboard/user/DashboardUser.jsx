@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardUserContent from "./DashboardUserContent";
-import '../../dashboard-components/dashboard-css/Dashboard.css';
-import UserSideMenu from '../../dashboard-components/sidemenu/UserSideMenu';
+import '../../../dashboard-components/dashboard-css/Dashboard.css';
+import UserSideMenu from '../../../dashboard-components/sidemenu/UserSideMenu';
 
 const DashboardUser = () => {
   return (
