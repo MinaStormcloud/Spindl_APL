@@ -1,6 +1,8 @@
 # Spindl_APL
 
-"Spindl_APL" is a platform for connecting job seekers with employers offering internships. The application has a responsive design to accommodate smartphones and tablets, as well as laptops and desktop computers. "Spindl_APL" allows users to create accounts to access their personal booking details in the dashboard. Administrators can view all users and bookings in their customized dashboard view. This project was created in Visual Studio Community 2022 as an ASP.NET Core app with React and Vite, as described in this tutorial: https://learn.microsoft.com/en-us/visualstudio/javascript/tutorial-asp-net-core-with-react?view=vs-2022. The back end part was developed in Visual Studio, and the front end layout was built in Visual Studio Code. Please note that running the application requires both Visual Studio and Visual Studio Code.
+"Spindl_APL" is a platform for connecting job seekers with employers offering internships. The application has a responsive design to accommodate smartphones and tablets, as well as laptops and desktop computers. "Spindl_APL" allows users to create accounts to access their personal booking details in the dashboard. Administrators can view all users and bookings in their customized dashboard view. This project was created in Visual Studio Community 2022 as an ASP.NET Core app with React and Vite, as described in this tutorial: https://learn.microsoft.com/en-us/visualstudio/javascript/tutorial-asp-net-core-with-react?view=vs-2022. 
+
+The back end part was developed in Visual Studio, and the front end layout was built in Visual Studio Code. Please note that running the application requires both Visual Studio and Visual Studio Code.
 
 VISUAL STUDIO:
 Install Visual Studio: https://visualstudio.microsoft.com/vs/.
