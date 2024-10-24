@@ -180,7 +180,7 @@ export default function BookingForm({
         </select>
       </div>
       <div className="form-actions">
-        <button type="submit" className="btn-overview btn-blue">
+        <button type="submit" className="btn-overview btn-green">
           {editBookingData ? "Update" : "Create"}
         </button>
         <button
