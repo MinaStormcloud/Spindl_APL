@@ -4,41 +4,41 @@ import SideMenu from '../../../dashboard-components/sidemenu/SideMenu';
 import '../../../dashboard-components/dashboard-css/Dashboard.css';
 
 export default function DashboardInternships() {
-  const [bookings, setBookings] = useState([]);  
+  const [internships, setInternships] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
-  const [editBookingData, setEditBookingData] = useState(null);
-  //replace the booking form with an internship form
+  const [editInternshipData, setEditInternshipData] = useState(null);
+  //replace the internship form with an internship form
 
   useEffect(() => {
-    fetchBookings();    
+    fetchInternships();    
   }, []);
 
-  const fetchBookings = () => {
-    fetch("https://localhost:7127/api/Bookings")
+  const fetchInternships = () => {
+    fetch("https://localhost:7127/api/Internships")
       .then((response) => response.json())
-      .then((data) => setBookings(data))
-      .catch((error) => console.error("Error fetching bookings:", error));
+      .then((data) => setInternships(data))
+      .catch((error) => console.error("Error fetching internships:", error));
   };  
 
-  const handleBookingAdded = (newBooking) => {
-    fetchBookings();
+  const handleInternshipAdded = (newInternship) => {
+    fetchInternships();
     setShowInputForm(false);
   };
 
-  const handleBookingUpdated = (updatedBooking) => {
-    fetchBookings();
+  const handleInternshipUpdated = (updatedInternship) => {
+    fetchInternships();
     setShowInputForm(false);
-    setEditBookingData(null);
+    setEditInternshipData(null);
   };
 
-  const handleEdit = (booking) => {
-    setEditBookingData(booking);
+  const handleEdit = (internship) => {
+    setEditInternshipData(internship);
     setShowInputForm(true);
   };
 
   const handleCancelForm = () => {
     setShowInputForm(false);
-    setEditBookingData(null);
+    setEditInternshipData(null);
   };  
 
   const getStatusColor = (status) => {
@@ -67,11 +67,11 @@ export default function DashboardInternships() {
 
         {showInputForm && (
           <Internships
-            onBookingAdded={handleBookingAdded}
-            onBookingUpdated={handleBookingUpdated}
+            onInternshipAdded={handleInternshipAdded}
+            onInternshipUpdated={handleInternshipUpdated}
             onCancel={handleCancelForm}         
-            editBookingData={editBookingData}
-            fetchBookings={fetchBookings} // Pass fetchBookings as a prop
+            editInternshipData={editInternshipData}
+            fetchInternships={fetchInternships} // Pass fetchInternships as a prop
           />
         )}
 
@@ -88,19 +88,19 @@ export default function DashboardInternships() {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
-              <tr key={booking.bookingId}>
-                <td>{booking.guestName}</td>
-                <td>{booking.guestEmail}</td>
-                <td>{booking.guestPhone}</td>              
-                <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
-                <td style={{ color: getStatusColor(booking.status) }}>
-                  {booking.status}
+            {internships.map((internship) => (
+              <tr key={internship.internshipId}>
+                <td>{internship.userName}</td>
+                <td>{internship.userEmail}</td>
+                <td>{internship.userPhone}</td>              
+                <td>{new Date(internship.internshipDate).toLocaleDateString()}</td>              
+                <td style={{ color: getStatusColor(internship.status) }}>
+                  {internship.status}
                 </td>
                 <td>
                   <button
                     className="btn-overview btn-blue"
-                    onClick={() => handleEdit(booking)}
+                    onClick={() => handleEdit(internship)}
                   >
                     Edit
                   </button>
@@ -109,27 +109,27 @@ export default function DashboardInternships() {
                     onClick={() => {
                       if (
                         window.confirm(
-                          `Are you sure you want to delete booking with ID ${booking.bookingId}?`
+                          `Are you sure you want to delete internship with ID ${internship.internshipId}?`
                         )
                       ) {
                         fetch(
-                          `https://localhost:7127/api/Bookings/${booking.bookingId}`,
+                          `https://localhost:7127/api/Internships/${internship.internshipId}`,
                           {
                             method: "DELETE",
                           }
                         )
                           .then((response) => {
                             if (response.ok) {
-                              const updatedBookings = bookings.filter(
-                                (b) => b.bookingId !== booking.bookingId
+                              const updatedInternships = internships.filter(
+                                (b) => b.internshipId !== internship.internshipId
                               );
-                              setBookings(updatedBookings);
+                              setInternships(updatedInternships);
                             } else {
-                              throw new Error("Failed to delete booking");
+                              throw new Error("Failed to delete internship");
                             }
                           })
                           .catch((error) =>
-                            console.error("Error deleting booking:", error)
+                            console.error("Error deleting internship:", error)
                           );
                       }
                     }}

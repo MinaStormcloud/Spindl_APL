@@ -86,9 +86,9 @@ export default function DashboardEmployerBookings() {
         <tbody>
           {bookings.map((booking) => (
             <tr key={booking.bookingId}>
-              <td>{booking.guestName}</td>
-              <td>{booking.guestEmail}</td>
-              <td>{booking.guestPhone}</td>              
+              <td>{booking.userName}</td>
+              <td>{booking.userEmail}</td>
+              <td>{booking.userPhone}</td>              
               <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
               <td style={{ color: getStatusColor(booking.status) }}>
                 {booking.status}

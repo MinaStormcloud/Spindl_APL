@@ -4,41 +4,40 @@ import SideMenu from '../../../dashboard-components/sidemenu/SideMenu';
 import '../../../dashboard-components/dashboard-css/Dashboard.css';
 
 export default function DashboardAllUsers() {
-  const [bookings, setBookings] = useState([]);  
+  const [users, setApplicationUsers] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
-  const [editBookingData, setEditBookingData] = useState(null);
-  //replace the booking form with a user data form
+  const [editApplicationUserData, setEditApplicationUserData] = useState(null); 
 
   useEffect(() => {
-    fetchBookings();    
+    fetchApplicationUsers();    
   }, []);
 
-  const fetchBookings = () => {
-    fetch("https://localhost:7127/api/Bookings")
+  const fetchApplicationUsers = () => {
+    fetch("https://localhost:7127/api/ApplicationUsers")
       .then((response) => response.json())
-      .then((data) => setBookings(data))
-      .catch((error) => console.error("Error fetching bookings:", error));
+      .then((data) => setApplicationUsers(data))
+      .catch((error) => console.error("Error fetching users:", error));
   };  
 
-  const handleBookingAdded = (newBooking) => {
-    fetchBookings();
+  const handleApplicationUserAdded = (newApplicationUser) => {
+    fetchApplicationUsers();
     setShowInputForm(false);
   };
 
-  const handleBookingUpdated = (updatedBooking) => {
-    fetchBookings();
+  const handleApplicationUserUpdated = (updatedApplicationUser) => {
+    fetchApplicationUsers();
     setShowInputForm(false);
-    setEditBookingData(null);
+    setEditApplicationUserData(null);
   };
 
-  const handleEdit = (booking) => {
-    setEditBookingData(booking);
+  const handleEdit = (user) => {
+    setEditApplicationUserData(user);
     setShowInputForm(true);
   };
 
   const handleCancelForm = () => {
     setShowInputForm(false);
-    setEditBookingData(null);
+    setEditApplicationUserData(null);
   };  
 
   const getStatusColor = (status) => {
@@ -67,11 +66,11 @@ export default function DashboardAllUsers() {
 
         {showInputForm && (
           <UserData
-            onBookingAdded={handleBookingAdded}
-            onBookingUpdated={handleBookingUpdated}
+            onApplicationUserAdded={handleApplicationUserAdded}
+            onApplicationUserUpdated={handleApplicationUserUpdated}
             onCancel={handleCancelForm}         
-            editBookingData={editBookingData}
-            fetchBookings={fetchBookings} // Pass fetchBookings as a prop
+            editApplicationUserData={editApplicationUserData}
+            fetchApplicationUsers={fetchApplicationUsers} // Pass fetchApplicationUsers as a prop
           />
         )}
 
@@ -88,19 +87,19 @@ export default function DashboardAllUsers() {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
-              <tr key={booking.bookingId}>
-                <td>{booking.guestName}</td>
-                <td>{booking.guestEmail}</td>
-                <td>{booking.guestPhone}</td>              
-                <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
-                <td style={{ color: getStatusColor(booking.status) }}>
+            {users.map((user) => (
+              <tr key={user.userId}>
+                <td>{user.userName}</td>
+                <td>{user.userEmail}</td>
+                <td>{user.userPhone}</td>              
+                <td>{new Date(user.bookingDate).toLocaleDateString()}</td>              
+                <td style={{ color: getStatusColor(user.status) }}>
                   {booking.status}
                 </td>
                 <td>
                   <button
                     className="btn-overview btn-blue"
-                    onClick={() => handleEdit(booking)}
+                    onClick={() => handleEdit(user)}
                   >
                     Edit
                   </button>
@@ -109,27 +108,27 @@ export default function DashboardAllUsers() {
                     onClick={() => {
                       if (
                         window.confirm(
-                          `Are you sure you want to delete booking with ID ${booking.bookingId}?`
+                          `Are you sure you want to delete user with ID ${user.userId}?`
                         )
                       ) {
                         fetch(
-                          `https://localhost:7127/api/Bookings/${booking.bookingId}`,
+                          `https://localhost:7127/api/ApplicationUsers/${user.userId}`,
                           {
                             method: "DELETE",
                           }
                         )
                           .then((response) => {
                             if (response.ok) {
-                              const updatedBookings = bookings.filter(
-                                (b) => b.bookingId !== booking.bookingId
+                              const updatedApplicationUsers = users.filter(
+                                (b) => b.userId !== user.userId
                               );
-                              setBookings(updatedBookings);
+                              setApplicationUsers(updatedApplicationUsers);
                             } else {
-                              throw new Error("Failed to delete booking");
+                              throw new Error("Failed to delete user");
                             }
                           })
                           .catch((error) =>
-                            console.error("Error deleting booking:", error)
+                            console.error("Error deleting user:", error)
                           );
                       }
                     }}
