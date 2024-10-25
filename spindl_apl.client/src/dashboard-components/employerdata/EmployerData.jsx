@@ -9,9 +9,9 @@ export default function EmployerData({
 }) {
   const [formData, setFormData] = useState({
     bookingId: null,
-    guestName: "",
-    guestEmail: "",
-    guestPhone: "",    
+    userName: "",
+    userEmail: "",
+    userPhone: "",    
     bookingDate: "",    
     status: "Pending", // Default status
   });
@@ -21,18 +21,18 @@ export default function EmployerData({
     if (editBookingData) {
       setFormData({
         bookingId: editBookingData.bookingId,
-        guestName: editBookingData.guestName || "",
-        guestEmail: editBookingData.guestEmail || "",
-        guestPhone: editBookingData.guestPhone || "",        
+        userName: editBookingData.userName || "",
+        userEmail: editBookingData.userEmail || "",
+        userPhone: editBookingData.userPhone || "",        
         bookingDate: editBookingData.bookingDate.split("T")[0], // Extract only the date part        
         status: editBookingData.status,
       });
     } else {
       setFormData({
         bookingId: null,
-        guestName: "",
-        guestEmail: "",
-        guestPhone: "",        
+        userName: "",
+        userEmail: "",
+        userPhone: "",        
         bookingDate: "",        
         status: "Pending",
       });
@@ -43,9 +43,9 @@ export default function EmployerData({
     e.preventDefault();
 
     if (
-      formData.guestName.trim() === "" ||
-      formData.guestEmail.trim() === "" ||
-      formData.guestPhone.trim() === "" ||        
+      formData.userName.trim() === "" ||
+      formData.userEmail.trim() === "" ||
+      formData.userPhone.trim() === "" ||        
       formData.bookingDate.trim() === ""
     ) {
       setError("Please fill out all fields");
@@ -56,9 +56,9 @@ export default function EmployerData({
 
     const body = {
       bookingId: formData.bookingId ?? 0,
-      guestName: formData.guestName,
-      guestEmail: formData.guestEmail,
-      guestPhone: formData.guestPhone,      
+      userName: formData.userName,
+      userEmail: formData.userEmail,
+      userPhone: formData.userPhone,      
       bookingDate: formData.checkInDate,      
       status: formData.status,
     };
@@ -113,9 +113,9 @@ export default function EmployerData({
   function handleSuccess() {
     setFormData({
       bookingId: null,
-      guestName: "",
-      guestEmail: "",
-      guestPhone: "",      
+      userName: "",
+      userEmail: "",
+      userPhone: "",      
       bookingDate: "",
       status: "Pending",
     });
@@ -130,8 +130,8 @@ export default function EmployerData({
         <label>Name:</label>
         <input
           type="text"
-          name="guestName"
-          value={formData.guestName}
+          name="userName"
+          value={formData.userName}
           onChange={handleChange}
           required
         />
@@ -140,8 +140,8 @@ export default function EmployerData({
         <label>Email:</label>
         <input
           type="email"
-          name="guestEmail"
-          value={formData.guestEmail}
+          name="userEmail"
+          value={formData.userEmail}
           onChange={handleChange}
           required
         />
@@ -150,8 +150,8 @@ export default function EmployerData({
         <label>Phone:</label>
         <input
           type="tel"
-          name="guestPhone"
-          value={formData.guestPhone}
+          name="userPhone"
+          value={formData.userPhone}
           onChange={handleChange}
           required
         />

@@ -2,51 +2,51 @@ import React, { useState, useEffect } from "react";
 import "./Internships.css";
 
 export default function Internships({
-  onBookingAdded,
-  onBookingUpdated,
+  onInternshipAdded,
+  onInternshipUpdated,
   onCancel,  
-  editBookingData,
+  editInternshipData,
 }) {
   const [formData, setFormData] = useState({
-    bookingId: null,
-    guestName: "",
-    guestEmail: "",
-    guestPhone: "",    
-    bookingDate: "",    
+    internshipId: null,
+    userName: "",
+    userEmail: "",
+    userPhone: "",    
+    internshipDate: "",    
     status: "Pending", // Default status
   });
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (editBookingData) {
+    if (editInternshipData) {
       setFormData({
-        bookingId: editBookingData.bookingId,
-        guestName: editBookingData.guestName || "",
-        guestEmail: editBookingData.guestEmail || "",
-        guestPhone: editBookingData.guestPhone || "",        
-        bookingDate: editBookingData.bookingDate.split("T")[0], // Extract only the date part        
-        status: editBookingData.status,
+        internshipId: editInternshipData.internshipId,
+        userName: editInternshipData.userName || "",
+        userEmail: editInternshipData.userEmail || "",
+        userPhone: editInternshipData.userPhone || "",        
+        internshipDate: editInternshipData.internshipDate.split("T")[0], // Extract only the date part        
+        status: editInternshipData.status,
       });
     } else {
       setFormData({
-        bookingId: null,
-        guestName: "",
-        guestEmail: "",
-        guestPhone: "",        
-        bookingDate: "",        
+        internshipId: null,
+        userName: "",
+        userEmail: "",
+        userPhone: "",        
+        internshipDate: "",        
         status: "Pending",
       });
     }
-  }, [editBookingData]);
+  }, [editInternshipData]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (
-      formData.guestName.trim() === "" ||
-      formData.guestEmail.trim() === "" ||
-      formData.guestPhone.trim() === "" ||        
-      formData.bookingDate.trim() === ""
+      formData.userName.trim() === "" ||
+      formData.userEmail.trim() === "" ||
+      formData.userPhone.trim() === "" ||        
+      formData.internshipDate.trim() === ""
     ) {
       setError("Please fill out all fields");
       return;
@@ -55,20 +55,20 @@ export default function Internships({
     setError("");
 
     const body = {
-      bookingId: formData.bookingId ?? 0,
-      guestName: formData.guestName,
-      guestEmail: formData.guestEmail,
-      guestPhone: formData.guestPhone,      
-      bookingDate: formData.checkInDate,      
+      internshipId: formData.internshipId ?? 0,
+      userName: formData.userName,
+      userEmail: formData.userEmail,
+      userPhone: formData.userPhone,      
+      internshipDate: formData.checkInDate,      
       status: formData.status,
     };
 
     console.log("Request Body:", body);
 
-    const url = editBookingData
-      ? `https://localhost:7127/api/Bookings/${formData.bookingId}`
-      : "https://localhost:7127/api/Bookings";
-    const method = editBookingData ? "PUT" : "POST";
+    const url = editInternshipData
+      ? `https://localhost:7127/api/Internships/${formData.internshipId}`
+      : "https://localhost:7127/api/Internships";
+    const method = editInternshipData ? "PUT" : "POST";
 
     fetch(url, {
       method: method,
@@ -89,10 +89,10 @@ export default function Internships({
       })
       .then((data) => {
         console.log("Response Data:", data);
-        if (editBookingData) {
-          onBookingUpdated(data);
+        if (editInternshipData) {
+          onInternshipUpdated(data);
         } else {
-          onBookingAdded(data);
+          onInternshipAdded(data);
         }
         handleSuccess();
       })
@@ -112,11 +112,11 @@ export default function Internships({
 
   function handleSuccess() {
     setFormData({
-      bookingId: null,
-      guestName: "",
-      guestEmail: "",
-      guestPhone: "",      
-      bookingDate: "",
+      internshipId: null,
+      userName: "",
+      userEmail: "",
+      userPhone: "",      
+      internshipDate: "",
       status: "Pending",
     });
     onCancel();
@@ -124,14 +124,14 @@ export default function Internships({
 
   return (
     <form onSubmit={handleSubmit} className="input-form">
-      <h2>{editBookingData ? "Edit Booking" : "Add Internship"}</h2>
+      <h2>{editInternshipData ? "Edit Internship" : "Add Internship"}</h2>
       {error && <p className="error">{error}</p>}
       <div>
         <label>Name:</label>
         <input
           type="text"
-          name="guestName"
-          value={formData.guestName}
+          name="userName"
+          value={formData.userName}
           onChange={handleChange}
           required
         />
@@ -140,8 +140,8 @@ export default function Internships({
         <label>Email:</label>
         <input
           type="email"
-          name="guestEmail"
-          value={formData.guestEmail}
+          name="userEmail"
+          value={formData.userEmail}
           onChange={handleChange}
           required
         />
@@ -150,8 +150,8 @@ export default function Internships({
         <label>Phone:</label>
         <input
           type="tel"
-          name="guestPhone"
-          value={formData.guestPhone}
+          name="userPhone"
+          value={formData.userPhone}
           onChange={handleChange}
           required
         />
@@ -160,8 +160,8 @@ export default function Internships({
         <label>Start Date:</label>
         <input
           type="date"
-          name="bookingDate"
-          value={formData.bookingDate}
+          name="internshipDate"
+          value={formData.internshipDate}
           onChange={handleChange}
           required
         />
@@ -181,7 +181,7 @@ export default function Internships({
       </div>
       <div className="form-actions">
         <button type="submit" className="btn-overview btn-green">
-          {editBookingData ? "Update" : "Create"}
+          {editInternshipData ? "Update" : "Create"}
         </button>
         <button
           type="button"
