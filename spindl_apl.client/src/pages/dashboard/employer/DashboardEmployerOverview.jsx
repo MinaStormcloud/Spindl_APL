@@ -11,7 +11,7 @@ export default function DashboardEmployerOverview() {
         const bookingResponse = await fetch(
           "https://localhost:7127/api/Bookings"
         );
-        const userResponse = await fetch("https://localhost:7127/api/Users");        
+        const userResponse = await fetch("https://localhost:7127/api/ApplicationUsers");        
 
         if (          
           !bookingResponse.ok ||

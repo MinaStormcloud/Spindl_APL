@@ -12,7 +12,7 @@ const DashboardUserContent = () => {
       <Routes>
         <Route path="" element={<DashboardUserOverview />} />        
         <Route path="user/bookings" element={<DashboardUserBookings />} />
-        {<Route path="user/details" element={<DashboardUserDetails />} />}
+        <Route path="user/details" element={<DashboardUserDetails />} />
       </Routes>
     </div>
   );

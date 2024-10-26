@@ -9,11 +9,11 @@ export default function Internships({
 }) {
   const [formData, setFormData] = useState({
     internshipId: null,
-    userName: "",
-    userEmail: "",
-    userPhone: "",    
-    internshipDate: "",    
-    status: "Pending", // Default status
+	  companyId: "",
+    company: "",
+    numberOfStudents: "",    
+    dateFrom: "",    
+    dateTo: "",
   });
   const [error, setError] = useState("");
 
@@ -21,20 +21,20 @@ export default function Internships({
     if (editInternshipData) {
       setFormData({
         internshipId: editInternshipData.internshipId,
-        userName: editInternshipData.userName || "",
-        userEmail: editInternshipData.userEmail || "",
-        userPhone: editInternshipData.userPhone || "",        
-        internshipDate: editInternshipData.internshipDate.split("T")[0], // Extract only the date part        
-        status: editInternshipData.status,
+        companyId: editInternshipData.companyId || "",
+        company: editInternshipData.company || "",
+        numberOfStudents: editInternshipData.numberOfStudents || "",        
+        dateFrom: editInternshipData.dateFrom.split("T")[0], // Extract only the date part        
+        dateTo: editInternshipData.dateTo.split("T")[0], // Extract only the date part
       });
     } else {
       setFormData({
         internshipId: null,
-        userName: "",
-        userEmail: "",
-        userPhone: "",        
-        internshipDate: "",        
-        status: "Pending",
+        companyId: "",
+        company: "",
+        numberOfStudents: "", 
+		dateFrom: "",		
+        dateTo: "",          
       });
     }
   }, [editInternshipData]);
@@ -43,10 +43,11 @@ export default function Internships({
     e.preventDefault();
 
     if (
-      formData.userName.trim() === "" ||
-      formData.userEmail.trim() === "" ||
-      formData.userPhone.trim() === "" ||        
-      formData.internshipDate.trim() === ""
+      formData.companyId.trim() === "" ||
+      formData.company.trim() === "" ||
+      formData.numberOfStudents.trim() === "" || 
+	  formData.dateFrom.trim() === "" || 	  
+      formData.dateTo.trim() === ""
     ) {
       setError("Please fill out all fields");
       return;
@@ -56,11 +57,11 @@ export default function Internships({
 
     const body = {
       internshipId: formData.internshipId ?? 0,
-      userName: formData.userName,
-      userEmail: formData.userEmail,
-      userPhone: formData.userPhone,      
-      internshipDate: formData.checkInDate,      
-      status: formData.status,
+      companyId: formData.companyId,
+      company: formData.company,
+      numberOfStudents: formData.numberOfStudents,      
+      dateFrom: formData.dateFrom,      
+      dateTo: formData.dateTo,
     };
 
     console.log("Request Body:", body);
@@ -113,11 +114,11 @@ export default function Internships({
   function handleSuccess() {
     setFormData({
       internshipId: null,
-      userName: "",
-      userEmail: "",
-      userPhone: "",      
-      internshipDate: "",
-      status: "Pending",
+      companyId: "",
+      company: "",
+      numberOfStudents: "", 
+	  dateFrom: "",	  
+      dateTo: "",      
     });
     onCancel();
   }  
@@ -127,31 +128,31 @@ export default function Internships({
       <h2>{editInternshipData ? "Edit Internship" : "Add Internship"}</h2>
       {error && <p className="error">{error}</p>}
       <div>
-        <label>Name:</label>
+        <label>Company ID:</label>
         <input
           type="text"
-          name="userName"
-          value={formData.userName}
+          name="companyId"
+          value={formData.companyId}
           onChange={handleChange}
           required
         />
       </div>
       <div>
-        <label>Email:</label>
+        <label>Company:</label>
         <input
-          type="email"
-          name="userEmail"
-          value={formData.userEmail}
+          type="text"
+          name="company"
+          value={formData.company}
           onChange={handleChange}
           required
         />
       </div>
       <div>
-        <label>Phone:</label>
+        <label>Number of Students:</label>
         <input
-          type="tel"
-          name="userPhone"
-          value={formData.userPhone}
+          type="text"
+          name="numberOfStudents"
+          value={formData.numberOfStudents}
           onChange={handleChange}
           required
         />
@@ -160,25 +161,22 @@ export default function Internships({
         <label>Start Date:</label>
         <input
           type="date"
-          name="internshipDate"
-          value={formData.internshipDate}
+          name="dateFrom"
+          value={formData.dateFrom}
           onChange={handleChange}
           required
         />
-      </div>      
-      <div>
-        <label>Status:</label>
-        <select
-          name="status"
-          value={formData.status}
+      </div> 
+	  <div>
+        <label>End Date:</label>
+        <input
+          type="date"
+          name="dateTo"
+          value={formData.dateTo}
           onChange={handleChange}
           required
-        >
-          <option value="Pending">Pending</option>
-          <option value="Confirmed">Confirmed</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-      </div>
+        />
+      </div>     
       <div className="form-actions">
         <button type="submit" className="btn-overview btn-green">
           {editInternshipData ? "Update" : "Create"}

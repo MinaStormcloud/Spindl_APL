@@ -25,6 +25,11 @@ function EmployerSideMenu() {
         Bookings
       </Link>
       <Link
+        to="/dashboard/employer/details"
+        className={selectedMenu === "/dashboard/employer/details" ? "selected" : ""}>
+         Company Profile
+      </Link>
+      <Link
         to="/"
         id="exit-dashboard"
         className={selectedMenu === "/" ? "selected" : ""}

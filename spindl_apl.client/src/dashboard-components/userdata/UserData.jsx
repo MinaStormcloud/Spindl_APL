@@ -57,8 +57,8 @@ export default function UserData({
     console.log("Request Body:", body);
 
     const url = editUserDetails
-      ? `https://localhost:7127/api/UserData/${formData.userId}`
-      : "https://localhost:7127/api/UserData";
+      ? `https://localhost:7127/api/ApplicationUsers/${formData.userId}`
+      : "https://localhost:7127/api/ApplicationUsers";
     const method = editUserDetails ? "PUT" : "POST";
 
     fetch(url, {
