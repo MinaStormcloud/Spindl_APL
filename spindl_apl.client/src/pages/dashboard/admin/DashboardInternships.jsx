@@ -41,19 +41,6 @@ export default function DashboardInternships() {
     setEditInternshipData(null);
   };  
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Confirmed":
-        return "var(--green)";
-      case "Pending":
-        return "var(--orange)";
-      case "Cancelled":
-        return "var(--red)";
-      default:
-        return "black"; // default color if status does not match
-    }
-  };
-
   return (
     <div className="dashboard-container">
       <SideMenu />
@@ -78,25 +65,22 @@ export default function DashboardInternships() {
         <table>
           <thead>
             <tr>
-              <th>Company Name</th>
-              <th>Email</th>
-              <th>Phone</th>            
-              <th>Date</th>
-              <th>Time</th>
-              <th>Status</th>
+              <th>Company ID</th>
+              <th>Company</th>
+              <th>Number of Students</th>            
+              <th>Start Date</th>
+              <th>End Date</th>              
               <th>Edit</th>
             </tr>
           </thead>
           <tbody>
             {internships.map((internship) => (
               <tr key={internship.internshipId}>
-                <td>{internship.userName}</td>
-                <td>{internship.userEmail}</td>
-                <td>{internship.userPhone}</td>              
-                <td>{new Date(internship.internshipDate).toLocaleDateString()}</td>              
-                <td style={{ color: getStatusColor(internship.status) }}>
-                  {internship.status}
-                </td>
+                <td>{internship.companyId}</td>
+                <td>{internship.company}</td>
+                <td>{internship.numberOfStudents}</td>              
+                <td>{new Date(internship.dateFrom).toLocaleDateString()}</td> 
+                <td>{new Date(internship.dateTo).toLocaleDateString()}</td>                
                 <td>
                   <button
                     className="btn-overview btn-blue"

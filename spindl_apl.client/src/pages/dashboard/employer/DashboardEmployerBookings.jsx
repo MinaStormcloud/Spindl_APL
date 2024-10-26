@@ -75,9 +75,9 @@ export default function DashboardEmployerBookings() {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>            
+            <th>Company ID</th>
+            <th>Company</th>
+            <th>Account</th>            
             <th>Date</th>
             <th>Time</th>
             <th>Status</th>            
@@ -86,9 +86,9 @@ export default function DashboardEmployerBookings() {
         <tbody>
           {bookings.map((booking) => (
             <tr key={booking.bookingId}>
-              <td>{booking.userName}</td>
-              <td>{booking.userEmail}</td>
-              <td>{booking.userPhone}</td>              
+              <td>{booking.companyId}</td>
+              <td>{booking.company}</td>
+              <td>{booking.account}</td>              
               <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
               <td style={{ color: getStatusColor(booking.status) }}>
                 {booking.status}

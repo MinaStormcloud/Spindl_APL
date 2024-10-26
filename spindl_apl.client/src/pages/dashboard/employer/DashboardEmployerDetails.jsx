@@ -1,44 +1,44 @@
 import React, { useState, useEffect } from "react";
-import UserDetails from '../../../dashboard-components/userdetails/UserDetails';
-import UserSideMenu from '../../../dashboard-components/sidemenu/UserSideMenu';
-/*This page needs to be customized to fetch all users 
+import EmployerDetails from '../../../dashboard-components/employerdetails/EmployerDetails';
+import EmployerSideMenu from '../../../dashboard-components/sidemenu/EmployerSideMenu';
+/*This page needs to be customized to fetch all companies 
 matching the user ID of the user that just logged in*/
 
-export default function DashboardUserDetails() {
-    const [users, setUsers] = useState([]);  
+export default function DashboardEmployerDetails() {
+    const [company, setCompany] = useState([]);  
     const [showInputForm, setShowInputForm] = useState(false);
-    const [editUserData, setEditUserData] = useState(null);
+    const [editCompanyData, setEditCompanyData] = useState(null);
   
     useEffect(() => {
-      fetchUsers();    
+      fetchCompanies();    
     }, []);
   
-    const fetchUsers = () => {
-      fetch("https://localhost:7127/api/ApplicationUsers")
+    const fetchCompanies = () => {
+      fetch("https://localhost:7127/api/Companies")
         .then((response) => response.json())
-        .then((data) => setUsers(data))
-        .catch((error) => console.error("Error fetching users:", error));
+        .then((data) => setCompany(data))
+        .catch((error) => console.error("Error fetching companies:", error));
     };  
   
-    const handleUserAdded = (newUser) => {
-      fetchUsers();
+    const handleCompanyAdded = (newCompany) => {
+      fetchCompanies();
       setShowInputForm(false);
     };
   
-    const handleUserUpdated = (updatedUser) => {
-      fetchUsers();
+    const handleCompanyUpdated = (updatedCompany) => {
+      fetchCompanies();
       setShowInputForm(false);
-      setEditUserData(null);
+      setEditCompanyData(null);
     };
   
-    const handleEdit = (user) => {
-      setEditUserData(user);
+    const handleEdit = (company) => {
+      setEditCompanyData(company);
       setShowInputForm(true);
     };
   
     const handleCancelForm = () => {
       setShowInputForm(false);
-      setEditUserData(null);
+      setEditCompanyData(null);
     };  
   
     const getStatusColor = (status) => {
@@ -56,22 +56,22 @@ export default function DashboardUserDetails() {
   
     return (
       <div className="dashboard-container">
-        <UserSideMenu />
+        <EmployerSideMenu />
           <div className="dashboard">      
           <div className="dashboard-header">
-            <h2>My Profile</h2>
+            <h2>Company Profile</h2>
             <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
               Update Contact Info
             </button>
           </div>
   
           {showInputForm && (
-            <UserDetails
-              onUserAdded={handleUserAdded}
-              onUserUpdated={handleUserUpdated}
+            <EmployerDetails
+              onCompanyAdded={handleCompanyAdded}
+              onCompanyUpdated={handleCompanyUpdated}
               onCancel={handleCancelForm}         
-              editUserData={editUserData}
-              fetchUsers={fetchUsers} // Pass fetchUsers as a prop
+              editCompanyData={editCompanyData}
+              fetchCompanies={fetchCompanies} // Pass fetchCompanies as a prop
             />
           )}
   
@@ -79,20 +79,20 @@ export default function DashboardUserDetails() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>                 
+                <th>Location</th>
+                <th>Contact</th>                 
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr key={user.userId}>
-                  <td>{user.userName}</td>
-                  <td>{user.userEmail}</td>
-                  <td>{user.userPhone}</td>                 
+              {company.map((company) => (
+                <tr key={company.companyId}>
+                  <td>{company.name}</td>
+                  <td>{company.location}</td>
+                  <td>{company.contact}</td>                 
                   <td>
                     <button
                       className="btn-overview btn-blue"
-                      onClick={() => handleEdit(user)}
+                      onClick={() => handleEdit(company)}
                     >
                       Edit
                     </button>
@@ -101,27 +101,27 @@ export default function DashboardUserDetails() {
                       onClick={() => {
                         if (
                           window.confirm(
-                            `Are you sure you want to delete user with ID ${user.userId}?`
+                            `Are you sure you want to delete company with ID ${company.companyId}?`
                           )
                         ) {
                           fetch(
-                            `https://localhost:7127/api/ApplicationUsers/${user.userId}`,
+                            `https://localhost:7127/api/Companies/${company.companyId}`,
                             {
                               method: "DELETE",
                             }
                           )
                             .then((response) => {
                               if (response.ok) {
-                                const updatedUsers = users.filter(
-                                  (b) => b.userId !== user.userId
+                                const updatedCompany = company.filter(
+                                  (b) => b.companyId !== company.companyId
                                 );
-                                setUsers(updatedUsers);
+                                setCompany(updatedCompany);
                               } else {
-                                throw new Error("Failed to delete user");
+                                throw new Error("Failed to delete company");
                               }
                             })
                             .catch((error) =>
-                              console.error("Error deleting user:", error)
+                              console.error("Error deleting company:", error)
                             );
                         }
                       }}

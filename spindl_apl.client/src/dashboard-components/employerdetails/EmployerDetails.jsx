@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from "react";
-import "./EmployerData.css";
+import "./EmployerDetails.css";
 
-export default function EmployerData({
-  onUserDetailsAdded,
-  onUserDetailsUpdated,
+export default function EmployerDetails({
+  onEmployerDetailsAdded,
+  onEmployerDetailsUpdated,
   onCancel,  
-  addCompanyDetails,
+  editEmployerDetails,
 }) {
   const [formData, setFormData] = useState({
-    userId: null,
-    userName: "",
-    userEmail: "",
-    userPhone: "",      
+    companyId: null,
+    name: "",
+    location: "",
+    contact: "",      
   });
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (addCompanyDetails) {
+    if (editEmployerDetails) {
       setFormData({
-        userId: addCompanyDetails.UserId,
-        userName: addCompanyDetails.userName || "",
-        userEmail: addCompanyDetails.userEmail || "",
-        userPhone: addCompanyDetails.userPhone || "",          
+        companyId: editEmployerDetails.CompanyId,
+        name: editEmployerDetails.name || "",
+        location: editEmployerDetails.location || "",
+        contact: editEmployerDetails.contact || "",          
       });
     } else {
       setFormData({
-        userId: null,
-        userName: "",
-        userEmail: "",
-        userPhone: "",          
+        companyId: null,
+        name: "",
+        location: "",
+        contact: "",          
       });
     }
-  }, [addCompanyDetails]);
+  }, [editEmployerDetails]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     if (
-      formData.userName.trim() === "" ||
-      formData.userEmail.trim() === "" ||
-      formData.userPhone.trim() === ""       
+      formData.name.trim() === "" ||
+      formData.location.trim() === "" ||
+      formData.contact.trim() === ""       
     ) {
       setError("Please fill out all fields");
       return;
@@ -48,18 +48,18 @@ export default function EmployerData({
     setError("");
 
     const body = {
-      userId: formData.userId ?? 0,
-      userName: formData.userName,
-      userEmail: formData.userEmail,
-      userPhone: formData.userPhone,      
+      companyId: formData.companyId ?? 0,
+      name: formData.name,
+      location: formData.location,
+      contact: formData.contact,      
     };
 
     console.log("Request Body:", body);
 
-    const url = addCompanyDetails
-      ? `https://localhost:7127/api/ApplicationUsers/${formData.userId}`
-      : "https://localhost:7127/api/ApplicationUsers";
-    const method = addCompanyDetails ? "PUT" : "POST";
+    const url = editEmployerDetails
+      ? `https://localhost:7127/api/Companies/${formData.companyId}`
+      : "https://localhost:7127/api/Companies";
+    const method = editEmployerDetails ? "PUT" : "POST";
 
     fetch(url, {
       method: method,
@@ -80,10 +80,10 @@ export default function EmployerData({
       })
       .then((data) => {
         console.log("Response Data:", data);
-        if (addCompanyDetails) {
-          onUserDetailsUpdated(data);
+        if (editEmployerDetails) {
+          onEmployerDetailsUpdated(data);
         } else {
-          onUserDetailsAdded(data);
+          onEmployerDetailsAdded(data);
         }
         handleSuccess();
       })
@@ -103,34 +103,24 @@ export default function EmployerData({
 
   function handleSuccess() {
     setFormData({
-      userId: null,
-      userName: "",
-      userEmail: "",
-      userPhone: "",        
+      companyId: null,
+      name: "",
+      location: "",
+      contact: "",        
     });
     onCancel();
   }  
 
   return (
     <form onSubmit={handleSubmit} className="input-form">
-      <h2>{addCompanyDetails ? "Add Company Data" : "Add Company"}</h2>
+      <h2>{editEmployerDetails ? "Edit Employer Data" : "Edit Company Profile"}</h2>
       {error && <p className="error">{error}</p>}
       <div>
-        <label>Company ID:</label>
+        <label>Name:</label>
         <input
           type="text"
-          name="companyId"
-          value={formData.companyId}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Company:</label>
-        <input
-          type="text"
-          name="company"
-          value={formData.company}
+          name="name"
+          value={formData.name}
           onChange={handleChange}
           required
         />
@@ -158,7 +148,7 @@ export default function EmployerData({
       
       <div className="form-actions">
         <button type="submit" className="btn-overview btn-green">
-          {addCompanyDetails ? "Add" : "Save"}
+          {editEmployerDetails ? "Update" : "Save"}
         </button>
         <button
           type="button"

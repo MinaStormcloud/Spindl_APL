@@ -40,19 +40,6 @@ export default function DashboardAllUsers() {
     setEditApplicationUserData(null);
   };  
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Confirmed":
-        return "var(--green)";
-      case "Pending":
-        return "var(--orange)";
-      case "Cancelled":
-        return "var(--red)";
-      default:
-        return "black"; // default color if status does not match
-    }
-  };
-
   return (
     <div className="dashboard-container">
       <SideMenu />
@@ -79,10 +66,7 @@ export default function DashboardAllUsers() {
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Phone</th>            
-              <th>Date</th>
-              <th>Time</th>
-              <th>Status</th>
+              <th>Phone</th>             
               <th>Edit</th>
             </tr>
           </thead>
@@ -91,11 +75,7 @@ export default function DashboardAllUsers() {
               <tr key={user.userId}>
                 <td>{user.userName}</td>
                 <td>{user.userEmail}</td>
-                <td>{user.userPhone}</td>              
-                <td>{new Date(user.bookingDate).toLocaleDateString()}</td>              
-                <td style={{ color: getStatusColor(user.status) }}>
-                  {booking.status}
-                </td>
+                <td>{user.userPhone}</td>                 
                 <td>
                   <button
                     className="btn-overview btn-blue"

@@ -24,7 +24,9 @@ import DashboardInternships from './pages/dashboard/admin/DashboardInternships';
 import DashboardEmployer from './pages/dashboard/employer/DashboardEmployer';
 import DashboardEmployerBookings from './pages/dashboard/employer/DashboardEmployerBookings';
 import DashboardEmployerContent from './pages/dashboard/employer/DashboardEmployerContent';
+import DashboardEmployerDetails from './pages/dashboard/employer/DashboardEmployerDetails';
 import DashboardEmployerOverview from './pages/dashboard/employer/DashboardEmployerOverview'; 
+
 import DashboardUser from './pages/dashboard/user/DashboardUser'; 
 import DashboardUserBookings from './pages/dashboard/user/DashboardUserBookings';
 import DashboardUserContent from './pages/dashboard/user/DashboardUserContent';
@@ -79,12 +81,13 @@ function App() {
             <Route path="/dashboard/employer" element={<DashboardEmployer />} />
             <Route path="/dashboard/employer/bookings" element={<DashboardEmployerBookings />} />
             <Route path="/dashboard/employer/content" element={<DashboardEmployerContent />} />
+            <Route path="/dashboard/employer/details" element={<DashboardEmployerDetails />} />
             <Route path="/dashboard/employer/overview" element={<DashboardEmployerOverview />} />
 
             <Route path="/dashboard/user" element={<DashboardUser />} />
             <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
             <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
-            {<Route path="/dashboard/user/details" element={<DashboardUserDetails />} />}
+            <Route path="/dashboard/user/details" element={<DashboardUserDetails />} />
             <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />           
             
           </Routes>
