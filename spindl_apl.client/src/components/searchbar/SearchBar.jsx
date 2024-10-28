@@ -8,6 +8,7 @@ function SearchBar({ onSearch }) {
   const [positions, setPositions] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
+  const [rating, setRatings] = useState('');
 
   // Sets all properties that should be seached for
   const getSearchTerms = () => {
@@ -23,6 +24,9 @@ function SearchBar({ onSearch }) {
     }
     if (companyName) {
       terms.companyName = companyName;
+    }
+    if (rating) {
+      terms.rating = rating;
     }
     return terms;
   };
@@ -41,7 +45,7 @@ function SearchBar({ onSearch }) {
       .then((data) => {
         data.status ? setCompanies([]) : setCompanies(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error("Error fetching search results:", error));
   };
 
   return (
@@ -57,6 +61,15 @@ function SearchBar({ onSearch }) {
         onChange={(e) => setCompanyName(e.target.value)}
         className="input"
         placeholder="Search for a company"
+      /> }
+      {/* Rating search bar */}
+      {<input
+        type="search"
+        id="keywords"
+        value={rating}
+        onChange={(e) => setRatings(e.target.value)}
+        className="input"
+        placeholder="Search by ratings"
       /> }
       {/* Category search bar */}
       {
@@ -104,6 +117,9 @@ function SearchBar({ onSearch }) {
                 Company
               </th>
               <th className="centered" scope="col">
+                Rating
+              </th>
+              <th className="centered" scope="col">
                 Title
               </th>
               <th className="centered" scope="col">
@@ -121,6 +137,7 @@ function SearchBar({ onSearch }) {
                   <tr key={key}>
                     <th>{company.name}</th>
                     {<th>{company.companyName}</th>}
+                    {<th>{company.rating}</th>}
                     {<th>{company.jobTitle}</th>}
                     <td>{company.location}</td>
                     <td>{intern.numberOfStudents}</td>
@@ -129,7 +146,7 @@ function SearchBar({ onSearch }) {
               </tbody>
             ))
           ) : (
-            <tbody>
+            <tbody>{/**Show this only of no result was found*/}
               <tr>
                 {/*<th>No search results!</th>*/}
                 <td></td>
