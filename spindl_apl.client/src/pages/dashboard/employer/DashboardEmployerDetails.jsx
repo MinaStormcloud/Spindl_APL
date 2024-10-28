@@ -14,7 +14,7 @@ export default function DashboardEmployerDetails() {
     }, []);
   
     const fetchCompanies = () => {
-      fetch("https://localhost:7127/api/Companies")
+      fetch("https://localhost:7127/api/company")
         .then((response) => response.json())
         .then((data) => setCompany(data))
         .catch((error) => console.error("Error fetching companies:", error));
@@ -105,7 +105,7 @@ export default function DashboardEmployerDetails() {
                           )
                         ) {
                           fetch(
-                            `https://localhost:7127/api/Companies/${company.companyId}`,
+                            `https://localhost:7127/api/company/${company.companyId}`,
                             {
                               method: "DELETE",
                             }

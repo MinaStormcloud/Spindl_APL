@@ -6,7 +6,8 @@ function SearchBar({ onSearch }) {
   const [companies, setCompanies] = useState([]);
   const [location, setLocation] = useState('');
   const [positions, setPositions] = useState('');
-  const [jobTitle, setJobTitles] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
+  const [companyName, setCompanyName] = useState('');
 
   // Sets all properties that should be seached for
   const getSearchTerms = () => {
@@ -17,8 +18,11 @@ function SearchBar({ onSearch }) {
     if (positions) {
       terms.numberOfStudents = Number(positions);
     }
-    if (positions) {
+    if (jobTitle) {
       terms.jobTitle = jobTitle;
+    }
+    if (companyName) {
+      terms.companyName = companyName;
     }
     return terms;
   };
@@ -46,21 +50,21 @@ function SearchBar({ onSearch }) {
         <hr className="hr-style" />
       </div>
       {/* Company search bar */}
-      {/*<input
+      {<input
         type="search"
         id="keywords"
-        value={companies}
-        onChange={(e) => setCompanies(e.target.value)}
+        value={companyName}
+        onChange={(e) => setCompanyName(e.target.value)}
         className="input"
         placeholder="Search for a company"
-      /> */}
+      /> }
       {/* Category search bar */}
       {
         <input
           type="search"
           id="keywords"
           value={jobTitle}
-          onChange={(e) => setJobTitles(e.target.value)}
+          onChange={(e) => setJobTitle(e.target.value)}
           className="input"
           placeholder="Search for a job title"
         />
@@ -97,7 +101,7 @@ function SearchBar({ onSearch }) {
           <thead>
             <tr className="tr-font">
               <th className="centered" scope="col">
-                Internship Provider
+                Company
               </th>
               <th className="centered" scope="col">
                 Title
@@ -116,7 +120,8 @@ function SearchBar({ onSearch }) {
                 {company.internships.map((intern, key) => (
                   <tr key={key}>
                     <th>{company.name}</th>
-                    {/*<th>{company.jobTitle}</th>*/}
+                    {<th>{company.companyName}</th>}
+                    {<th>{company.jobTitle}</th>}
                     <td>{company.location}</td>
                     <td>{intern.numberOfStudents}</td>
                   </tr>
