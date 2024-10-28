@@ -11,7 +11,6 @@ namespace Spindl_APL.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyService _companyService;
