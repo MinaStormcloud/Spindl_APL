@@ -113,7 +113,7 @@ export default function UserDetails({
 
   return (
     <form onSubmit={handleSubmit} className="input-form">
-      <h2>{editUserDetails ? "Edit User Data" : "Add User Data"}</h2>
+      <h2>{editUserDetails ? "Edit User Data" : "Edit My Profile"}</h2>
       {error && <p className="error">{error}</p>}
       <div>
         <label>Name:</label>

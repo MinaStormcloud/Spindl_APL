@@ -39,20 +39,7 @@ export default function DashboardUserDetails() {
     const handleCancelForm = () => {
       setShowInputForm(false);
       setEditUserData(null);
-    };  
-  
-    const getStatusColor = (status) => {
-      switch (status) {
-        case "Confirmed":
-          return "var(--green)";
-        case "Pending":
-          return "var(--orange)";
-        case "Cancelled":
-          return "var(--red)";
-        default:
-          return "black"; // default color if status does not match
-      }
-    };
+    };    
   
     return (
       <div className="dashboard-container">
@@ -61,7 +48,7 @@ export default function DashboardUserDetails() {
           <div className="dashboard-header">
             <h2>My Profile</h2>
             <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
-              Update Contact Info
+              Update My Profile
             </button>
           </div>
   
@@ -88,47 +75,7 @@ export default function DashboardUserDetails() {
                 <tr key={user.userId}>
                   <td>{user.userName}</td>
                   <td>{user.userEmail}</td>
-                  <td>{user.userPhone}</td>                 
-                  <td>
-                    <button
-                      className="btn-overview btn-blue"
-                      onClick={() => handleEdit(user)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn-overview btn-red"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            `Are you sure you want to delete user with ID ${user.userId}?`
-                          )
-                        ) {
-                          fetch(
-                            `https://localhost:7127/api/ApplicationUsers/${user.userId}`,
-                            {
-                              method: "DELETE",
-                            }
-                          )
-                            .then((response) => {
-                              if (response.ok) {
-                                const updatedUsers = users.filter(
-                                  (b) => b.userId !== user.userId
-                                );
-                                setUsers(updatedUsers);
-                              } else {
-                                throw new Error("Failed to delete user");
-                              }
-                            })
-                            .catch((error) =>
-                              console.error("Error deleting user:", error)
-                            );
-                        }
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
+                  <td>{user.userPhone}</td>                  
                 </tr>
               ))}
             </tbody>

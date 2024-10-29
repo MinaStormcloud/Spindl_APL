@@ -28,6 +28,8 @@
     float: left;
     font-weight: 700;
     font-size: 1rem;
+    font-style: italic;
+    color: var(--highlight);
   }
   
   .side textarea,

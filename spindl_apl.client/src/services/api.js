@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const useFetch = (url, options) => {
     const [response, setResponse] = React.useState({});
     const [error, setError] = React.useState({});
