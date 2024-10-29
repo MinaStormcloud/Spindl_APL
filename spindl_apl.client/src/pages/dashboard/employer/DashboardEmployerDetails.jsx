@@ -39,20 +39,7 @@ export default function DashboardEmployerDetails() {
     const handleCancelForm = () => {
       setShowInputForm(false);
       setEditCompanyData(null);
-    };  
-  
-    const getStatusColor = (status) => {
-      switch (status) {
-        case "Confirmed":
-          return "var(--green)";
-        case "Pending":
-          return "var(--orange)";
-        case "Cancelled":
-          return "var(--red)";
-        default:
-          return "black"; // default color if status does not match
-      }
-    };
+    };    
   
     return (
       <div className="dashboard-container">
@@ -61,7 +48,7 @@ export default function DashboardEmployerDetails() {
           <div className="dashboard-header">
             <h2>Company Profile</h2>
             <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
-              Update Contact Info
+              Update Company Profile
             </button>
           </div>
   
@@ -88,47 +75,7 @@ export default function DashboardEmployerDetails() {
                 <tr key={company.companyId}>
                   <td>{company.name}</td>
                   <td>{company.location}</td>
-                  <td>{company.contact}</td>                 
-                  <td>
-                    <button
-                      className="btn-overview btn-blue"
-                      onClick={() => handleEdit(company)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn-overview btn-red"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            `Are you sure you want to delete company with ID ${company.companyId}?`
-                          )
-                        ) {
-                          fetch(
-                            `https://localhost:7127/api/company/${company.companyId}`,
-                            {
-                              method: "DELETE",
-                            }
-                          )
-                            .then((response) => {
-                              if (response.ok) {
-                                const updatedCompany = company.filter(
-                                  (b) => b.companyId !== company.companyId
-                                );
-                                setCompany(updatedCompany);
-                              } else {
-                                throw new Error("Failed to delete company");
-                              }
-                            })
-                            .catch((error) =>
-                              console.error("Error deleting company:", error)
-                            );
-                        }
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
+                  <td>{company.contact}</td>                   
                 </tr>
               ))}
             </tbody>

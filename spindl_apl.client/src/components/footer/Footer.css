@@ -20,6 +20,7 @@ footer {
 
 .brandname {
   margin-bottom: 0.1%;
+  color: var(--light-ash);
 }
 
 .contactinfo {

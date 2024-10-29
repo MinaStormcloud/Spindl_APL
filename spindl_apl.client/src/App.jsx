@@ -1,4 +1,5 @@
 import './App.css';
+{/** All pages are listed here */}
 import Layout from './Layout';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PropTypes from "prop-types";
@@ -10,7 +11,6 @@ import Login from './pages/login/Login';
 import Logout from './pages/logout/Logout';
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
-import FAQ from './pages/faq/FAQ'; 
 import NotFound from './pages/404/NotFound';
 
 import Dashboard from './pages/dashboard/admin/Dashboard'; 
@@ -33,6 +33,10 @@ import DashboardUserContent from './pages/dashboard/user/DashboardUserContent';
 import DashboardUserDetails from './pages/dashboard/user/DashboardUserDetails';
 import DashboardUserOverview from './pages/dashboard/user/DashboardUserOverview';
 
+
+{/** The PrivateRoute is for pages that require users to be logged in */}
+{/** The dashboard pages will only be accessible after login when the 
+     Private Route has been activated */}
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -58,18 +62,12 @@ function App() {
             <Route path="/logout" element={<Logout />} />            
             <Route path="*" element={<NotFound />} /> 
             <Route path="/privacy" element={<Privacy />} />
-            <Route path="/subscribe" element={<Subscribe />} />
-            {/**FAQ has been commented out in Navbar.jsx,
-            DropdownMenu.jsx and Footer.jsx. */}            
-            <Route path="/faq" element={<FAQ />} />                       
-
-            {/* The dashboard pages will only be accessible after login
-           when the Private Route has been activated*/ }
+            <Route path="/subscribe" element={<Subscribe />} /> 
             {/** <Route path="/dashboard/*"
                 element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}
 
-            { /**All Dashboard links can be deleted or moved here when it's time 
-             * to implement the Private Route. */}       
+            { /**All Dashboard links can be deleted or commented out 
+              when the Private Route has been activated. */} 
             <Route path="/dashboard/admin" element={<Dashboard />} />
             <Route path="/dashboard/admin/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/admin/content" element={<DashboardContent />} />
@@ -88,8 +86,7 @@ function App() {
             <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
             <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
             <Route path="/dashboard/user/details" element={<DashboardUserDetails />} />
-            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />           
-            
+            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />            
           </Routes>
         </Layout>
       </BrowserRouter>

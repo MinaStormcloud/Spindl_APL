@@ -59,7 +59,10 @@ export default function DashboardUserBookings() {
       <UserSideMenu />
       <div className="dashboard">
       <div className="dashboard-header">
-        <h2>Bookings</h2>        
+        <h2>Bookings</h2> 
+        <button className="btn btn-gray-blue-responsive" onClick={() => setShowInputForm(true)}>
+            Add Booking
+          </button>       
       </div>
 
       {showInputForm && (
