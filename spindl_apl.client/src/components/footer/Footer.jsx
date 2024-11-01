@@ -36,10 +36,7 @@ export default function Footer() {
           </a>
           <a href="https://github.com/Filip-d-v" target="_blank">
             Filip
-          </a>
-          <a href="https://github.com/ZainabDaebes21" target="_blank">
-            Zainab
-          </a>
+          </a>          
         </div>
         {/*<div className="footer-col">
           <h4 className="h4-contact">Contact Us</h4>
