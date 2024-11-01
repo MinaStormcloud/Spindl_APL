@@ -33,14 +33,16 @@ import DashboardUserContent from './pages/dashboard/user/DashboardUserContent';
 import DashboardUserDetails from './pages/dashboard/user/DashboardUserDetails';
 import DashboardUserOverview from './pages/dashboard/user/DashboardUserOverview';
 
-
-{/** The PrivateRoute is for pages that require users to be logged in */}
+{/** The PrivateRoute is for pages that require users to log in */}
 {/** The dashboard pages will only be accessible after login when the 
      Private Route has been activated */}
+{/** When a user logs in, a httponly session cookie is stored in the browser. 
+     The cookie is valid for 60 minutes, and it is removed from the browser when 
+     users log out. */}
 
 const PrivateRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
-  return token ? children : <Navigate to="/login" />;
+  const cookie = localStorage.getItem("cookie");
+  return cookie ? children : <Navigate to="/login" />;
 };
 
 PrivateRoute.propTypes = {
@@ -63,11 +65,7 @@ function App() {
             <Route path="*" element={<NotFound />} /> 
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/subscribe" element={<Subscribe />} /> 
-            {/** <Route path="/dashboard/*"
-                element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}
-
-            { /**All Dashboard links can be deleted or commented out 
-              when the Private Route has been activated. */} 
+            
             <Route path="/dashboard/admin" element={<Dashboard />} />
             <Route path="/dashboard/admin/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/admin/content" element={<DashboardContent />} />
@@ -86,7 +84,11 @@ function App() {
             <Route path="/dashboard/user/bookings" element={<DashboardUserBookings />} />
             <Route path="/dashboard/user/content" element={<DashboardUserContent />} />
             <Route path="/dashboard/user/details" element={<DashboardUserDetails />} />
-            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />            
+            <Route path="/dashboard/user/overview" element={<DashboardUserOverview />} />  
+
+            {/** <Route path="/dashboard/*"
+                element={<PrivateRoute><Dashboard /></PrivateRoute>} />  */}           
+
           </Routes>
         </Layout>
       </BrowserRouter>
