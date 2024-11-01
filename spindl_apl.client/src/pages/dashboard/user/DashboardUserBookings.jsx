@@ -29,12 +29,7 @@ export default function DashboardUserBookings() {
     fetchBookings();
     setShowInputForm(false);
     setEditBookingData(null);
-  };
-
-  const handleEdit = (booking) => {
-    setEditBookingData(booking);
-    setShowInputForm(true);
-  };
+  };  
 
   const handleCancelForm = () => {
     setShowInputForm(false);
