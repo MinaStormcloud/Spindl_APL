@@ -2,7 +2,8 @@
   background-image: url('../../assets/images/search_icon.svg'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
   background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 17.5rem;
+  /*width: 17.5rem;*/ /*five search fields*/
+  width: 22.22rem; /*four search fields*/
   min-width: fit-content;  
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
