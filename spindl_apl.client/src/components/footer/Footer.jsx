@@ -20,14 +20,17 @@ export default function Footer() {
           <h4>Links</h4>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/register">Sign Up</Link>
-          <Link to="/login">Sign In</Link>
+          <Link to="/contact">Contact</Link>          
           <Link to="/subscribe">Newsletter</Link>
           <Link to="/privacy">Privacy</Link>                
+        </div>
+        <div className="footer-col">
+          <h4>Account</h4>          
+          <Link to="/register">Sign Up</Link>
+          <Link to="/login">Sign In</Link>                         
         </div>        
         <div className="footer-col">
-          <h4>Contributors</h4>              
+          <h4>Team</h4>              
           <a href="https://github.com/mattiasvlex" target="_blank">
             Mattias
           </a>

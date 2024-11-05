@@ -63,14 +63,14 @@ function SearchBar({ onSearch }) {
         placeholder="Search for a company"
       /> }
       {/* Rating search bar */}
-      {<input
+      {/*<input
         type="search"
         id="keywords"
         value={rating}
         onChange={(e) => setRatings(e.target.value)}
         className="input"
         placeholder="Search by ratings"
-      /> }
+      /> */}
       {/* Category search bar */}
       {
         <input
@@ -116,9 +116,9 @@ function SearchBar({ onSearch }) {
               <th className="centered" scope="col">
                 Company
               </th>
-              <th className="centered" scope="col">
+              {/*<th className="centered" scope="col">
                 Rating
-              </th>
+              </th>*/}
               <th className="centered" scope="col">
                 Title
               </th>
@@ -137,7 +137,7 @@ function SearchBar({ onSearch }) {
                   <tr key={key}>
                     <th>{company.name}</th>
                     {<th>{company.companyName}</th>}
-                    {<th>{company.rating}</th>}
+                    {/*<th>{company.rating}</th>*/}
                     {<th>{company.jobTitle}</th>}
                     <td>{company.location}</td>
                     <td>{intern.numberOfStudents}</td>
