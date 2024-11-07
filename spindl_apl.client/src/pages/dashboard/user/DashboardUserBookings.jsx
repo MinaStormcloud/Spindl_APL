@@ -35,20 +35,7 @@ export default function DashboardUserBookings() {
     setShowInputForm(false);
     setEditBookingData(null);
   };  
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Confirmed":
-        return "var(--green)";
-      case "Pending":
-        return "var(--orange)";
-      case "Cancelled":
-        return "var(--red)";
-      default:
-        return "black"; // default color if status does not match
-    }
-  };
-
+  
   return (
     <div className="dashboard-container">
       <UserSideMenu />
@@ -74,11 +61,10 @@ export default function DashboardUserBookings() {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>            
+            <th className="th-optional">Email</th>
+            <th>Phone</th>                        
             <th>Date</th>
-            <th>Time</th>
-            <th>Status</th>            
+            <th>Time</th>                       
           </tr>
         </thead>
         <tbody>
@@ -86,11 +72,8 @@ export default function DashboardUserBookings() {
             <tr key={booking.bookingId}>
               <td>{booking.userName}</td>
               <td>{booking.userEmail}</td>
-              <td>{booking.userPhone}</td>              
-              <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>              
-              <td style={{ color: getStatusColor(booking.status) }}>
-                {booking.status}
-              </td>              
+              <td>{booking.userPhone}</td>                         
+              <td>{new Date(booking.bookingDate).toLocaleDateString()}</td>                           
             </tr>
           ))}
         </tbody>

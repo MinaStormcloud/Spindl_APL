@@ -30,7 +30,7 @@ export default function Footer() {
           <Link to="/login">Sign In</Link>                         
         </div>        
         <div className="footer-col">
-          <h4>Team</h4>              
+          <h4>Developers</h4>              
           <a href="https://github.com/mattiasvlex" target="_blank">
             Mattias
           </a>

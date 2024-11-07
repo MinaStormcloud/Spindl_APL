@@ -65,9 +65,9 @@ export default function DashboardInternships() {
         <table>
           <thead>
             <tr>
-              <th>Company ID</th>
-              <th>Company</th>
-              <th>Number of Students</th>            
+              <th>ID</th>
+              <th className="th-optional">Company</th>
+              <th className="th-optional">Positions</th>            
               <th>Start Date</th>
               <th>End Date</th>              
               <th>Edit</th>
