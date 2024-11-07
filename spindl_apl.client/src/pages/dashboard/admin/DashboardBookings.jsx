@@ -78,11 +78,11 @@ export default function DashboardBookings() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Email</th>
+              <th className="th-optional">Email</th>
               <th>Phone</th>            
               <th>Date</th>
               <th>Time</th>
-              <th>Status</th>
+              <th className="th-optional">Status</th>
               <th>Edit</th>
             </tr>
           </thead>
