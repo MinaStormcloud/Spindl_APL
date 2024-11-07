@@ -18,9 +18,9 @@ a {
   color: #073b4c;
   text-decoration: inherit;
 }
-a:hover {
+/*a:hover {
   color: #0d5e79;
-}
+}*/
 
 body {
   margin: 0px !important;
@@ -68,9 +68,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
+  /*a:hover {
     color: #0d5e79;
-  }
+  }*/
   button {
     background-color: #f9f9f9;
   }
