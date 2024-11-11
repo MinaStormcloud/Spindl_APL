@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import EmployerDetails from '../../../dashboard-components/employerdetails/EmployerDetails';
 import EmployerSideMenu from '../../../dashboard-components/sidemenu/EmployerSideMenu';
-/*This page needs to be customized to fetch all companies 
-matching the user ID of the user that just logged in*/
+/*This page needs to be customized to fetch the data matching 
+the company ID connected to the user that just logged in*/
 
 export default function DashboardEmployerDetails() {
     const [company, setCompany] = useState([]);  
