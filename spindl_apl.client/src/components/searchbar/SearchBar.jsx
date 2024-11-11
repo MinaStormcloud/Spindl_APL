@@ -8,8 +8,7 @@ function SearchBar({ onSearch }) {
   const [positions, setPositions] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [rating, setRatings] = useState('');
-
+  
   // Sets all properties that should be seached for
   const getSearchTerms = () => {
     let terms = {};
@@ -24,10 +23,7 @@ function SearchBar({ onSearch }) {
     }
     if (companyName) {
       terms.companyName = companyName;
-    }
-    if (rating) {
-      terms.rating = rating;
-    }
+    }    
     return terms;
   };
 
