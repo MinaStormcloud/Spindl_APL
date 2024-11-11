@@ -8,8 +8,7 @@ function SearchBar({ onSearch }) {
   const [positions, setPositions] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [rating, setRatings] = useState('');
-
+  
   // Sets all properties that should be seached for
   const getSearchTerms = () => {
     let terms = {};
@@ -24,10 +23,7 @@ function SearchBar({ onSearch }) {
     }
     if (companyName) {
       terms.companyName = companyName;
-    }
-    if (rating) {
-      terms.rating = rating;
-    }
+    }    
     return terms;
   };
 
@@ -61,16 +57,7 @@ function SearchBar({ onSearch }) {
         onChange={(e) => setCompanyName(e.target.value)}
         className="input"
         placeholder="Search for a company"
-      /> }
-      {/* Rating search bar */}
-      {/*<input
-        type="search"
-        id="keywords"
-        value={rating}
-        onChange={(e) => setRatings(e.target.value)}
-        className="input"
-        placeholder="Search by ratings"
-      /> */}
+      /> }      
       {/* Category search bar */}
       {
         <input
@@ -115,10 +102,7 @@ function SearchBar({ onSearch }) {
             <tr className="tr-font">
               <th className="centered" scope="col">
                 Company
-              </th>
-              {/*<th className="centered" scope="col">
-                Rating
-              </th>*/}
+              </th>              
               <th className="centered" scope="col">
                 Title
               </th>
@@ -136,9 +120,8 @@ function SearchBar({ onSearch }) {
                 {company.internships.map((intern, key) => (
                   <tr key={key}>
                     <th>{company.name}</th>
-                    {<th>{company.companyName}</th>}
-                    {/*<th>{company.rating}</th>*/}
-                    {<th>{company.jobTitle}</th>}
+                    <th>{company.companyName}</th>                    
+                    <th>{company.jobTitle}</th>
                     <td>{company.location}</td>
                     <td>{intern.numberOfStudents}</td>
                   </tr>

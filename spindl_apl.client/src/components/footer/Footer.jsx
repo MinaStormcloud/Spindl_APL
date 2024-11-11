@@ -28,28 +28,7 @@ export default function Footer() {
           <h4>Account</h4>          
           <Link to="/register">Sign Up</Link>
           <Link to="/login">Sign In</Link>                         
-        </div>        
-        <div className="footer-col">
-          <h4>Developers</h4>              
-          <a href="https://github.com/mattiasvlex" target="_blank">
-            Mattias
-          </a>
-          <a href="https://github.com/MinaStormcloud" target="_blank">
-            Amina
-          </a>
-          <a href="https://github.com/Filip-d-v" target="_blank">
-            Filip
-          </a>          
-        </div>
-        {/*<div className="footer-col">
-          <h4 className="h4-contact">Contact Us</h4>
-          <p className="contactinfo">
-            (+46) TBD
-          </p>
-          <p className="contactinfo">
-            TBD
-          </p>
-        </div>*/}
+        </div>         
       </div>
       <hr />
       <div className="footer-bottom-row">
