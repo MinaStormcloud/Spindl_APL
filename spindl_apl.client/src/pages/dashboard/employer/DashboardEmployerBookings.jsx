@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BookingForm from '../../../dashboard-components/bookingform/BookingForm';
 import EmployerSideMenu from '../../../dashboard-components/sidemenu/EmployerSideMenu';
 /*This page needs to be customized to fetch all bookings 
-matching the user ID of the user that just logged in*/
+matching the company ID connected to the user that just logged in*/
 
 export default function DashboardEmployerBookings() {
   const [bookings, setBookings] = useState([]);  
