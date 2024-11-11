@@ -7,8 +7,7 @@ export default function DashboardInternships() {
   const [internships, setInternships] = useState([]);  
   const [showInputForm, setShowInputForm] = useState(false);
   const [editInternshipData, setEditInternshipData] = useState(null);
-  //replace the internship form with an internship form
-
+  
   useEffect(() => {
     fetchInternships();    
   }, []);
