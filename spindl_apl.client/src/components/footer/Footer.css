@@ -100,5 +100,8 @@ footer .fa-solid {
   } 
   .footer-bottom-row {
     font-size: small;
-  }      
+  }  
+  .copyright {
+    padding-right: 1rem;
+  }    
 } 

@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
       <hr />
       <div className="footer-bottom-row">
-        <p>&copy; 2024 Spindl AB - All Rights Reserved</p>
+        <p className="copyright">&copy; 2024 Spindl AB - All Rights Reserved</p>
         <ul>
           <li>
             <a href="#" onClick={dummyClick}>
