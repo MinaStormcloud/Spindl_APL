@@ -22,7 +22,7 @@ UPDATING THE CODE: All front end updates shall be made in Visual Studio Code, an
 
 CSS FILES: General css settings are available in "spindl_apl.client/src/index.css". Each dashboard page has its own customized side menu. All side menu files share the same css file, and they are available in the "spindl_apl.client/src/dashboard-components/sidemenu" folder. The dashboard css files are located in the "spindl_apl.client/src/dashboard-components/dashboard-css" folder. Buttons have their own css file: "spindl_apl.client/src/css/Buttons.css". Changes to the footer, the hero section, the navigation bar and the search bar shall be made in the files inside the subfolders in "spindl_apl.client/src/components". Each component type has its own css file. 
 
-RESPONSIVE DESIGN: The responsive design was created manually without Bootstrap,and "spindl_apl.client/src/components/navbar" contains a dropdown menu for a compressed view. Many of the css files use media queries to determine how to display the page contents on different screen sizes. Small screens have mini buttons, smaller font sizes, and customized spacing between components. 
+RESPONSIVE DESIGN: The responsive design was created manually without Bootstrap, and "spindl_apl.client/src/components/navbar" contains a dropdown menu. Many of the css files use media queries to determine how to display the page contents on different screen sizes. Small screens have mini buttons, smaller font sizes, and customized spacing between components. 
 
 IMAGES: The search bars on the home page share the same search icon, which is available in the "spindl_apl.client/src/assets/images" folder. Please note that all other images featured on the pages are links to free unsplash.com photos shared by various artists.
 
