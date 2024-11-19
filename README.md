@@ -24,6 +24,6 @@ CSS FILES: General css settings are available in "spindl_apl.client/src/index.cs
 
 RESPONSIVE DESIGN: The application has a responsive design to accommodate smartphones and tablets, as well as laptops and desktop computers, and "spindl_apl.client/src/components/navbar" contains a dropdown menu. Many of the css files use media queries to determine how to display the page contents on different screen sizes. Small screens have mini buttons, smaller font sizes, and customized spacing between components. 
 
-IMAGES: The search bars on the home page share the same search icon, which is available in the "spindl_apl.client/src/assets/images" folder. Please note that all other images featured on the pages are links to free unsplash.com photos shared by various artists.
+IMAGES: The search bars on the home page share the same search icon, which is located in the "spindl_apl.client/src/assets/images" folder. Please note that all other images featured on the pages are links to free unsplash.com photos shared by various artists.
 
 
