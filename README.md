@@ -28,7 +28,7 @@ IMAGES: The search bars on the home page share the same search icon, which is lo
 
 *******
 
-UPDATING THE CODE IN VISUAL STUDIO: Back end updates shall be made in Visual Studio, and the "Spindl_APL.Server" folder contains the back end part of the project. "Spindl_APL.Server/Program.cs" is the starting point of the back end code. Controllers shall be added to or updated in the "Spindl_APL.Server/Controllers" folder. The different classes are listed in the "Spindl_APL.Server/Data/Entities" folder. "Spindl_APL.Server/Data/ApplicationDbContext.cs" defines the tables for the database, and "Spindl_APL.Server/Data/DataSeeder.cs" contains some initial data for the tables. The "Spindl_APL.Server/Data/Migrations" folder contains files that were created by running the "add-migration". In case there are migration related issues when the code is updated, these files can be deleted and replaced by new migration files.
+UPDATING THE CODE IN VISUAL STUDIO: Back end updates shall be made in Visual Studio, and the "Spindl_APL.Server" folder contains the back end part of the project. "Spindl_APL.Server/Program.cs" is the starting point of the back end code. Controllers shall be added to or updated in the "Spindl_APL.Server/Controllers" folder. The different classes are listed in the "Spindl_APL.Server/Data/Entities" folder. "Spindl_APL.Server/Data/ApplicationDbContext.cs" defines the tables for the database, and "Spindl_APL.Server/Data/DataSeeder.cs" contains some initial data for the tables. The "Spindl_APL.Server/Data/Migrations" folder contains files that were created by running the "add-migration" command. In case there are migration related issues when the code is updated, these files can be deleted and replaced by new migration files.
 
 
 
