@@ -13,8 +13,6 @@ Before running the application, delete all files in the Migration folder and ope
 
 Now the application is ready to run. When Swagger starts up, backend data is passed to the frontend solution through the API. If running https projects returns error messages, try these commands in the Command Prompt: "dotnet dev-certs https --clean", "dotnet dev-certs https --trust". Install the new certificates and run the application.
 
-The default data is provided by a database seeding file, so in order to access the data, the back end code must be running in Visual Studio before the front end part of the project is started. The SQL Server Object Explorer in Visual Studio shows what has been stored in the data tables. Select View > Server Explorer to access them. Expand the folders to locate the data tables associated with the application. 
-
 *******
 
 VISUAL STUDIO CODE:
@@ -34,7 +32,11 @@ IMAGES: The search bars on the home page share the same search icon, which is lo
 
 *******
 
-UPDATING THE CODE IN VISUAL STUDIO: Back end updates shall be made in Visual Studio, and the "Spindl_APL.Server" folder contains the back end part of the project. "Spindl_APL.Server/Program.cs" is the starting point of the back end code. Controllers shall be added to or updated in the "Spindl_APL.Server/Controllers" folder. The different classes are listed in the "Spindl_APL.Server/Data/Entities" folder. "Spindl_APL.Server/Data/ApplicationDbContext.cs" defines the tables for the database, and "Spindl_APL.Server/Data/DataSeeder.cs" contains some initial data for the tables. The "Spindl_APL.Server/Data/Migrations" folder contains files that were created by running the "add-migration" command. In case there are migration related issues when the code is updated, these files can be deleted and replaced by new migration files.
+UPDATING THE CODE IN VISUAL STUDIO: Back end updates shall be made in Visual Studio, and the "Spindl_APL.Server" folder contains the back end part of the project. "Spindl_APL.Server/Program.cs" is the starting point of the back end code. Controllers shall be added to or updated in the "Spindl_APL.Server/Controllers" folder. The different classes are listed in the "Spindl_APL.Server/Data/Entities" folder, and "https://localhost:7127" is used for the API connection to the front end part of the project.  
+
+"Spindl_APL.Server/Data/ApplicationDbContext.cs" defines the tables for the database, and "Spindl_APL.Server/Data/DataSeeder.cs" contains some initial data for the tables. In order to display the data on "https://localhost:5173/", the back end code must be running in Visual Studio before the front end part of the project is started. The SQL Server Object Explorer in Visual Studio shows what has been stored in the data tables. Select View > Server Explorer to access them. Expand the folders to locate the data tables associated with the application. 
+
+The "Spindl_APL.Server/Data/Migrations" folder contains files that were created by running the "add-migration" command. In case there are migration related issues when the code is updated, these files can be deleted and replaced by new migration files.
 
 
 
