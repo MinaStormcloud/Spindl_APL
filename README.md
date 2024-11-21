@@ -4,6 +4,8 @@
 
 The back end part was developed in Visual Studio, and the front end layout was built in Visual Studio Code. Please note that running the application requires both Visual Studio and Visual Studio Code.
 
+*******
+
 VISUAL STUDIO:
 Install Visual Studio: https://visualstudio.microsoft.com/vs/.
 
@@ -13,10 +15,14 @@ Now the application is ready to run. When Swagger starts up, backend data is pas
 
 The default data is provided by a database seeding file, so in order to access the data, the back end code must be running in Visual Studio before the front end part of the project is started. The SQL Server Object Explorer in Visual Studio shows what has been stored in the data tables. Select View > Server Explorer to access them. Expand the folders to locate the data tables associated with the application. 
 
+*******
+
 VISUAL STUDIO CODE:
 Install Visual Studio Code: https://code.visualstudio.com/download. 
 
 After installing Visual Studio Code, install the LiveServer extension. This application was built and tested using the LiveServer developed by Ritwicki Dey. Open the React part of the application in Visual Studio Code, activate the Terminal window, and go to the "spindl_apl.client" folder. This is where the node modules must be installed before the application can be started. Write "npm install" and wait for the installation to finish. Write "npm run dev" and wait for Vite to start up. Open a new tab in the browser and go to "https://localhost:5173/". The page might have to be reloaded once. 
+
+*******
 
 UPDATING THE CODE IN VISUAL STUDIO CODE: All front end updates shall be made in Visual Studio Code, and the "spindl_apl.client" folder contains the front end part of the project. The basic front end layout comes from "spindl_apl.client/src/Layout.jsx", and "spindl_apl.client/src/App.jsx" is the hub of the front end application. This is where all page references must be listed in order for the pages to be accessible when the application is up and running, and "App.jsx" contains some helpful comments. Pages shall be added to or updated in the "spindl_apl.client/src/pages" folder. Each page type has its own subfolder here, and the "dashboard" folder contains its own set of subfolders representing each user type. For example, changes impacting the admin view shall be made in one or more files in the admin folder.
 
