@@ -22,12 +22,15 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>          
           <Link to="/subscribe">Newsletter</Link>
-          <Link to="/privacy">Privacy</Link>                
+          <Link to="/faq">FAQ</Link>  
+          <Link to="/partners">Partners</Link> 
+          <Link to="/support">Support</Link>                       
         </div>
         <div className="footer-col">
           <h4>Account</h4>          
           <Link to="/register">Sign Up</Link>
-          <Link to="/login">Sign In</Link>                         
+          <Link to="/login">Sign In</Link>  
+          <Link to="/privacy">Privacy</Link>                       
         </div>         
       </div>
       <hr />
