@@ -35,7 +35,10 @@ const NavBar = () => {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>    
           <li><Link to="/subscribe">Newsletter</Link></li>
-          <li><Link to="/privacy">Privacy</Link></li>                                       
+          <li><Link to="/privacy">Privacy</Link></li> 
+          <li><Link to="/faq">FAQ</Link></li>    
+          <li><Link to="/partners">Partners</Link></li>
+          <li><Link to="/support">Support</Link></li>                                                 
         </ul> 
         <div>        
         <button className="btn-login-navbar" onClick={handleLogin}>Sign In</button>         

@@ -1,0 +1,48 @@
+#root {    
+    margin: 0 auto;
+    padding: 0rem;
+    text-align: left;    
+  }
+  
+  .faq-h1 {
+    text-align: center;
+  }
+  
+  .faq-paragraph {
+    text-align: center;    
+  }
+  
+  #faq .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  #faq .container {
+    padding: 8rem 4rem;    
+  }
+  
+  #faq .img {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://images.unsplash.com/photo-1725509177574-adc9e530a1ac?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  }
+  
+  @media screen and (max-width: 600px) {      
+    .faq-paragraph {
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;     
+      font-size: small;
+      text-align: left;
+    }
+  
+    #faq .container {
+      padding: 3rem 1rem;    
+    }
+  
+    .faq-h1 {
+      padding-left: 0.1rem;
+      padding-right: 6rem;
+      text-align: left;
+    }
+  }

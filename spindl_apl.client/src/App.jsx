@@ -9,9 +9,13 @@ import Contact from './pages/contact/Contact';
 import Subscribe from './pages/subscribe/Subscribe';
 import Login from './pages/login/Login';
 import Logout from './pages/logout/Logout';
+
 import Register from './pages/register/Register';
 import Privacy from './pages/privacy/Privacy';
 import NotFound from './pages/404/NotFound';
+import FAQ from './pages/faq/FAQ';
+import Partners from './pages/partners/Partners';
+import Support from './pages/support/Support';
 
 import Dashboard from './pages/dashboard/admin/Dashboard'; 
 import DashboardBookings from './pages/dashboard/admin/DashboardBookings'; 
@@ -65,7 +69,11 @@ function App() {
             <Route path="*" element={<NotFound />} /> 
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/subscribe" element={<Subscribe />} /> 
-            
+
+            <Route path="/faq" element={<FAQ />} /> 
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/support" element={<Support />} /> 
+                                    
             <Route path="/dashboard/admin" element={<Dashboard />} />
             <Route path="/dashboard/admin/bookings" element={<DashboardBookings />} />
             <Route path="/dashboard/admin/content" element={<DashboardContent />} />
