@@ -17,20 +17,20 @@ export default function Footer() {
           <p className="contactinfo">Sweden</p>
         </div>
         <div className="footer-col">
-          <h4>Links</h4>
+          <h4>Facts</h4>
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>          
-          <Link to="/subscribe">Newsletter</Link>
-          <Link to="/faq">FAQ</Link>  
-          <Link to="/partners">Partners</Link> 
-          <Link to="/support">Support</Link>                       
+          <Link to="/about">About</Link>   
+          <Link to="/faq">FAQ</Link>    
+          <Link to="/partners">Partners</Link>     
+          <Link to="/privacy">Privacy</Link>                                          
         </div>
         <div className="footer-col">
-          <h4>Account</h4>          
-          <Link to="/register">Sign Up</Link>
-          <Link to="/login">Sign In</Link>  
-          <Link to="/privacy">Privacy</Link>                       
+          <h4>Connect</h4>            
+          <Link to="/contact">Contact</Link>          
+          <Link to="/subscribe">Newsletter</Link> 
+          <Link to="/login">Sign In</Link>
+          <Link to="/register">Sign Up</Link>          
+          <Link to="/support">Support</Link>                                
         </div>         
       </div>
       <hr />
