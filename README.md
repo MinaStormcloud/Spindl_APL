@@ -1,8 +1,8 @@
 # Spindl_APL
 
-"Spindl_APL" is a platform for connecting job seekers with employers offering internships. The application allows users to create accounts to access their personal booking details on the dashboard. Administrators can view all users and bookings in their customized dashboard view. This project was created in Visual Studio Community 2022 as an ASP.NET Core app with React and Vite, as described in this tutorial: https://learn.microsoft.com/en-us/visualstudio/javascript/tutorial-asp-net-core-with-react?view=vs-2022. 
+"Spindl_APL" was built as an internship assignment, and it is currently a prototype. The plan was to create a platform for connecting job seekers with employers offering internships. This project was created in Visual Studio Community 2022 as an ASP.NET Core app with React and Vite, as described in this tutorial: https://learn.microsoft.com/en-us/visualstudio/javascript/tutorial-asp-net-core-with-react?view=vs-2022. 
 
-The back end part was developed in Visual Studio, and the front end layout was built in Visual Studio Code. Please note that running the application requires both Visual Studio and Visual Studio Code.
+The back end part was developed in Visual Studio, and the front end layout was built in Visual Studio Code, so running the application requires both Visual Studio and Visual Studio Code. Please note that the "Spindl_APL/.git" folder" needs to be removed if you wish to upload the project to your own repo after cloning it. The folder is hidden by default, so it must be made visible in the File Explorer (Menu -> Show -> Hidden Objects). Deleting this folder removes all connections to the original repo.
 
 *******
 
