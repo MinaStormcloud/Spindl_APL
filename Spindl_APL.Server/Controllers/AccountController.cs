@@ -59,7 +59,7 @@ namespace Spindl_APL.Server.Controllers
         }
 
         [HttpGet("role")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<ActionResult> GetUserRoles(string userName)
         {
             var result = await _accountService.GetUserRolesAsync(userName);
@@ -85,6 +85,35 @@ namespace Spindl_APL.Server.Controllers
             }
 
             return NotFound(new { userName });
+        }
+
+        [HttpGet("user")]
+        [Authorize]
+        public async Task<ActionResult> GetUser()
+        {
+            if (!_accountService.IsUserAuthenticated(User))
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
+            //Identity is checked in the service for possible null values, and Name is required
+            var result = await _accountService.GetUserAsync(User.Identity.Name);
+
+            if (result.Succeeded)
+            {
+                return Ok(result.Data);
+            }
+
+            return NotFound();
+        }
+
+        [HttpGet("session")]
+        [Authorize]
+        public IActionResult GetSession()
+        {
+            var userName = User.Identity.Name;
+
+            return Ok(new { userName });
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Spindl_APL.Server.Data.Entities
 {
     public class Internship
     {
-        public int InternshipId { get; set; }
+        public int Id { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public int NumberOfStudents { get; set; }
