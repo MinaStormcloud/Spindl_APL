@@ -28,6 +28,19 @@ Except for checking if a user is already authenticated, everything that has to d
 
 ### Setup and Installation
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MinaStormcloud/Spindl_APL.git
+   cd Spindl_APL.Server
+   
+2. Apply migrations to set up the database:
+    ```bash
+    dotnet ef database update
+    
+3. Run the project:
+   ```bash
+   dotnet run
+   
 ### Database Schema
 
 The UML diagram of the database shows everything in the database except for the inherited and otherwise built-in tables and fields from Identity. The Accounts table is an extension of AspNetUsers.
@@ -38,3 +51,5 @@ The UML diagram of the database shows everything in the database except for the 
 ### Usage
 
 ### Generating the UML Diagram
+
+The UML diagram is generated with Draw.io, and the .io file is versioned in this repo (UML-Db.drawio).
