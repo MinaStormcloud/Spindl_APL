@@ -6,7 +6,7 @@ The booking functionality is the core part of the application. The backend is bu
 Authentication is done using cookies and authorization is role-based.
 <br><br>
 The project uses design patterns with Services, Repositories and Unit of Work for all entities except for handling users/accounts. 
-Except for checking if a user is already authenticated, everything that has to do with users is handled with the built-in UserManager, SignInManager and RoleManager classes in Identity.
+Everything that has to do with users is handled with the built-in UserManager, SignInManager and RoleManager classes in Identity, the only exception being to check if a user is already authenticated (using claims instead).
 
 ### Table of Contents
 
@@ -25,6 +25,8 @@ Except for checking if a user is already authenticated, everything that has to d
 - Entity Framework Core
 - SQL Server
 - Identity
+- Cookies
+- Role-based authorization
 
 ### Setup and Installation
 
@@ -32,12 +34,16 @@ Except for checking if a user is already authenticated, everything that has to d
    ```bash
    git clone https://github.com/MinaStormcloud/Spindl_APL.git
    cd Spindl_APL.Server
-   
-2. Apply migrations to set up the database:
+
+2. In Visual Studio, ensure that "Allow NuGet to download missing packages" is checked in Tools > Options > NuGet Package Manager > General.
+
+3. To use Code First, just ensure you don't have a database called SpindlAPL. Otherwise, either change the database name in appsettings.json or use a different connection string. 
+
+4. Apply migrations to set up the database:
     ```bash
     dotnet ef database update
     
-3. Run the project:
+5. Run the project:
    ```bash
    dotnet run
    
