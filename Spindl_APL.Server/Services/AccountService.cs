@@ -3,6 +3,8 @@ using Spindl_APL.Server.DTOs;
 using Spindl_APL.Server.Data.Entities;
 using Spindl_APL.Server.Services.Interfaces;
 using Spindl_APL.Server.Helpers;
+using Spindl_APL.Server.Mappers;
+using System.Security.Claims;
 
 namespace Spindl_APL.Server.Services
 {
@@ -12,7 +14,7 @@ namespace Spindl_APL.Server.Services
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager) 
+        public AccountService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -22,13 +24,21 @@ namespace Spindl_APL.Server.Services
         {
             var newUser = new ApplicationUser { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, UserName = user.Email };
 
-            var result = await _userManager.CreateAsync(newUser, user.Password);
+            var userResult = await _userManager.CreateAsync(newUser, user.Password);
 
-            if (result.Succeeded) 
+            if (userResult.Succeeded)
             {
-                return ServiceResponse<string>.SuccessResponse($"User {user.Email} registered successfully");
+                var roleResult = await _userManager.AddToRoleAsync(newUser, "User");
+
+                if (roleResult.Succeeded)
+                {
+                    return ServiceResponse<string>.SuccessResponse($"User {user.Email} registered successfully");
+                }
+
+                await _userManager.DeleteAsync(newUser);
+                return ServiceResponse<string>.FailureResponse(roleResult.Errors.Select(e => e.Description).ToList());
             }
-            return ServiceResponse<string>.FailureResponse(result.Errors.Select(e => e.Description).ToList());
+            return ServiceResponse<string>.FailureResponse(userResult.Errors.Select(e => e.Description).ToList());
         }
 
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto user)
@@ -86,6 +96,39 @@ namespace Spindl_APL.Server.Services
             var roles = await _userManager.GetRolesAsync(foundUser);
 
             return ServiceResponse<List<string>>.SuccessResponse(roles.ToList());
+        }
+
+        public async Task<ServiceResponse<UserDto>> GetUserAsync(string userName)
+        {
+            var user = await _userManager.FindByEmailAsync(userName);
+
+            if (user == null)
+            {
+                return ServiceResponse<UserDto>.FailureResponse(new List<string> { "User not found" });
+            }
+
+            return ServiceResponse<UserDto>.SuccessResponse(UserMapper.ToDto(user));
+        }
+
+        public async Task<ServiceResponse<string>> GetUserIdAsync(string userName)
+        {
+            var user = await _userManager.FindByEmailAsync(userName);
+
+            if (user == null)
+            {
+                return ServiceResponse<string>.FailureResponse(new List<string> { "User not found" });
+            }
+
+            return ServiceResponse<string>.SuccessResponse(user.Id);
+        }
+
+        public bool IsUserAuthenticated(ClaimsPrincipal user)
+        {
+            if (user.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

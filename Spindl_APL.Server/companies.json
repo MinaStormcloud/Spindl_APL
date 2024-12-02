@@ -23,5 +23,10 @@
     "name": "Company E",
     "location": "Lund",
     "contact": "fjfgjfj"
+  },
+  {
+    "name": "Company.com",
+    "location": "Fun Town",
+    "contact": "Say hello"
   }
 ]
