@@ -33,7 +33,7 @@ Except for checking if a user is already authenticated, everything that has to d
 The UML diagram of the database shows everything in the database except for the inherited and otherwise built-in tables and fields from Identity. The Accounts table is an extension of AspNetUsers.
 <br><br>
 
-![Database UML Diagram](uml-diagram.png)
+![Database UML Diagram](UML-Db.png)
 
 ### Usage
 
